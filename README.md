@@ -14,7 +14,9 @@ Could-hosting a MySQL/MariaDB app is also possible, but will require the use of 
 
 For indefinite free cloud-hosting and further modernization, I recommend refactoring a new LAMP that uses MySQL/MariaDB to instead use PostgreSQL (if you still like to use SQL), or MongoDB (if you don't mind moving away from SQL), both of which can be deployed for free separately and connected to your PHP app.
 
-## Possible Monetization
+## Why Non-Fictional?
+
+It was created for the way-of-the-server tutorial site, which is the first online tutorial that teaches how to self-host PHP apps, all the way from the beginning to the end. This is relevant for training web developers in PHP and MySQL, even when there aren't any free cloud-hosting options for the MySQL component. I also recommend learning PostgreSQL and MongoDB as mentioned above.
 
 Possible use cases for a non-fictional version of PastPC:
 - Passive income through unused devices
