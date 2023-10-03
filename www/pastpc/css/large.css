@@ -1,0 +1,11 @@
+@media (min-width: 749px) {
+    .delorean {
+        max-width: 749px;
+    }
+}
+@media (min-width: 970px) {
+    .detail-info {
+        grid-row: 1;
+    }
+}
+

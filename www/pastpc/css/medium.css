@@ -1,0 +1,100 @@
+/*483px*/
+
+@media (min-width: 620px) {
+    body {
+        padding: 0;
+        padding-top: 1rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        background-image: url("/pastpc/images/site/small_check.jpg");
+    }
+    .body-div {
+        background-color: white;
+        border-radius: 10px;
+        border: 5px solid var(--mblue);
+    }
+    .has-my-account {
+        margin-right: 2rem;
+    }
+    .top-nav {
+        justify-content: flex-start;
+        gap: 1rem;
+        padding-left: 1rem;
+    }
+    .cover-delorean {
+        margin-top: 1rem;
+        margin-left: 2rem;
+    }
+    .cover-delorean > p:first-child {
+        font-size: 1.3rem;
+    }
+    .own-today {
+        display: none;
+    }
+    .own-today-medium {
+        display: block;
+        height: 2.5rem;
+        margin-top: 1rem;
+    }
+    .has-ru {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+        "u r";
+        gap: 2rem;
+        margin-left: 2rem;
+    }
+    .r-section {
+        grid-area: r;
+    }
+    .u-section {
+        grid-area: u;
+    }
+    .reviews > li {
+        font-size: .9rem;
+    }
+    .reviews > li:first-child {
+        margin-top: 2rem;
+    }
+    #inv-display {
+        flex-flow: row wrap;
+        justify-content: flex-start;
+    }
+    #inv-display h2 {
+        font-size: 1rem;
+    }
+    #inv-display li {
+        max-width: 200px;
+        flex: 1 0 auto;
+        text-align: center;
+        height: 250px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    #inv-display div {
+        width: 100%;
+    }
+    .detail-display {
+        display: grid;
+        gap: 1rem;
+    }
+    .detail-display > img {
+        grid-row: 1;
+        max-width: 500px;
+        max-height: 500px;
+    }
+    .detail-info {
+        grid-row: 2;
+    }
+    .vehicle-detail-main {
+        display: grid;
+        grid-template-columns: 200px 1fr;
+    }
+    .thumbnail-display {
+        grid-row: 1;
+    }
+    footer > p {
+        font-size: .7rem;
+    }
+}
