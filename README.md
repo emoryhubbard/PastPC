@@ -6,11 +6,15 @@ This project is designed to show how PHP apps:
 - Can be made through the popular LAMP stack--Linux, Apache, MySQL/MariaDB, PHP
 - Run for local development, and with some modification, how they can be self-hosted
 
+## Implementation Details
+
 Instead of using Linux directly, it is run inside of a Docker container.
 
 Could-hosting a MySQL/MariaDB app is also possible, but will require the use of persistent containers available for free for only a temporary trial period.
 
 For indefinite free cloud-hosting and further modernization, I recommend refactoring a new LAMP that uses MySQL/MariaDB to instead use PostgreSQL (if you still like to use SQL), or MongoDB (if you don't mind moving away from SQL), both of which can be deployed for free separately and connected to your PHP app.
+
+## Possible Monetization
 
 Possible use cases for a non-fictional version of PastPC:
 - Passive income through unused devices
