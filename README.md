@@ -22,7 +22,7 @@ Possible use cases for a non-fictional version of PastPC:
 - Passive income through unused devices
 - Running legacy software without emulators
 - Inexpensive DIY hosting
-- Crypomining
+- Cryptomining
 - Inexpensive remote desktops
 
 Drawing users with these interests would allow a non-fictional version of the app to be monetized through various means, such as ad revenue or a percentage of each transaction over the platform.
