@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 :root {
     --lgray: #bababa;
@@ -8,6 +10,7 @@
     --lblue: #a6cbeb;
     --mblue: #4c96d7;
     --dblue: #2677bd;
+    --logocolor: #4c96d7;
 }
 * {
     font-family: "Quicksand", sans-serif;
@@ -88,36 +91,71 @@ a {
 h2 {
     font-size: 1.2rem;
 }
-main {
-    margin-left: .5rem;
-}
-.has-delorean {
+.has-lcp {
     position: relative;
+    /*height: fit-content;
+    margin-bottom: 0;
+    padding-bottom: 0;*/
 }
-.delorean {
+.lcp {
+    display: block;
     width: 100%;
+    filter: brightness(50%);
 }
-.cover-delorean {
+.cover-lcp {
     position: absolute;
     top: 0;
+    width: calc(100% - 1rem);
 }
-.cover-delorean > p:first-child {
-    color: var(--mblue);
-    font-weight: bold;
-}
-.cover-delorean > p {
+.lcp-first-text {
     margin: 0;
-    color: var(--dblue);
-    font-size: .9rem;
+    padding: 0;
+    padding-left: 1rem;
+    padding-top: 6rem;
+    max-width: 18rem;
+    color: white;
+    font-size: 2.5rem;
+    line-height: 2.3rem;
+    font-weight: 700;
+    font-family: 'Figtree', sans-serif;
+}
+/*.lcp-text {
+    margin: 0;
+    padding: 0;
+    padding-left: 1rem;
+    color: white;
+    font-size: 2.5rem;
+    font-weight: 700;
+    font-family: 'Figtree', sans-serif;
+}*/
+.lcp-small {
+    padding: 0;
+    margin: 0;
+    padding-top: 1.5rem;
+    padding-left: 1rem;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 400;
+    font-family: 'Figtree', sans-serif;
+}
+.lcp-small strong {
+    font-weight: 800;
 }
 .own-today-medium {
     display: none;
 }
-.own-today {
+.find-a-pc {
     display: block;
-    margin: auto;
-    margin-top: 1rem;
-    width: 50%;
+    text-align: center;
+    color: white;
+    font-family: 'Figtree', sans-serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-top: 4rem;
+    margin-left: 1rem;
+    padding: 1rem;
+    background-color: var(--logocolor);
+    width: calc(100% - 1rem);
 }
 .reviews {
     padding-left: 2rem;
