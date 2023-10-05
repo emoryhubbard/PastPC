@@ -11,9 +11,10 @@
     --mblue: #4c96d7;
     --dblue: #2677bd;
     --logocolor: #4c96d7;
+    --darkergray: #282828;
 }
 * {
-    font-family: "Quicksand", sans-serif;
+    font-family: "Figtree", sans-serif;
 }
 li {
     list-style-type: none;
@@ -54,6 +55,8 @@ header {
     display: flex;
     justify-content: space-around;
     padding: 0;
+    padding-left: 1rem;
+    padding-right: 1rem;
     padding-top: .8rem;
     padding-bottom: .8rem;
     margin: 0;
@@ -135,7 +138,7 @@ h2 {
     padding-left: 1rem;
     color: white;
     font-size: 1.5rem;
-    font-weight: 400;
+    font-weight: 300;
     font-family: 'Figtree', sans-serif;
 }
 .lcp-small strong {
@@ -345,17 +348,33 @@ table {
     text-align: center;
 }
 footer {
-    border-top: 5px solid var(--dgray);
-    padding-top: .5rem;
+    padding-top: 2rem;
     padding-bottom: 1rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    background-color: var(--dgray);
 }
-footer p {
+.bottom-nav-title {
+    padding: 0;
+    margin: 0;
+    font-size: 1rem;
+    color: white;
+    font-weight: 800;
+}
+.bottom-nav {
+    padding-left: 0;
+}
+.bottom-nav li a {
+    padding-top: .8rem;
+    padding-bottom: .8rem;
+    color: white;
+}
+.copyright {
     padding: 0;
     margin: 0;
     text-align: center;
     font-size: .9rem;
+    color: white;
 }
 
 
