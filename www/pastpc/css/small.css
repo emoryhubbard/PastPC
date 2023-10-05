@@ -354,6 +354,10 @@ footer {
     padding-right: 2rem;
     background-color: var(--dgray);
 }
+.bottom-logo {
+    width: 12rem;
+    padding-bottom: 3rem;
+}
 .bottom-nav-title {
     padding: 0;
     margin: 0;
@@ -361,13 +365,22 @@ footer {
     color: white;
     font-weight: 800;
 }
+.footer-description {
+    padding: 0;
+    margin: 0;
+    font-size: 1.1rem;
+    color: white;
+    font-weight: 400;
+    padding-bottom: 2rem;
+    max-width: 80%;
+}
 .bottom-nav {
     padding-left: 0;
 }
 .bottom-nav li a {
-    padding-top: .8rem;
-    padding-bottom: .8rem;
+    display: block;
     color: white;
+    padding-bottom: .4rem;
 }
 .copyright {
     padding: 0;
