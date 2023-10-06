@@ -15,76 +15,22 @@
             <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/pastpc/snippets/header.php"?>
         </header>
         <nav>
-            <?php print $navList; ?>
+            <ul class='top-nav'><li><a href='/pastpc/index.php' title='View the PHP Motors home page'>Used</a></li><li><a href='/pastpc/index.php?action=classification&classification-name=Classic' title='View our Classic product line'>Classic</a></li><li><a href='/pastpc/index.php?action=classification&classification-name=EV' title='View our EV product line'>EV</a></li><li><a href='/pastpc/index.php?action=classification&classification-name=Monster' title='View our Monster product line'>Monster</a></li><li><a href='/pastpc/index.php?action=classification&classification-name=Sports' title='View our Sports product line'>Sports</a></li><li><a href='/pastpc/index.php?action=classification&classification-name=SUV' title='View our SUV product line'>SUV</a></li><li><a href='/pastpc/index.php?action=classification&classification-name=Trucks' title='View our Trucks product line'>More</a></li></ul>
+            <?php /*print $navList; */?>
         </nav>
         <main>
-            <section class="w-section">
-                <h2>Welcome to PastPC!</h2>
-                <div class="has-delorean">
-                    <img class="delorean" src="images/vehicles/delorean.jpg" alt="image of Delorean car">
-                    <div class="cover-delorean">
-                        <p>DMC Delorean</p>
-                        <p>3 Cup holders</p>
-                        <p>Superman doors</p>
-                        <p>Fuzzy dice!</p>
-                        <img class="own-today-medium" src="images/site/own_today.png" alt="image of button that says own today">
+        <section class="w-section">
+                <div class="has-lcp">
+                    <img class="lcp" src="/pastpc/images/site/LCP34Left.webp" alt="image of various PCs and devices">
+                    <div class="cover-lcp">
+                        <p class="lcp-first-text">Rent a PC for Legacy Use, Hosting, and More.</p>
+                        <p class="lcp-small">Get control <strong>instantly</strong> of a PC, tablet, or smartphone.</p>
+                        <a href="/pastpc/vehicles/index.php?action=search">
+                            <p class="find-a-pc">FIND A DEVICE</p>
+                        </a>
                     </div>
                 </div>
-                <img class="own-today" src="images/site/own_today.png" alt="image of button that says own today">
             </section>
-            <div class="has-ru">
-                <section class="r-section">
-                    <h2>DMC Delorean Reviews</h2>
-                    <ul class="reviews">
-                        <li>"So fast it's almost like traveling in time." (4/5)</li>
-                        <li>"Coolest ride on the road." (4/5)</li>
-                        <li>"I'm feeling Marty McFly!" (5/5)</li>
-                        <li>"The most futuristic ride of our day." (5/5)</li>
-                        <li>"80's livin and I love it!" (5/5)</li>
-                    </ul>
-                </section>
-                <section class="u-section">
-                    <h2>Delorean Upgrades</h2>
-                    <div class="has-ucard">
-                        <div class="ucard">
-                            <div class="has-upgrade">
-                                <div class="upgrade"></div>
-                                <div class="has-cover-upgrade">
-                                    <img class="cover-upgrade" src="images/upgrades/flux-cap.png" alt="image of a flux capacitor">
-                                </div>
-                            </div>
-                            <a href="">Flux Capacitor</a>
-                        </div>
-                        <div class="ucard">
-                            <div class="has-upgrade">
-                                <div class="upgrade"></div>
-                                <div class="has-cover-upgrade">
-                                    <img class="cover-upgrade" src="images/upgrades/flame.jpg" alt="image of a flame decal">
-                                </div>
-                            </div>
-                            <a href="">Flame Decals</a>
-                        </div>
-                        <div class="ucard">
-                            <div class="has-upgrade">
-                                <div class="upgrade"></div>
-                                <div class="has-cover-upgrade">
-                                    <img class="cover-upgrade" src="images/upgrades/bumper_sticker.jpg" alt="image of bumper sticker that says hello world">
-                                </div>
-                            </div>
-                            <a href="">Bumper Stickers</a>
-                        </div>
-                        <div class="ucard">
-                            <div class="has-upgrade">
-                                <div class="upgrade"></div>
-                                <div class="has-cover-upgrade">
-                                    <img class="cover-upgrade" src="images/upgrades/hub-cap.jpg" alt="image of a hub cap">
-                                </div>
-                            </div>
-                            <a href="">Hub Caps</a>
-                        </div>
-                    </div>
-                </section>
-            </div>
         </main>
         <footer>
             <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/pastpc/snippets/footer.php"?>

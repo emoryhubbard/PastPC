@@ -1,2 +1,7 @@
-<p>&copy; PastPC, All rights reserved.</p>
-<p>All images used are believed to be in "Fair Use". Please notify the author if any are not and they will be removed.</p>
+<a class="has-bottom-logo" href="/pastpc/"><img class="bottom-logo" src="/pastpc/images/site/OuterWhiteInnerGrayTextWhite.svg" alt="logo image"></a>
+            <p class="footer-description">An older PC or phone can be exactly what someone needs, running their app cheaply.</p>
+            <p class="footer-description">Earn with your device, and join us in connecting thousands of computers to a community of legacy enthusiasts, entrepreneurs, and crypto experts.</p>
+            <nav>
+                <p class="bottom-nav-title">DEVICES</p>
+                <ul class='bottom-nav'><li><a href='/pastpc/index.php' title='View the PHP Motors home page'>Used</a></li><li><a href='/pastpc/index.php?action=classification&classification-name=Classic' title='View our Classic product line'>Classic</a></li><li><a href='/pastpc/index.php?action=classification&classification-name=EV' title='View our EV product line'>EV</a></li><li><a href='/pastpc/index.php?action=classification&classification-name=Monster' title='View our Monster product line'>Monster</a></li><li><a href='/pastpc/index.php?action=classification&classification-name=Sports' title='View our Sports product line'>Sports</a></li><li><a href='/pastpc/index.php?action=classification&classification-name=SUV' title='View our SUV product line'>SUV</a></li><li><a href='/pastpc/index.php?action=classification&classification-name=Trucks' title='View our Trucks product line'>More</a></li></ul>        </nav>
+            <p class="copyright">&copy; 2023 PastPC. All rights reserved.</p>
