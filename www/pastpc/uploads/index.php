@@ -6,7 +6,7 @@ session_start();
 
 require_once '../library/connections.php';
 require_once '../model/main-model.php';
-require_once '../model/vehicles-model.php';
+require_once '../model/devices-model.php';
 require_once '../model/uploads-model.php';
 require_once '../library/functions.php';
 require_once '../library/debug-print.php';
@@ -21,7 +21,7 @@ if ($action == null)
 /*
 Important global variables for image uploads application
 */
-$image_dir = '/pastpc/images/vehicles';
+$image_dir = '/pastpc/images/devices';
 $image_dir_path = $_SERVER['DOCUMENT_ROOT'] . $image_dir;
 
 switch ($action) {
@@ -35,7 +35,7 @@ switch ($action) {
         if ($imageCheck)
             $message = '<p class="notice">An image by that name already exists.</p>';
         elseif (empty($invId) || empty($imgName))
-            $message = '<p class="notice">You must select a vehicle and image file for the vehicle.</p>';
+            $message = '<p class="notice">You must select a device and image file for the device.</p>';
         else {
             $imgPath = uploadFile('file1');
             $result = storeImages($imgPath, $invId, $imgName, $imgPrimary);
@@ -72,8 +72,8 @@ switch ($action) {
             $imageDisplay = buildImageDisplay($imageArray);
         else
             $imageDisplay = '<p class="notice">Sorry, no images could be found.</p>';
-        $vehicles = getVehicles();
-        $prodSelect = buildVehiclesSelect($vehicles);
+        $devices = getDevices();
+        $prodSelect = buildDevicesSelect($devices);
         include '../view/image-admin.php';
         exit;
 }

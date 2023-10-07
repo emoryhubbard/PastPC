@@ -16,7 +16,7 @@ if ($_SESSION['clientData']['clientLevel'] < 2) {
 ?><!DOCTYPE html>
 <html lang="en-US">
 <head>
-    <title>Add Vehicle</title>
+    <title>Add Device</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" media="screen">
@@ -38,7 +38,7 @@ if ($_SESSION['clientData']['clientLevel'] < 2) {
                 echo $message;
             }
             ?>
-            <form method="post" action="/pastpc/vehicles/index.php">
+            <form method="post" action="/pastpc/devices/index.php">
                 <fieldset>
                     <label>Make<span class="asterisk">*</span><input type="text" name="invMake" title="Make is limited to 30 characters" required pattern=<?php print $invMakePattern;?> placeholder="" <?php if(isset($invMake)){echo "value='$invMake'";} ?>><span>Make is limited to 30 characters</span></label>
                     <label>Model<span class="asterisk">*</span><input type="text" name="invModel" title="Model is limited to 30 characters" required pattern=<?php print $invModelPattern;?> placeholder="" <?php if(isset($invModel)){echo "value='$invModel'";} ?>><span>Model is limited to 30 characters</span></label>
@@ -48,8 +48,8 @@ if ($_SESSION['clientData']['clientLevel'] < 2) {
                     <label>Price<span class="asterisk">*</span><input type="text" name="invPrice" title="Price must be a decimal number" required pattern=<?php print $invPricePattern;?> placeholder="" <?php if(isset($invPrice)){echo "value='$invPrice'";} ?>><span>Price must be a decimal number</span></label>
                     <label>Color<span class="asterisk">*</span><input type="text" name="invColor" title="Color is limited to 20 characters" required pattern=<?php print $invColorPattern;?> placeholder="" <?php if(isset($invColor)){echo "value='$invColor'";} ?>><span>Color is limited to 20 characters</span></label>
                     <?php print $classificationList ?>
-                    <input class="submit-button" type="submit" value="Add Vehicle">
-                    <input type="hidden" name="action" value="submit-vehicle">
+                    <input class="submit-button" type="submit" value="Add Device">
+                    <input type="hidden" name="action" value="submit-device">
                 </fieldset>
             </form>
         </main>

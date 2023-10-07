@@ -87,7 +87,7 @@
     .detail-info {
         grid-row: 2;
     }
-    .vehicle-detail-main {
+    .device-detail-main {
         display: grid;
         grid-template-columns: 200px 1fr;
     }

@@ -8,7 +8,7 @@ function addReview($reviewText, $invId, $clientId) {
     $sql = "INSERT INTO reviews (reviewText, invId, clientId) VALUES ('$reviewText', $invId, $clientId)";
     return rowsChanged($sql);
 }
-function getVehicleReviews($invId) {
+function getDeviceReviews($invId) {
     $sql = "SELECT reviews.reviewText, reviews.reviewDate, reviews.reviewId, clients.clientFirstname, clients.clientLastname FROM reviews JOIN inventory ON inventory.invId = reviews.invId JOIN clients ON clients.clientId = reviews.clientId WHERE reviews.invId = $invId ORDER BY reviews.reviewDate DESC";
     return query($sql);
 }

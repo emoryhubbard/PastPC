@@ -41,7 +41,7 @@ if (!$_SESSION['loggedin'])
             if ($cd['clientLevel'] > 1) {
                 echo '<h2>Administrative Actions</h2>';
                 echo '<p>Use the following link to administer inventory:</p>';
-                echo '<p><a class="p-link" href="/pastpc/vehicles">Vehicle Management</a></p>';
+                echo '<p><a class="p-link" href="/pastpc/devices">Device Management</a></p>';
             }
             ?>
             <div class="reviews"></div>

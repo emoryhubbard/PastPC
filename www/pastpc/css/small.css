@@ -188,13 +188,13 @@ h2 {
     height: 100%;
     width: 100%;
 }
-.ucard > a {
+.udeviced > a {
     all: revert;
     display: block;
     margin: auto;
     text-align: center;
 }
-.has-ucard {
+.has-udeviced {
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: .5rem;

@@ -9,7 +9,7 @@ session_start();
 
 require_once 'library/connections.php';
 require_once 'model/main-model.php';
-require_once 'model/vehicles-model.php';
+require_once 'model/devices-model.php';
 require_once 'library/debug-print.php';
 require_once 'library/functions.php';
 
@@ -28,11 +28,11 @@ if (isset($_COOKIE['clientFirstname']))
 switch ($action) {
     case 'classification':
         $classificationName = trim(filter_input(INPUT_GET, 'classification-name', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
-        $vehicles = getVehiclesByClassification($classificationName);
-        if (!count($vehicles))
-            $message = "<p class='notice'>Sorry, no $classificationName vehicles could be found.</p>";
+        $devices = getDevicesByClassification($classificationName);
+        if (!count($devices))
+            $message = "<p class='notice'>Sorry, no $classificationName devices could be found.</p>";
         else
-            $vehicleDisplay = buildVehiclesDisplay($vehicles);
+            $deviceDisplay = buildDevicesDisplay($devices);
         include 'view/classification.php';
         break;
     default:

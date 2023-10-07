@@ -25,7 +25,7 @@
                     <div class="cover-lcp">
                         <p class="lcp-first-text">Rent a PC for Legacy Use, Hosting, and More.</p>
                         <p class="lcp-small">Get control <strong>instantly</strong> of a PC, tablet, or smartphone.</p>
-                        <a href="/pastpc/vehicles/index.php?action=search">
+                        <a href="/pastpc/devices/index.php?action=search">
                             <p class="find-a-pc">FIND A DEVICE</p>
                         </a>
                     </div>

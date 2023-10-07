@@ -24,16 +24,16 @@ if (isset($_SESSION['message']))
         <main>
             <h1>Image Management</h1>
             <p>Welcome to the image management page. Please choose one of the options below.</p>
-            <h2>Add New Vehicle Image</h2>
+            <h2>Add New Device Image</h2>
             <?php
             if (isset($message))
                 echo $message;
             ?>
             <form action="/pastpc/uploads/" method="post" enctype="multipart/form-data">
-                <label for="invItem">Vehicle</label>
+                <label for="invItem">Device</label>
                 <?php echo $prodSelect; ?>
                 <fieldset>
-                    <label>Is this the main image for the vehicle?</label>
+                    <label>Is this the main image for the device?</label>
                     <label for="priYes" class="pImage">Yes</label>
                     <input type="radio" name="imgPrimary" id="priYes" class="pImage" value="1">
                     <label for="priNo" class="pImage">No</label>

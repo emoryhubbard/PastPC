@@ -8,8 +8,8 @@ session_start();
 require_once '../library/connections.php';
 require_once '../model/main-model.php';
 require_once '../library/debug-print.php';
-/* Need to get the vehicles model...*/
-require_once '../model/vehicles-model.php';
+/* Need to get the devices model...*/
+require_once '../model/devices-model.php';
 require_once '../library/functions.php';
 require_once '../model/uploads-model.php';
 
@@ -32,8 +32,8 @@ switch ($action) {
     case 'add-classification':
         include '../view/add-classification.php';
         break;
-    case 'add-vehicle':
-        include '../view/add-vehicle.php';
+    case 'add-device':
+        include '../view/add-device.php';
         break;
     case 'submit-classification':
         $classificationName = trim(filter_input(INPUT_POST, 'classificationName', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
@@ -44,7 +44,7 @@ switch ($action) {
         }
         $outcome = insertClassification($classificationName);
         if ($outcome === 1) {
-            header('Location: /pastpc/vehicles/index.php');
+            header('Location: /pastpc/devices/index.php');
             exit;
         } else {
             $message = "<p>System failed to add new classification. Please try again.</p>";
@@ -52,7 +52,7 @@ switch ($action) {
             exit;
         }
         break;
-        case 'submit-vehicle':
+        case 'submit-device':
             $invMake = trim(filter_input(INPUT_POST, 'invMake', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
             $invModel = trim(filter_input(INPUT_POST, 'invModel', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
             $invDescription = trim(filter_input(INPUT_POST, 'invDescription', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
@@ -63,17 +63,17 @@ switch ($action) {
             $classificationId = trim(filter_input(INPUT_POST, 'classificationId', FILTER_SANITIZE_NUMBER_INT));
             if (!valid($invMake, $invMakePattern) || !valid($invModel, $invModelPattern) || empty($invDescription) || empty($invImage) || empty($invThumbnail) || !valid($invPrice, $invPricePattern) || !valid($invColor, $invColorPattern) || empty($classificationId)) {
                 $message = '<p>Please provide information for empty or invalid form fields.</p>';
-                include '../view/add-vehicle.php';
+                include '../view/add-device.php';
                 exit;
             }
-            $outcome = insertVehicle($invMake, $invModel, $invDescription, $invImage, $invThumbnail, $invPrice, 1, $invColor, $classificationId);
+            $outcome = insertDevice($invMake, $invModel, $invDescription, $invImage, $invThumbnail, $invPrice, 1, $invColor, $classificationId);
             if ($outcome === 1) {
-                $message = "<p>Vehicle successfully added!</p>";
-                include '../view/add-vehicle.php';
+                $message = "<p>Device successfully added!</p>";
+                include '../view/add-device.php';
                 exit;
             } else {
-                $message = "<p>System failed to add new vehicle. Please try again.</p>";
-                include '../view/add-vehicle.php';
+                $message = "<p>System failed to add new device. Please try again.</p>";
+                include '../view/add-device.php';
                 exit;
             }
             break;
@@ -86,10 +86,10 @@ switch ($action) {
         $invId = filter_input(INPUT_GET, 'invId', FILTER_VALIDATE_INT);
         $invInfo = getInvItemInfo($invId);
         if (count($invInfo)<1)
-            $message = 'Sorry, no vehicle information could be found.';
-        include '../view/vehicle-update.php';
+            $message = 'Sorry, no device information could be found.';
+        include '../view/device-update.php';
         break;
-    case 'submit-update-vehicle':
+    case 'submit-update-device':
         $invMake = trim(filter_input(INPUT_POST, 'invMake', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
         $invModel = trim(filter_input(INPUT_POST, 'invModel', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
         $invDescription = trim(filter_input(INPUT_POST, 'invDescription', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
@@ -101,18 +101,18 @@ switch ($action) {
         $invId = trim(filter_input(INPUT_POST, 'invId', FILTER_SANITIZE_NUMBER_INT)); //consider getting rid of this and determining id dynamically
         if (!valid($invMake, $invMakePattern) || !valid($invModel, $invModelPattern) || empty($invDescription) || empty($invImage) || empty($invThumbnail) || !valid($invPrice, $invPricePattern) || !valid($invColor, $invColorPattern) || empty($classificationId)) {
             $message = '<p>Please provide information for empty or invalid form fields.</p>';
-            include '../view/vehicle-update.php';
+            include '../view/device-update.php';
             exit;
         }
-        $updateResult = updateVehicle($invMake, $invModel, $invDescription, $invImage, $invThumbnail, $invPrice, 1, $invColor, $classificationId, $invId);
+        $updateResult = updateDevice($invMake, $invModel, $invDescription, $invImage, $invThumbnail, $invPrice, 1, $invColor, $classificationId, $invId);
         if ($updateResult === 1) {
-            $message = "<p>Vehicle successfully updated!</p>";
+            $message = "<p>Device successfully updated!</p>";
             $_SESSION['message'] = $message;
-            header('location: /pastpc/vehicles/');
+            header('location: /pastpc/devices/');
             exit;
         } else {
-            $message = "<p>System failed to update vehicle. Please try again.</p>";
-            include '../view/vehicle-update.php';
+            $message = "<p>System failed to update device. Please try again.</p>";
+            include '../view/device-update.php';
             exit;
         }        
         break;
@@ -120,23 +120,23 @@ switch ($action) {
         $invId = filter_input(INPUT_GET, 'invId', FILTER_VALIDATE_INT);
         $invInfo = getInvItemInfo($invId);
         if (count($invInfo)<1)
-            $message = 'Sorry, no vehicle information could be found.';
-        include '../view/vehicle-delete.php';
+            $message = 'Sorry, no device information could be found.';
+        include '../view/device-delete.php';
         break;
-    case 'submit-delete-vehicle':
+    case 'submit-delete-device':
         $invMake = trim(filter_input(INPUT_POST, 'invMake', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
         $invModel = trim(filter_input(INPUT_POST, 'invModel', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
         $invId = trim(filter_input(INPUT_POST, 'invId', FILTER_SANITIZE_NUMBER_INT)); //consider getting rid of this and determining id dynamically
-        $deleteResult = deleteVehicle($invId);
+        $deleteResult = deleteDevice($invId);
         if ($deleteResult === 1) {
-            $message = "<p>Vehicle successfully deleted.</p>";
+            $message = "<p>Device successfully deleted.</p>";
             $_SESSION['message'] = $message;
-            header('location: /pastpc/vehicles/');
+            header('location: /pastpc/devices/');
             exit;
         } else {
-            $message = "<p>System failed to delete vehicle. Please try again.</p>";
+            $message = "<p>System failed to delete device. Please try again.</p>";
             $_SESSION['message'] = $message;
-            header('location: /pastpc/vehicles/');
+            header('location: /pastpc/devices/');
             exit;
         }  
         break;
@@ -144,16 +144,16 @@ switch ($action) {
         $invId = filter_input(INPUT_GET, 'inv-id', FILTER_VALIDATE_INT);
         $invInfo = getInvItemInfo($invId);
         if ($invInfo == null)
-            $message = "<p class='notice'>Sorry, the indicated vehicle could not be found in the inventory.</p>";
+            $message = "<p class='notice'>Sorry, the indicated device could not be found in the inventory.</p>";
         else
             $detailDisplay = buildDetailDisplay($invInfo);
         $thumbnails = getThumbnails($invId);
         $thumbnailDisplay = buildThumbnailDisplay($thumbnails);
-        include '../view/vehicle-detail.php';
+        include '../view/device-detail.php';
         break;
     default:
         $classificationList = buildClassificationList($classifications);
-        include '../view/vehicle-management.php';
+        include '../view/device-management.php';
         break;
 }
 

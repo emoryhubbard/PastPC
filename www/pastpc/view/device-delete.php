@@ -39,14 +39,14 @@ if ($_SESSION['clientData']['clientLevel'] < 2) {
                 elseif (isset($invMake) && isset($invModel))
                     echo "Delete $invMake $invModel";
                 ?></h1>
-            <p>Confirm deletion of the vehicle. Note: deletion is permanent and cannot be undone.</p>
-            <form method="post" action="/pastpc/vehicles/index.php">
+            <p>Confirm deletion of the device. Note: deletion is permanent and cannot be undone.</p>
+            <form method="post" action="/pastpc/devices/index.php">
                 <fieldset>
                     <label>Make<span class="asterisk">*</span><input type="text" name="invMake" title="Make is limited to 30 characters" readonly placeholder="" <?php if(isset($invMake)){echo "value='$invMake'";} elseif(isset($invInfo['invMake'])) echo "value='$invInfo[invMake]'"; ?>><span>Make is limited to 30 characters</span></label>
                     <label>Model<span class="asterisk">*</span><input type="text" name="invModel" title="Model is limited to 30 characters" readonly placeholder="" <?php if(isset($invModel)){echo "value='$invModel'";} elseif(isset($invInfo['invModel'])) echo "value='$invInfo[invModel]'"; ?>><span>Model is limited to 30 characters</span></label>
                     <label>Description<span class="asterisk">*</span><input type="text" name="invDescription" title="Required field" readonly placeholder="" <?php if(isset($invDescription)){echo "value='$invDescription'";} elseif(isset($invInfo['invDescription'])) echo "value='$invInfo[invDescription]'"; ?>></label>
-                    <input class="submit-button" type="submit" value="Delete Vehicle">
-                    <input type="hidden" name="action" value="submit-delete-vehicle">
+                    <input class="submit-button" type="submit" value="Delete Device">
+                    <input type="hidden" name="action" value="submit-delete-device">
                     <input type="hidden" name="invId" value="<?php
                     if (isset($invInfo['invId']))
                         echo $invInfo['invId'];

@@ -51,7 +51,7 @@ if ($_SESSION['clientData']['clientLevel'] < 2) {
                 elseif (isset($invMake) && isset($invModel))
                     echo "Modify $invMake $invModel";
                 ?></h1>
-            <form method="post" action="/pastpc/vehicles/index.php">
+            <form method="post" action="/pastpc/devices/index.php">
                 <fieldset>
                     <label>Make<span class="asterisk">*</span><input type="text" name="invMake" title="Make is limited to 30 characters" required pattern=<?php print $invMakePattern;?> placeholder="" <?php if(isset($invMake)){echo "value='$invMake'";} elseif(isset($invInfo['invMake'])) echo "value='$invInfo[invMake]'"; ?>><span>Make is limited to 30 characters</span></label>
                     <label>Model<span class="asterisk">*</span><input type="text" name="invModel" title="Model is limited to 30 characters" required pattern=<?php print $invModelPattern;?> placeholder="" <?php if(isset($invModel)){echo "value='$invModel'";} elseif(isset($invInfo['invModel'])) echo "value='$invInfo[invModel]'"; ?>><span>Model is limited to 30 characters</span></label>
@@ -61,8 +61,8 @@ if ($_SESSION['clientData']['clientLevel'] < 2) {
                     <label>Price<span class="asterisk">*</span><input type="text" name="invPrice" title="Price must be a decimal number" required pattern=<?php print $invPricePattern;?> placeholder="" <?php if(isset($invPrice)){echo "value='$invPrice'";} elseif(isset($invInfo['invPrice'])) echo "value='$invInfo[invPrice]'"; ?>><span>Price must be a decimal number</span></label>
                     <label>Color<span class="asterisk">*</span><input type="text" name="invColor" title="Color is limited to 20 characters" required pattern=<?php print $invColorPattern;?> placeholder="" <?php if(isset($invColor)){echo "value='$invColor'";} elseif(isset($invInfo['invColor'])) echo "value='$invInfo[invColor]'"; ?>><span>Color is limited to 20 characters</span></label>
                     <?php print $classificationList ?>
-                    <input class="submit-button" type="submit" value="Update Vehicle">
-                    <input type="hidden" name="action" value="submit-update-vehicle">
+                    <input class="submit-button" type="submit" value="Update Device">
+                    <input type="hidden" name="action" value="submit-update-device">
                     <input type="hidden" name="invId" value="<?php
                     if (isset($invInfo['invId']))
                         echo $invInfo['invId'];

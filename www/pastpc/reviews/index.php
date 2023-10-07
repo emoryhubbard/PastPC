@@ -100,7 +100,7 @@ switch ($action) {
         break;
     case 'get-reviews':
         $invId = filter_input(INPUT_GET, 'inv-id', FILTER_SANITIZE_NUMBER_INT);
-        $reviewsArray = getVehicleReviews($invId);
+        $reviewsArray = getDeviceReviews($invId);
         echo json_encode($reviewsArray);
         break;
     case 'get-client-reviews':

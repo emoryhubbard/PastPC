@@ -4,7 +4,7 @@ const classificationList = document.querySelector("#classificationList");
 classificationList.addEventListener("change", function () {
     const classificationId = classificationList.value;
     console.log(`classificationId is: ${classificationId}`);
-    const classIdURL = "/pastpc/vehicles/index.php?action=getInventoryItems&classificationId=" + classificationId;
+    const classIdURL = "/pastpc/devices/index.php?action=getInventoryItems&classificationId=" + classificationId;
     fetch(classIdURL)
     .then(function (response) {
         if (response.ok) {
@@ -25,14 +25,14 @@ function buildInventoryList(data) {
     const inventoryDisplay = document.querySelector("#inventoryDisplay");
     let dt = '<colgroup><col class="col1" span="1"><col class="col2" span="1"></colgroup>';
     dt += '<thead>'; // dt is dataTable
-    dt += '<tr><th class="table-name">Vehicle Name</th><td>&nbsp;</td><td>&nbsp;</td></tr>';
+    dt += '<tr><th class="table-name">Device Name</th><td>&nbsp;</td><td>&nbsp;</td></tr>';
     dt += '</thead>';
     dt += '<tbody>';
     data.forEach(function (el) { // el is element
         console.log(el.invId + ", " + el.invModel);
         dt += `<tr><td>${el.invMake} ${el.invModel}</td>`;
-        dt += `<td class="modify"><a href='/pastpc/vehicles?action=mod&invId=${el.invId}' title='Click to modify'>Modify</a></td>`;
-        dt += `<td class="delete"><a href='/pastpc/vehicles?action=del&invId=${el.invId}' title=CLick to delete'>Delete</a></td></tr>`;
+        dt += `<td class="modify"><a href='/pastpc/devices?action=mod&invId=${el.invId}' title='Click to modify'>Modify</a></td>`;
+        dt += `<td class="delete"><a href='/pastpc/devices?action=del&invId=${el.invId}' title=CLick to delete'>Delete</a></td></tr>`;
     });
     dt += '</tbody>';
     inventoryDisplay.innerHTML = dt;

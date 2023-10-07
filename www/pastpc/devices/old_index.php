@@ -8,8 +8,8 @@ session_start();
 require_once '../library/connections.php';
 require_once '../model/main-model.php';
 require_once '../library/debug-print.php';
-/* Need to get the vehicles model...*/
-require_once '../model/vehicles-model.php';
+/* Need to get the devices model...*/
+require_once '../model/devices-model.php';
 require_once '../library/functions.php';
 
 //Building a dynamic nav bar, replacing the static snippet
@@ -31,8 +31,8 @@ switch ($action) {
     case 'add-classification':
         include '../view/add-classification.php';
         break;
-    case 'add-vehicle':
-        include '../view/add-vehicle.php';
+    case 'add-device':
+        include '../view/add-device.php';
         break;
     case 'submit-classification':
         $classificationName = trim(filter_input(INPUT_POST, 'classificationName', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
@@ -43,7 +43,7 @@ switch ($action) {
         }
         $outcome = insertClassification($classificationName);
         if ($outcome === 1) {
-            header('Location: /pastpc/vehicles/index.php');
+            header('Location: /pastpc/devices/index.php');
             exit;
         } else {
             $message = "<p>System failed to add new classification. Please try again.</p>";
@@ -51,7 +51,7 @@ switch ($action) {
             exit;
         }
         break;
-        case 'submit-vehicle':
+        case 'submit-device':
             $invMake = trim(filter_input(INPUT_POST, 'invMake', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
             $invModel = trim(filter_input(INPUT_POST, 'invModel', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
             $invDescription = trim(filter_input(INPUT_POST, 'invDescription', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
@@ -62,22 +62,22 @@ switch ($action) {
             $classificationId = trim(filter_input(INPUT_POST, 'classificationId', FILTER_SANITIZE_NUMBER_INT));
             if (!valid($invMake, $invMakePattern) || !valid($invModel, $invModelPattern) || empty($invDescription) || empty($invImage) || empty($invThumbnail) || !valid($invPrice, $invPricePattern) || !valid($invColor, $invColorPattern) || empty($classificationId)) {
                 $message = '<p>Please provide information for empty or invalid form fields.</p>';
-                include '../view/add-vehicle.php';
+                include '../view/add-device.php';
                 exit;
             }
-            $outcome = insertVehicle($invMake, $invModel, $invDescription, $invImage, $invThumbnail, $invPrice, 1, $invColor, $classificationId);
+            $outcome = insertDevice($invMake, $invModel, $invDescription, $invImage, $invThumbnail, $invPrice, 1, $invColor, $classificationId);
             if ($outcome === 1) {
-                $message = "<p>Vehicle successfully added!</p>";
-                include '../view/add-vehicle.php';
+                $message = "<p>Device successfully added!</p>";
+                include '../view/add-device.php';
                 exit;
             } else {
-                $message = "<p>System failed to add new vehicle. Please try again.</p>";
-                include '../view/add-vehicle.php';
+                $message = "<p>System failed to add new device. Please try again.</p>";
+                include '../view/add-device.php';
                 exit;
             }
             break;
     default:
-        include '../view/vehicle-management.php';
+        include '../view/device-management.php';
         break;
 }
 

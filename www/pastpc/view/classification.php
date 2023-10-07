@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-    <title><?php echo $classificationName; ?> vehicles | PastPC</title>
+    <title><?php echo $classificationName; ?> devices | PastPC</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" media="screen">
@@ -18,13 +18,13 @@
             <?php print $navList; ?>
         </nav>
         <main>
-            <h1><?php echo $classificationName; ?> vehicles</h1>
+            <h1><?php echo $classificationName; ?> devices</h1>
             <?php
             if (isset($message))
                 echo $message;
             ?>
-            <?php if(isset($vehicleDisplay))
-                echo $vehicleDisplay;
+            <?php if(isset($deviceDisplay))
+                echo $deviceDisplay;
             ?>
         </main>
         <footer>

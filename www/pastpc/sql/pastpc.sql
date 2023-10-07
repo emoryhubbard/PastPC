@@ -26,19 +26,19 @@ USE `pastpc`;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `carclassification`
+-- Table structure for table `deviceclassification`
 --
 
-CREATE TABLE `carclassification` (
+CREATE TABLE `deviceclassification` (
   `classificationId` int NOT NULL,
   `classificationName` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `carclassification`
+-- Dumping data for table `deviceclassification`
 --
 
-INSERT INTO `carclassification` (`classificationId`, `classificationName`) VALUES
+INSERT INTO `deviceclassification` (`classificationId`, `classificationName`) VALUES
 (1, 'SUV'),
 (2, 'Classic'),
 (3, 'Sports'),
@@ -93,44 +93,44 @@ CREATE TABLE `images` (
 --
 
 INSERT INTO `images` (`imgId`, `invId`, `imgName`, `imgPath`, `imgDate`, `imgPrimary`) VALUES
-(13, 13, 'aerocar.jpg', '/pastpc/images/vehicles/aerocar.jpg', '2023-03-24 21:15:33', 1),
-(14, 13, 'aerocar-tn.jpg', '/pastpc/images/vehicles/aerocar-tn.jpg', '2023-03-24 21:15:33', 1),
-(15, 6, 'bat.jpg', '/pastpc/images/vehicles/bat.jpg', '2023-03-24 21:16:29', 1),
-(16, 6, 'bat-tn.jpg', '/pastpc/images/vehicles/bat-tn.jpg', '2023-03-24 21:16:29', 1),
-(17, 10, 'camaro.jpg', '/pastpc/images/vehicles/camaro.jpg', '2023-03-24 21:16:51', 1),
-(18, 10, 'camaro-tn.jpg', '/pastpc/images/vehicles/camaro-tn.jpg', '2023-03-24 21:16:51', 1),
-(19, 9, 'crown-vic.jpg', '/pastpc/images/vehicles/crown-vic.jpg', '2023-03-24 21:17:15', 1),
-(20, 9, 'crown-vic-tn.jpg', '/pastpc/images/vehicles/crown-vic-tn.jpg', '2023-03-24 21:17:15', 1),
-(21, 11, 'escalade.jpg', '/pastpc/images/vehicles/escalade.jpg', '2023-03-24 21:17:47', 1),
-(22, 11, 'escalade-tn.jpg', '/pastpc/images/vehicles/escalade-tn.jpg', '2023-03-24 21:17:47', 1),
-(23, 14, 'fbi.jpg', '/pastpc/images/vehicles/fbi.jpg', '2023-03-24 21:18:10', 1),
-(24, 14, 'fbi-tn.jpg', '/pastpc/images/vehicles/fbi-tn.jpg', '2023-03-24 21:18:10', 1),
-(25, 8, 'fire-truck.jpg', '/pastpc/images/vehicles/fire-truck.jpg', '2023-03-24 21:18:27', 1),
-(26, 8, 'fire-truck-tn.jpg', '/pastpc/images/vehicles/fire-truck-tn.jpg', '2023-03-24 21:18:27', 1),
-(27, 2, 'ford-modelt.jpg', '/pastpc/images/vehicles/ford-modelt.jpg', '2023-03-24 21:18:46', 1),
-(28, 2, 'ford-modelt-tn.jpg', '/pastpc/images/vehicles/ford-modelt-tn.jpg', '2023-03-24 21:18:46', 1),
-(29, 12, 'hummer.jpg', '/pastpc/images/vehicles/hummer.jpg', '2023-03-24 21:19:16', 1),
-(30, 12, 'hummer-tn.jpg', '/pastpc/images/vehicles/hummer-tn.jpg', '2023-03-24 21:19:16', 1),
-(31, 1, 'jeep-wrangler.jpg', '/pastpc/images/vehicles/jeep-wrangler.jpg', '2023-03-24 21:19:38', 1),
-(32, 1, 'jeep-wrangler-tn.jpg', '/pastpc/images/vehicles/jeep-wrangler-tn.jpg', '2023-03-24 21:19:38', 1),
-(33, 3, 'lambo-Adve.jpg', '/pastpc/images/vehicles/lambo-Adve.jpg', '2023-03-24 21:19:56', 1),
-(34, 3, 'lambo-Adve-tn.jpg', '/pastpc/images/vehicles/lambo-Adve-tn.jpg', '2023-03-24 21:19:56', 1),
-(35, 7, 'mm.jpg', '/pastpc/images/vehicles/mm.jpg', '2023-03-24 21:20:26', 1),
-(36, 7, 'mm-tn.jpg', '/pastpc/images/vehicles/mm-tn.jpg', '2023-03-24 21:20:26', 1),
-(37, 4, 'monster.jpg', '/pastpc/images/vehicles/monster.jpg', '2023-03-24 21:20:45', 1),
-(38, 4, 'monster-tn.jpg', '/pastpc/images/vehicles/monster-tn.jpg', '2023-03-24 21:20:45', 1),
-(39, 5, 'ms.jpg', '/pastpc/images/vehicles/ms.jpg', '2023-03-24 21:21:11', 1),
-(40, 5, 'ms-tn.jpg', '/pastpc/images/vehicles/ms-tn.jpg', '2023-03-24 21:21:11', 1),
-(41, 20, 'delorean.jpg', '/pastpc/images/vehicles/delorean.jpg', '2023-03-24 21:24:16', 1),
-(42, 20, 'delorean-tn.jpg', '/pastpc/images/vehicles/delorean-tn.jpg', '2023-03-24 21:24:16', 1),
-(45, 2, 'bw-modelt.jpg', '/pastpc/images/vehicles/bw-modelt.jpg', '2023-03-24 22:17:38', 0),
-(46, 2, 'bw-modelt-tn.jpg', '/pastpc/images/vehicles/bw-modelt-tn.jpg', '2023-03-24 22:17:38', 0),
-(47, 20, 'movieset-delorean.jpg', '/pastpc/images/vehicles/movieset-delorean.jpg', '2023-03-24 22:18:13', 0),
-(48, 20, 'movieset-delorean-tn.jpg', '/pastpc/images/vehicles/movieset-delorean-tn.jpg', '2023-03-24 22:18:13', 0),
-(49, 10, 'racing-camaro.jpg', '/pastpc/images/vehicles/racing-camaro.jpg', '2023-03-24 22:18:37', 0),
-(50, 10, 'racing-camaro-tn.jpg', '/pastpc/images/vehicles/racing-camaro-tn.jpg', '2023-03-24 22:18:37', 0),
-(53, 15, 'no-image.png', '/pastpc/images/vehicles/no-image.png', '2023-03-24 23:15:19', 1),
-(54, 15, 'no-image-tn.png', '/pastpc/images/vehicles/no-image-tn.png', '2023-03-24 23:15:19', 1);
+(13, 13, 'aerodevice.jpg', '/pastpc/images/devices/aerodevice.jpg', '2023-03-24 21:15:33', 1),
+(14, 13, 'aerodevice-tn.jpg', '/pastpc/images/devices/aerodevice-tn.jpg', '2023-03-24 21:15:33', 1),
+(15, 6, 'bat.jpg', '/pastpc/images/devices/bat.jpg', '2023-03-24 21:16:29', 1),
+(16, 6, 'bat-tn.jpg', '/pastpc/images/devices/bat-tn.jpg', '2023-03-24 21:16:29', 1),
+(17, 10, 'camaro.jpg', '/pastpc/images/devices/camaro.jpg', '2023-03-24 21:16:51', 1),
+(18, 10, 'camaro-tn.jpg', '/pastpc/images/devices/camaro-tn.jpg', '2023-03-24 21:16:51', 1),
+(19, 9, 'crown-vic.jpg', '/pastpc/images/devices/crown-vic.jpg', '2023-03-24 21:17:15', 1),
+(20, 9, 'crown-vic-tn.jpg', '/pastpc/images/devices/crown-vic-tn.jpg', '2023-03-24 21:17:15', 1),
+(21, 11, 'escalade.jpg', '/pastpc/images/devices/escalade.jpg', '2023-03-24 21:17:47', 1),
+(22, 11, 'escalade-tn.jpg', '/pastpc/images/devices/escalade-tn.jpg', '2023-03-24 21:17:47', 1),
+(23, 14, 'fbi.jpg', '/pastpc/images/devices/fbi.jpg', '2023-03-24 21:18:10', 1),
+(24, 14, 'fbi-tn.jpg', '/pastpc/images/devices/fbi-tn.jpg', '2023-03-24 21:18:10', 1),
+(25, 8, 'fire-truck.jpg', '/pastpc/images/devices/fire-truck.jpg', '2023-03-24 21:18:27', 1),
+(26, 8, 'fire-truck-tn.jpg', '/pastpc/images/devices/fire-truck-tn.jpg', '2023-03-24 21:18:27', 1),
+(27, 2, 'ford-modelt.jpg', '/pastpc/images/devices/ford-modelt.jpg', '2023-03-24 21:18:46', 1),
+(28, 2, 'ford-modelt-tn.jpg', '/pastpc/images/devices/ford-modelt-tn.jpg', '2023-03-24 21:18:46', 1),
+(29, 12, 'hummer.jpg', '/pastpc/images/devices/hummer.jpg', '2023-03-24 21:19:16', 1),
+(30, 12, 'hummer-tn.jpg', '/pastpc/images/devices/hummer-tn.jpg', '2023-03-24 21:19:16', 1),
+(31, 1, 'jeep-wrangler.jpg', '/pastpc/images/devices/jeep-wrangler.jpg', '2023-03-24 21:19:38', 1),
+(32, 1, 'jeep-wrangler-tn.jpg', '/pastpc/images/devices/jeep-wrangler-tn.jpg', '2023-03-24 21:19:38', 1),
+(33, 3, 'lambo-Adve.jpg', '/pastpc/images/devices/lambo-Adve.jpg', '2023-03-24 21:19:56', 1),
+(34, 3, 'lambo-Adve-tn.jpg', '/pastpc/images/devices/lambo-Adve-tn.jpg', '2023-03-24 21:19:56', 1),
+(35, 7, 'mm.jpg', '/pastpc/images/devices/mm.jpg', '2023-03-24 21:20:26', 1),
+(36, 7, 'mm-tn.jpg', '/pastpc/images/devices/mm-tn.jpg', '2023-03-24 21:20:26', 1),
+(37, 4, 'monster.jpg', '/pastpc/images/devices/monster.jpg', '2023-03-24 21:20:45', 1),
+(38, 4, 'monster-tn.jpg', '/pastpc/images/devices/monster-tn.jpg', '2023-03-24 21:20:45', 1),
+(39, 5, 'ms.jpg', '/pastpc/images/devices/ms.jpg', '2023-03-24 21:21:11', 1),
+(40, 5, 'ms-tn.jpg', '/pastpc/images/devices/ms-tn.jpg', '2023-03-24 21:21:11', 1),
+(41, 20, 'delorean.jpg', '/pastpc/images/devices/delorean.jpg', '2023-03-24 21:24:16', 1),
+(42, 20, 'delorean-tn.jpg', '/pastpc/images/devices/delorean-tn.jpg', '2023-03-24 21:24:16', 1),
+(45, 2, 'bw-modelt.jpg', '/pastpc/images/devices/bw-modelt.jpg', '2023-03-24 22:17:38', 0),
+(46, 2, 'bw-modelt-tn.jpg', '/pastpc/images/devices/bw-modelt-tn.jpg', '2023-03-24 22:17:38', 0),
+(47, 20, 'movieset-delorean.jpg', '/pastpc/images/devices/movieset-delorean.jpg', '2023-03-24 22:18:13', 0),
+(48, 20, 'movieset-delorean-tn.jpg', '/pastpc/images/devices/movieset-delorean-tn.jpg', '2023-03-24 22:18:13', 0),
+(49, 10, 'racing-camaro.jpg', '/pastpc/images/devices/racing-camaro.jpg', '2023-03-24 22:18:37', 0),
+(50, 10, 'racing-camaro-tn.jpg', '/pastpc/images/devices/racing-camaro-tn.jpg', '2023-03-24 22:18:37', 0),
+(53, 15, 'no-image.png', '/pastpc/images/devices/no-image.png', '2023-03-24 23:15:19', 1),
+(54, 15, 'no-image-tn.png', '/pastpc/images/devices/no-image-tn.png', '2023-03-24 23:15:19', 1);
 
 -- --------------------------------------------------------
 
@@ -156,24 +156,24 @@ CREATE TABLE `inventory` (
 --
 
 INSERT INTO `inventory` (`invId`, `invMake`, `invModel`, `invDescription`, `invImage`, `invThumbnail`, `invPrice`, `invStock`, `invColor`, `classificationId`) VALUES
-(1, 'Jeep', 'Wrangler', 'The Jeep Wrangler is small and compact with enough power to get you where you want to go. It is great for everyday driving as well as off-roading whether that be on the rocks or in the mud!', '/pastpc/images/vehicles/jeep-wrangler.jpg', '/pastpc/images/vehicles/jeep-wrangler-tn.jpg', '28045', 1, 'Orange', 1),
-(2, 'Ford', 'Model T', 'The Ford Model T can be a bit tricky to drive. It was the first car to be put into production. You can get it in any color you want if it is black.', '/pastpc/images/vehicles/ford-modelt.jpg', '/pastpc/images/vehicles/ford-modelt-tn.jpg', '30000', 1, 'Black', 2),
-(3, 'Lamborghini', 'Adventador', 'This V-12 engine packs a punch in this sporty car. Make sure you wear your seatbelt and obey all traffic laws.', '/pastpc/images/vehicles/no-image.png', '/pastpc/images/vehicles/no-image-tn.png', '417650', 1, 'Blue', 3),
-(4, 'Monster', 'Truck', 'Most trucks are for working, this one is for fun. This beast comes with 60 inch tires giving you the traction needed to jump and roll in the mud.', '/pastpc/images/vehicles/monster.jpg', '/pastpc/images/vehicles/monster-tn.jpg', '150000', 1, 'purple', 4),
-(5, 'Mechanic', 'Special', 'Not sure where this car came from. However, with a little tender loving care it will run as good a new.', '/pastpc/images/vehicles/ms.jpg', '/pastpc/images/vehicles/ms-tn.jpg', '100', 1, 'Rust', 5),
-(6, 'Batmobile', 'Custom', 'Ever want to be a superhero? Now you can with the bat mobile. This car allows you to switch to bike mode allowing for easy maneuvering through traffic during rush hour.', '/pastpc/images/vehicles/bat.jpg', '/pastpc/images/vehicles/bat-tn.jpg', '65000', 1, 'Black', 3),
-(7, 'Mystery', 'Machine', 'Scooby and the gang always found luck in solving their mysteries because of their 4 wheel drive Mystery Machine. This Van will help you do whatever job you are required to with a success rate of 100%.', '/pastpc/images/vehicles/mm.jpg', '/pastpc/images/vehicles/mm-tn.jpg', '10000', 1, 'Green', 1),
-(8, 'Spartan', 'Fire Truck', 'Emergencies happen often. Be prepared with this Spartan fire truck. Comes complete with 1000 ft. of hose and a 1000-gallon tank.', '/pastpc/images/vehicles/fire-truck.jpg', '/pastpc/images/vehicles/fire-truck-tn.jpg', '50000', 1, 'Red', 4),
-(9, 'Ford', 'Crown Victoria', 'After the police force updated their fleet these cars are now available to the public! These cars come equipped with the siren which is convenient for college students running late to class.', '/pastpc/images/vehicles/crown-vic.jpg', '/pastpc/images/vehicles/crown-vic-tn.jpg', '10000', 1, 'White', 5),
-(10, 'Chevy', 'Camaro', 'If you want to look cool this is the car you need! This car has great performance at an affordable price. Own it today!', '/pastpc/images/vehicles/camaro.jpg', '/pastpc/images/vehicles/camaro-tn.jpg', '25000', 1, 'Silver', 3),
-(11, 'Cadillac', 'Escalade', 'This styling car is great for any occasion from going to the beach to meeting the president. The luxurious inside makes this car a home away from home.', '/pastpc/images/vehicles/no-image.png', '/pastpc/images/vehicles/no-image-tn.png', '75195', 1, 'Black', 1),
-(12, 'GM', 'Hummer', 'Do you have 6 kids and like to go off-roading? The Hummer gives you the small interiors with an engine to get you out of any muddy or rocky situation.', '/pastpc/images/vehicles/hummer.jpg', '/pastpc/images/vehicles/hummer-tn.jpg', '58800', 1, 'Yellow', 5),
-(13, 'Aerocar International', 'Aerocar', 'Are you sick of rush hour traffic? This car converts into an airplane to get you where you are going fast. Only 6 of these were made, get this one while it lasts!', '/pastpc/images/vehicles/aerocar.jpg', '/pastpc/images/vehicles/aerocar-tn.jpg', '1000000', 1, 'Red', 2),
-(14, 'FBI', 'Surveillance Van', 'Do you like police shows? You will feel right at home driving this van. Comes complete with surveillance equipment for an extra fee of $2,000 a month.', '/pastpc/images/vehicles/fbi.jpg', '/pastpc/images/vehicles/fbi-tn.jpg', '20000', 1, 'Green', 1),
-(15, 'Dog', 'Car', 'Do you like dogs? Well, this car is for you straight from the 90s from Aspen, Colorado we have the original Dog Car complete with fluffy ears.', '/pastpc/images/vehicles/no-image.png', '/pastpc/images/vehicles/no-image-tn.png', '35000', 1, 'Brown', 2),
-(17, 'Chevy', 'Cavalier', 'Very beat up', '/pastpc/images/vehicles/no-image.png', '/pastpc/images/vehicles/no-image-tn.png', '500', 1, 'Tan', 2),
-(18, 'Toyota', 'Prius', 'Black, compact', '/pastpc/images/vehicles/no-image.png', '/pastpc/images/vehicles/no-image-tn.png', '4000', 1, 'Black', 23),
-(19, 'Dodge', 'Caravan', 'Reliable', '/pastpc/images/vehicles/no-image.png', '/pastpc/images/vehicles/no-image-tn.png', '500', 1, 'Burgundy', 5),
+(1, 'Jeep', 'Wrangler', 'The Jeep Wrangler is small and compact with enough power to get you where you want to go. It is great for everyday driving as well as off-roading whether that be on the rocks or in the mud!', '/pastpc/images/devices/jeep-wrangler.jpg', '/pastpc/images/devices/jeep-wrangler-tn.jpg', '28045', 1, 'Orange', 1),
+(2, 'Ford', 'Model T', 'The Ford Model T can be a bit tricky to drive. It was the first device to be put into production. You can get it in any color you want if it is black.', '/pastpc/images/devices/ford-modelt.jpg', '/pastpc/images/devices/ford-modelt-tn.jpg', '30000', 1, 'Black', 2),
+(3, 'Lamborghini', 'Adventador', 'This V-12 engine packs a punch in this sporty device. Make sure you wear your seatbelt and obey all traffic laws.', '/pastpc/images/devices/no-image.png', '/pastpc/images/devices/no-image-tn.png', '417650', 1, 'Blue', 3),
+(4, 'Monster', 'Truck', 'Most trucks are for working, this one is for fun. This beast comes with 60 inch tires giving you the traction needed to jump and roll in the mud.', '/pastpc/images/devices/monster.jpg', '/pastpc/images/devices/monster-tn.jpg', '150000', 1, 'purple', 4),
+(5, 'Mechanic', 'Special', 'Not sure where this device came from. However, with a little tender loving devicee it will run as good a new.', '/pastpc/images/devices/ms.jpg', '/pastpc/images/devices/ms-tn.jpg', '100', 1, 'Rust', 5),
+(6, 'Batmobile', 'Custom', 'Ever want to be a superhero? Now you can with the bat mobile. This device allows you to switch to bike mode allowing for easy maneuvering through traffic during rush hour.', '/pastpc/images/devices/bat.jpg', '/pastpc/images/devices/bat-tn.jpg', '65000', 1, 'Black', 3),
+(7, 'Mystery', 'Machine', 'Scooby and the gang always found luck in solving their mysteries because of their 4 wheel drive Mystery Machine. This Van will help you do whatever job you are required to with a success rate of 100%.', '/pastpc/images/devices/mm.jpg', '/pastpc/images/devices/mm-tn.jpg', '10000', 1, 'Green', 1),
+(8, 'Spartan', 'Fire Truck', 'Emergencies happen often. Be prepared with this Spartan fire truck. Comes complete with 1000 ft. of hose and a 1000-gallon tank.', '/pastpc/images/devices/fire-truck.jpg', '/pastpc/images/devices/fire-truck-tn.jpg', '50000', 1, 'Red', 4),
+(9, 'Ford', 'Crown Victoria', 'After the police force updated their fleet these devices are now available to the public! These devices come equipped with the siren which is convenient for college students running late to class.', '/pastpc/images/devices/crown-vic.jpg', '/pastpc/images/devices/crown-vic-tn.jpg', '10000', 1, 'White', 5),
+(10, 'Chevy', 'Camaro', 'If you want to look cool this is the device you need! This device has great performance at an affordable price. Own it today!', '/pastpc/images/devices/camaro.jpg', '/pastpc/images/devices/camaro-tn.jpg', '25000', 1, 'Silver', 3),
+(11, 'Cadillac', 'Escalade', 'This styling device is great for any occasion from going to the beach to meeting the president. The luxurious inside makes this device a home away from home.', '/pastpc/images/devices/no-image.png', '/pastpc/images/devices/no-image-tn.png', '75195', 1, 'Black', 1),
+(12, 'GM', 'Hummer', 'Do you have 6 kids and like to go off-roading? The Hummer gives you the small interiors with an engine to get you out of any muddy or rocky situation.', '/pastpc/images/devices/hummer.jpg', '/pastpc/images/devices/hummer-tn.jpg', '58800', 1, 'Yellow', 5),
+(13, 'Aerodevice International', 'Aerodevice', 'Are you sick of rush hour traffic? This device converts into an airplane to get you where you are going fast. Only 6 of these were made, get this one while it lasts!', '/pastpc/images/devices/aerodevice.jpg', '/pastpc/images/devices/aerodevice-tn.jpg', '1000000', 1, 'Red', 2),
+(14, 'FBI', 'Surveillance Van', 'Do you like police shows? You will feel right at home driving this van. Comes complete with surveillance equipment for an extra fee of $2,000 a month.', '/pastpc/images/devices/fbi.jpg', '/pastpc/images/devices/fbi-tn.jpg', '20000', 1, 'Green', 1),
+(15, 'Dog', 'Device', 'Do you like dogs? Well, this device is for you straight from the 90s from Aspen, Colorado we have the original Dog Device complete with fluffy ears.', '/pastpc/images/devices/no-image.png', '/pastpc/images/devices/no-image-tn.png', '35000', 1, 'Brown', 2),
+(17, 'Chevy', 'Cavalier', 'Very beat up', '/pastpc/images/devices/no-image.png', '/pastpc/images/devices/no-image-tn.png', '500', 1, 'Tan', 2),
+(18, 'Toyota', 'Prius', 'Black, compact', '/pastpc/images/devices/no-image.png', '/pastpc/images/devices/no-image-tn.png', '4000', 1, 'Black', 23),
+(19, 'Dodge', 'Deviceavan', 'Reliable', '/pastpc/images/devices/no-image.png', '/pastpc/images/devices/no-image-tn.png', '500', 1, 'Burgundy', 5),
 (20, 'DMC', 'DeLorean', '3 Cup holders, Superman doors, Fuzzy dice!', '/images/no-image.png', '/images/no-image.png', '75000', 1, 'Silver', 2);
 
 -- --------------------------------------------------------
@@ -203,9 +203,9 @@ INSERT INTO `reviews` (`reviewId`, `reviewText`, `reviewDate`, `invId`, `clientI
 --
 
 --
--- Indexes for table `carclassification`
+-- Indexes for table `deviceclassification`
 --
-ALTER TABLE `carclassification`
+ALTER TABLE `deviceclassification`
   ADD PRIMARY KEY (`classificationId`);
 
 --
@@ -241,9 +241,9 @@ ALTER TABLE `reviews`
 --
 
 --
--- AUTO_INCREMENT for table `carclassification`
+-- AUTO_INCREMENT for table `deviceclassification`
 --
-ALTER TABLE `carclassification`
+ALTER TABLE `deviceclassification`
   MODIFY `classificationId` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
@@ -284,7 +284,7 @@ ALTER TABLE `images`
 -- Constraints for table `inventory`
 --
 ALTER TABLE `inventory`
-  ADD CONSTRAINT `inventory_ibfk_1` FOREIGN KEY (`classificationId`) REFERENCES `carclassification` (`classificationId`);
+  ADD CONSTRAINT `inventory_ibfk_1` FOREIGN KEY (`classificationId`) REFERENCES `deviceclassification` (`classificationId`);
 
 --
 -- Constraints for table `reviews`

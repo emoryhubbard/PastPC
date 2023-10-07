@@ -28,7 +28,7 @@ if ($_SESSION['clientData']['clientLevel'] < 2) {
                 echo $message;
             }
             ?>
-            <form method="post" action="/pastpc/vehicles/index.php">
+            <form method="post" action="/pastpc/devices/index.php">
                 <fieldset>
                     <label>Classification<span class="asterisk">*</span><input class="classification-input" type="text" name="classificationName" title="Classification is limited to 30 characters" required pattern=".{1,30}" placeholder="" <?php if(isset($classificationName)){echo "value='$classificationName'";} ?>><span>Classification is limited to 30 characters</span></label>
                     <input class="submit-button" type="submit" value="Add Classification">

@@ -1,6 +1,6 @@
 <?php
 /*
-This is the model for the vehicle image uploads application
+This is the model for the device image uploads application
 */
 
 function storeImages($imgPath, $invId, $imgName, $imgPrimary) {

@@ -17,7 +17,7 @@
         <nav>
             <?php print $navList; ?>
         </nav>
-        <main class="vehicle-detail-main">
+        <main class="device-detail-main">
             <?php
             if(isset($detailDisplay))
                 echo $detailDisplay;
@@ -48,7 +48,7 @@
         <footer>
             <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/pastpc/snippets/footer.php"?>
         </footer>
-        <script src="../js/vehicle-detail.js" type="module"></script>
+        <script src="../js/device-detail.js" type="module"></script>
     </div>
 </body>
 </html>
