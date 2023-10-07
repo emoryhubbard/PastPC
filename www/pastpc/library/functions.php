@@ -12,12 +12,10 @@ function valid($input, $pattern) {
     return preg_match($phpPattern, $input);
 }
 function getNav($classifications) {
-    $navList = "<ul class='top-nav'>";
-    $navList .= "<li><a href='/pastpc/index.php' title='View the PHP"
-        . " Motors home page'>Home</a></li>";
+    $navList = "";
     foreach ($classifications as $cl)
-        $navList .= "<li><a href='/pastpc/index.php?action=classification&classification-name=" . urlencode($cl['classificationName']) . "' title='View our $cl[classificationName] product line'>$cl[classificationName]</a></li>";
-    $navList .= '</ul>';
+        $navList .= "<li><a href='/pastpc/index.php?action=classification&classification-name=" . urlencode($cl['classificationName']) . "' title='View $cl[classificationName] devices'>$cl[classificationName]</a></li>";
+    $navList .= '<li><a href="/pastpc/devices/index.php?action=search" title="Find a Device">More</a></li>';
     return $navList;
 }
 function buildClassificationList($classifications) {

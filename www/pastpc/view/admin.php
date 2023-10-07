@@ -19,7 +19,7 @@ if (!$_SESSION['loggedin'])
             <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/pastpc/snippets/header.php"?>
         </header>
         <nav>
-            <?php print $navList; ?>
+            <ul class='top-nav'><?php print $navList; ?></ul>
         </nav>
         <main>
             <h1><?php echo $_SESSION['clientData']['clientFirstname'] . " " . $_SESSION['clientData']['clientLastname'];?></h1>

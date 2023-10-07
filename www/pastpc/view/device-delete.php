@@ -25,7 +25,7 @@ if ($_SESSION['clientData']['clientLevel'] < 2) {
             <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/pastpc/snippets/header.php"?>
         </header>
         <nav>
-            <?php print $navList; ?>
+            <ul class='top-nav'><?php print $navList; ?></ul>
         </nav>
         <main>
             <?php

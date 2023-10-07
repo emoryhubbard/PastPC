@@ -70,6 +70,11 @@ a {
 }
 .top-nav li {
     color: var(--lgray);
+    display: none;
+}
+
+.top-nav li:nth-child(3), .top-nav li:nth-child(4), .top-nav li:nth-child(5), .top-nav li:nth-child(6), .top-nav li:last-child {
+    display: inline;
 }
 .top-nav li a {
     padding-top: .8rem;
