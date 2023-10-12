@@ -40,7 +40,7 @@ if (!$_SESSION['loggedin'])
             echo '<p><a class="p-link" href="/pastpc/accounts/index.php?action=update-account">Update Account Information</a></p>';
             if ($cd['clientLevel'] > 1) {
                 echo '<h2>Administrative Actions</h2>';
-                echo '<p>Use the following link to administer inventory:</p>';
+                echo '<p>Use the following link to administer device listings:</p>';
                 echo '<p><a class="p-link" href="/pastpc/devices">Device Management</a></p>';
             }
             ?>

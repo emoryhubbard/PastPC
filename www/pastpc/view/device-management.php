@@ -33,8 +33,10 @@ if (isset($_SESSION['message']))
             <h1 class="center">Device Management</h1>
             <h2 class="center">New type of device?</h2>
             <p class="center">Add a new <a class="p-link" href="/pastpc/devices/index.php?action=add-classification">classification.</a></p>
-            <h2 class="center">New device to sell?</h2>
+            <h2 class="center">New device to list?</h2>
             <p class="center">Add a new <a class="p-link" href="/pastpc/devices/index.php?action=add-device">device.</a></p>
+            <h2 class="center">Need to upload/delete images?</h2>
+            <p class="center">Manage <a class="p-link" href="/pastpc/uploads/index.php">images.</a></p>
             <?php
             if (isset($classificationList)) {
                 echo '<h2>Devices By Classification</h2>';

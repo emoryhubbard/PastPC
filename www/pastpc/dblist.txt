@@ -1,0 +1,252 @@
+    Desktop
+    5
+X   Custom-Built PC, previously Custom-Built Running Windows 98
+X   2017 PC, previously Dell Turbo PC (1985)
+X   iMac, previously iMac (2010) https://pixabay.com/photos/apple-monitor-desk-imac-office-407122/
+    2010 PC, previously Dell Studio XPS - SX8100 - 1986 (2010)
+    IBM PC, related to IBM PC XT (Model 5160), previously HP All-in-One 200-5020 (2010), https://unsplash.com/photos/Zd6PL6PSW5E
+
+    Laptop
+    5
+    HP Envy, related to HP Envy, previously same
+    2017 Laptop, related to Lenovo Yoga 7i, previously Dell XPS 13
+    Small Chromebook, related to Toshiba Chromebook 2 from 2014, previously Razor Blade 14
+    2010 Laptop, related to  Fujitsu Siemens amilo L1300, previously Acer AC700 Chromebook (one of the originals)
+    2016 Laptop, related to Dell Latitude 12 E5270, previously Dell Toshiba Satellite Pro 4300 (90s)
+
+    Photo by Hasan Albari: https://www.pexels.com/photo/silver-and-black-laptop-computer-1229861/
+    Photo by PhotoMIX Company: https://www.pexels.com/photo/macbook-air-246340/
+    Photo by Luis Quintero: https://www.pexels.com/photo/black-laptop-computer-turned-on-2148216/
+    Photo by Julien BRION: https://www.pexels.com/photo/macbook-pro-102061/
+
+    Photo by Luis Quintero: https://www.pexels.com/photo/macbook-pro-2148220/
+
+    Phone
+    5
+X   iPhone 11, previously same
+    Galaxy Note 2, previously same
+    ZTE Maven, previously same
+    Samsung Galaxy S6, previously same
+    iPhone XS, previously iPhone 3G
+    https://www.lifewire.com/compare-iphone-models-1999430
+
+    Tablet
+    4
+    DIP Portable, related to Atari Portfolio / DIP Pocket PC, previously GRiDPad
+    Apple iPad (2010), previously same
+    iPad Pro (2015), previously same
+    Samsung Galaxy Tab S2 (2018), previously same
+    Samsung Galaxy Tab A (2020), previously same
+
+    Console
+    2
+    PS1, previously same
+    Xbox 360, previously same
+
+Custom-Built PC.
+    A high-end custom PC built in 1999.
+
+    Intel Pentium III: It was released in 1999 and was the fastest processor available at that time. It had a clock speed of up to 1.13 GHz and was based on the 0.18-micron process technology.
+    Nvidia GeForce 256: It was released in 1999 and was the first GPU to support hardware acceleration of 3D graphics. It had a clock speed of up to 120 MHz and supported up to 32 MB of memory.
+    Sound Blaster Live!: It was released in 1998 and was one of the most popular sound cards available at that time. It supported up to 5.1-channel surround sound and had a signal-to-noise ratio (SNR) of up to 100 dB.
+    Western Digital Caviar: It was released in 1999 and was one of the fastest hard drives available at that time. It had a spindle speed of up to 7,200 RPM and a capacity of up to 40 GB.
+    CD-RW Drive: It was released in 1997 and allowed users to read and write data on CD-ROMs. It had a maximum write speed of up to 4x and a maximum read speed of up to 24x.
+    Operating System: Windows 98 Second Edition.
+2017 PC.
+    A mid-range custom PC built in 2017.
+
+    Intel Core i5-7600K: It was released in 2017 and was one of the fastest processors available at that time. It had a clock speed of up to 3.8 GHz and was based on the 14nm process technology.
+    Nvidia GeForce GTX 1060: It was released in 2016 and was one of the most popular graphics cards available at that time. It had a clock speed of up to 1.7 GHz and supported up to 6 GB of memory.
+    Corsair Vengeance LPX: It was released in 2014 and was one of the most popular RAM modules available at that time. It supported up to 16 GB of memory and had a clock speed of up to 3,000 MHz.
+    Samsung 850 EVO: It was released in 2014 and was one of the fastest SSDs available at that time. It had a capacity of up to 2 TB and a read/write speed of up to 540/520 MB/s.
+    EVGA SuperNOVA: It was released in 2015 and was one of the most popular power supplies available at that time. It had a wattage rating of up to 750 W and an efficiency rating of up to 90%.
+    Operating System: Windows 10 Creators Update (version 1703).
+iMac.
+    An Apple iMac purchased in 2010.
+
+    Intel Core i3/i5/i7: The 21.5-inch model was powered by a 3.06 GHz Intel Core i3 processor. Both models were upgradable to a quad-core Intel Core i7 processor.
+    ATI Radeon HD: The 21.5-inch model had an ATI Radeon HD 4670 graphics card with 256 MB of memory.
+    DDR3 SDRAM: Both models came with 4 GB of DDR3 SDRAM, which was expandable up to 16 GB.
+    Hard Drive: The 21.5-inch model had a 500 GB Serial ATA hard drive. Both models were upgradable to a solid-state drive (SSD).
+    Operating System: Mac OS X Snow Leopard (version 10.6).
+2010 PC.
+    A mid-range custom PC, built in 2010.
+
+    Intel Core i5-750: It was released in 2009 and was one of the fastest processors available at that time. It had a clock speed of up to 2.66 GHz and was based on the 45nm process technology.
+    Nvidia GeForce GTX 460: It was released in 2010 and was one of the most popular graphics cards available at that time. It had a clock speed of up to 675 MHz and supported up to 1 GB of memory.
+    Corsair XMS3: It was released in 2009 and was one of the most popular RAM modules available at that time. It supported up to 8 GB of memory and had a clock speed of up to 1,600 MHz.
+    Western Digital Caviar Black: It was released in 2009 and was one of the fastest hard drives available at that time. It had a spindle speed of up to 7,200 RPM and a capacity of up to 2 TB.
+    DVD-RW Drive: It was released in 2000 and allowed users to read and write data on CD-ROMs and DVDs. It had a maximum write speed of up to 24x and a maximum read speed of up to 48x.
+    Operating System: Windows 7.
+IBM PC.
+    Originally purchased in 1983.
+    Intel 8088 Microprocessor: It had a clock speed of up to 4.77 MHz.
+    Base RAM: It had a base RAM of at least 128 KB.
+    ROM ICs: Two 32 KB ROM ICs replaced the previous six 8 KB ROM ICs.
+    Hard Disk Drive: A 10 MB hard drive was included as standard equipment.
+    PC DOS 2.0: It was included as the operating system.
+HP Envy.
+    An HP Envy x360 purchased in 2018.
+
+    Processor: AMD Ryzen 5 4500U.
+    Graphics: AMD Radeon Graphics, 8 GB GPU Memory.
+    RAM: 16 GB.
+    SSD: 500 GB Memory.
+    OS: Windows 11 Home 22H2.
+2017 Laptop.
+    A Lenovo Yoga G1300 from 2017.
+
+    Came with Intel Core i7-1355U processor, Intel Iris Xe integrated graphics, 16GB of RAM, 512GB of SSD storage, a 16-inch 1,920 x 1,200-pixel IPS glossy display, and Windows 11 Home.
+Small Chromebook.
+    A Toshiba Chromebook A3500 from 2014.
+    The laptop is equipped with an Intel Celeron N2840 processor and an Intel 7260NGW wireless transceiver module that handles both 2x2 dual-band 802.11ac and Bluetooth 4.0 tasks 1. The laptop also has a 16GB SSD (NVMe PCIe), 8 SK Hynix H5TC4G63AFR 4 Gbit DDR3L SDRAMs, and a Toshiba THGBMBG7D2KBAIL 16GByte embedded NAND flash memory module.
+    The OS was originally Chrome OS 36, and has been continually updated since.
+2010 Laptop.
+    An Amilo G600 purchased in 2005.
+
+    Processor (CPU): Equipped with an Intel Celeron single-core, running at 1.5 GHz.
+
+    Memory (RAM): 512 MB RAM.
+
+    Hard Drive (HDD): 80 GB of hard drive capacity.
+
+    Graphics Card (GPU): Integrated graphics from Intel, suitable for basic tasks but not demanding graphics applications.
+
+    Optical Drive: DVD/CD-RW combo drive for playing DVDs, CDs, and writing data to CDs.
+
+    Operating System: Windows XP.
+2016 Laptop.
+    A Dell Advantage E5300 purchased in 2016.
+
+    Processor (CPU): 7th-generation Intel Core i7.
+
+    Memory (RAM): 16GB of DDR4 RAM.
+
+    Storage: 500 GB HDD.
+
+    Graphics: It utilizes integrated Intel HD Graphics.
+
+    OS: Windows 7.
+iPhone 11.
+    An iPhone 11 purchased in 2019.
+    Processor (SoC): The iPhone 11 is powered by the Apple A13 Bionic system-on-chip (SoC), which includes a high-performance CPU and a GPU.
+
+    Memory (RAM): The exact amount of RAM is not officially disclosed by Apple, but it's typically believed to be around 4GB.
+
+    Storage: 64GB.
+
+    Operating System: It runs Apple's iOS, which has been updated to support the latest features and security updates.
+Samsung Galxy Note 2.
+    A Samsung Galaxy Note 2 purchased in 2012.
+    Processor (SoC): This Galaxy Note 2 is powered by the Samsung Exynos 4412 quad-core system-on-chip (SoC).
+    
+    Memory (RAM): The Galaxy Note 2 typically comes with 2GB of RAM.
+
+    Storage: 32 GB.
+
+    Operating System: Originally Jelly Bean. Upgraded to the maximum it can support, which is Android 4.4.2 KitKat.
+ZTE Maven.
+    A ZTE Maven 2 purchased in 2016.
+
+    Processor (SoC): The ZTE Maven 2 is powered by the Qualcomm Snapdragon 210 system-on-chip (SoC), which includes a quad-core processor.
+
+    Memory (RAM): 1G RAM.
+
+    Storage: 8 GB.
+
+    Operating System: This ZTE Maven 2 shipped with Android 6.0 Marshmallow as its operating system and it hasn't been upgraded since.
+Samsung Galaxy S6.
+    A Samsung Galaxy S6 purchased in 2015.
+
+    Processor (SoC): Qualcomm Snapdragon 810 octa-core processor.
+
+    Memory (RAM): 3GB of RAM.
+
+    Storage: 32GB.
+
+    Operating System: Initially shipped with Android 5.0 Lollipop and has received update to Android 7.0 Nougat, which is the latest version it can support due to its hardware.
+iPhone XS.
+    An iPhone XS purchased in 2018.
+
+    Processor (SoC): Apple's A12 Bionic system-on-chip (SoC), which includes a hexa-core CPU and a quad-core GPU.
+
+    Memory (RAM): 4GB of RAM.
+
+    Storage: 64 GB.
+
+    Operating System: This iPhone XS originally shipped with iOS 12 and received updates to iOS 15.
+DIP Portable.
+    The DIP Portable is a vintage handheld computer that was introduced in 1989. It was one of the earliest portable PCs, with a monochrome LCD display with a resolution of 240 x 64 pixels.
+    It's been given access to the internet through connecting it to a Raspberry Pi, with TCP support. A custom application was created to interpret the remote user input relayed to it by the Raspberry Pi, which in turn connects to PastPC through its APIs and relays back the frame buffer contents, enabling basic functionality on the platform.
+    Processor: The DIP Portable is powered by an Intel 80C88 CPU running at 4.92 MHz.
+
+    Memory: 128 KB of RAM.
+
+    Storage: 256 KB with attached memory cards.
+
+    Operating System: It runs DIP-DOS, which is a customized version of MS-DOS.
+iPad.
+    The first model of iPad, purchased in 2010.
+    Processor (SoC): Apple A4 system-on-chip (SoC), which included a 1 GHz ARM Cortex-A8 CPU and a PowerVR SGX535 GPU.
+
+    Storage: 32GB.
+
+    Memory (RAM): 256MB of RAM.
+
+    Operating System: It shipped with iOS 3.2, which was later upgraded to iOS 5.1.1, the last iOS version supported by the original iPad.
+iPad Pro.
+    The original model of iPad Pro, purchased in 2015.
+
+    Processor (SoC): Apple A9X system-on-chip (SoC), which included a dual-core CPU and a PowerVR Series 7XT GPU.
+
+    Storage: 64 GB.
+
+    Memory (RAM): The original iPad Pro had 4GB of RAM.
+
+    Operating System: iOS 9.
+Samsung Galaxy Tab S2.
+    A Samsung Galaxy Tab S2 purchased in 2015.
+
+    Processor (SoC): Samsung Exynos 5433 octa-core system-on-chip.
+
+    Storage: 32 GB.
+
+    Memory (RAM): The device typically featured 3GB of RAM.
+
+    Operating System: Shipped with Android 5.0 Lollipop, later upgraded to 7.0.
+Samsung Galaxy Tab A.
+    A Samsung Galaxy Tab A purchased in 2020.
+
+    Processor (SoC): Qualcomm Snapdragon 429.
+
+    Storage: 32 GB.
+
+    Memory (RAM): 2GB of RAM.
+
+    Operating System: Originally Android 9 (Pie), has since been upgraded all the way to Android 12.
+PS1.
+    Although this classic gaming console was not originally designed with internet capability, it has been modified and connected to a Raspberry Pi to provide an internet interface, with a custom library written to enable communication through the PastPC platform's APIs. The frame buffer can now be viewed remotely, and the Raspberry Pi can send controller input remotely as well.
+
+    Central Processing Unit (CPU): 32-bit RISC (Reduced Instruction Set Computing) CPU clocked at 33.8 MHz, which was custom-designed for gaming.
+
+    Graphics Processing Unit (GPU): The console includes a dedicated GPU designed to handle 3D graphics and provide smooth gaming experiences.
+
+    Memory (RAM): 2MB of RAM for running games and system processes.
+
+    Storage: It uses CD-ROMs as the storage medium for games, with the ability to play both audio CDs and game discs.
+
+    Software: The PlayStation has a proprietary operating system to run games and applications. It supports memory cards for saving game data.
+XBox 360.
+    An XBox 360 purchased in 2005. A basic homebrew app is running to allow it to connect to the PastPC platform.
+
+    Central Processing Unit (CPU): Custom-designed triple-core IBM Xenon CPU, clocked at 3.2 GHz.
+
+    Graphics Processing Unit (GPU): Custom ATI Xenos GPU.
+
+    Memory (RAM): 512MB of unified GDDR3 RAM.
+
+    Storage: Added hard drive for storing game data, profiles, and downloadable content.
+
+    Optical Drive: DVD-ROM drive for reading game discs. Also works as a standard DVD player.
+
+    Operating System: Custom operating system that allows users to access the Xbox Dashboard, browse the internet, and download and play games from the Xbox Live Marketplace.
