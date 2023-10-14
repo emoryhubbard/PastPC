@@ -22,18 +22,18 @@ classificationList.addEventListener("change", function () {
 });
 
 function buildInventoryList(data) {
-    const inventoryDisplay = document.querySelector("#inventoryDisplay");
+    const devicesDisplay = document.querySelector("#devicesDisplay");
     let dt = '<colgroup><col class="col1" span="1"><col class="col2" span="1"></colgroup>';
     dt += '<thead>'; // dt is dataTable
     dt += '<tr><th class="table-name">Device Name</th><td>&nbsp;</td><td>&nbsp;</td></tr>';
     dt += '</thead>';
     dt += '<tbody>';
     data.forEach(function (el) { // el is element
-        console.log(el.invId + ", " + el.invModel);
-        dt += `<tr><td>${el.invMake} ${el.invModel}</td>`;
-        dt += `<td class="modify"><a href='/pastpc/devices?action=mod&invId=${el.invId}' title='Click to modify'>Modify</a></td>`;
-        dt += `<td class="delete"><a href='/pastpc/devices?action=del&invId=${el.invId}' title=CLick to delete'>Delete</a></td></tr>`;
+        console.log(el.deviceId + ", " + el.deviceModel);
+        dt += `<tr><td>${el.deviceBrand} ${el.deviceModel}</td>`;
+        dt += `<td class="modify"><a href='/pastpc/devices?action=mod&deviceId=${el.deviceId}' title='Click to modify'>Modify</a></td>`;
+        dt += `<td class="delete"><a href='/pastpc/devices?action=del&deviceId=${el.deviceId}' title=CLick to delete'>Delete</a></td></tr>`;
     });
     dt += '</tbody>';
-    inventoryDisplay.innerHTML = dt;
+    devicesDisplay.innerHTML = dt;
 }

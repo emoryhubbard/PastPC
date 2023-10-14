@@ -47,13 +47,13 @@ if (isset($_SESSION['message']))
             <noscript>
             <p><strong>JavaScript must be enabled to use this page.</strong></p>
             </noscript>
-            <table id="inventoryDisplay"></table>
+            <table id="devicesDisplay"></table>
         </main>
         <footer>
             <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/pastpc/snippets/footer.php"?>
         </footer>
     </div>
-    <script src="../js/inventory.js"></script>
+    <script src="../js/devices.js"></script>
 </body>
 </html>
 <?php unset($_SESSION['message']); ?>

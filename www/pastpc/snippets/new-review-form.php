@@ -6,6 +6,6 @@
                     <input class="submit-button" type="submit" value="Submit Review">
                     <input type="hidden" name="action" value="submit-add-review">
                     <input type="hidden" name="client-id" value=<?php echo $cd['clientId']; ?>>
-                    <input type="hidden" name="inv-id" value=<?php echo $invInfo['invId']; ?>>
+                    <input type="hidden" name="device-id" value=<?php echo $deviceInfo['deviceId']; ?>>
                 </fieldset>
             </form>

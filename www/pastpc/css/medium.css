@@ -56,14 +56,14 @@
     .reviews > li:first-child {
         margin-top: 2rem;
     }
-    #inv-display {
+    #device-display {
         flex-flow: row wrap;
         justify-content: flex-start;
     }
-    #inv-display h2 {
+    #device-display h2 {
         font-size: 1rem;
     }
-    #inv-display li {
+    #device-display li {
         max-width: 200px;
         flex: 1 0 auto;
         text-align: center;
@@ -72,7 +72,7 @@
         flex-direction: column;
         justify-content: space-between;
     }
-    #inv-display div {
+    #device-display div {
         width: 100%;
     }
     .detail-display {

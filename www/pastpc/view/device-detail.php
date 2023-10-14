@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-    <title><?php echo "$invInfo[invMake] $invInfo[invModel]"; ?> | PastPC</title>
+    <title><?php echo "$deviceInfo[deviceBrand] $deviceInfo[deviceModel]"; ?> | PastPC</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" media="screen">

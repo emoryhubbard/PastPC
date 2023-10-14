@@ -52,59 +52,57 @@ switch ($action) {
             exit;
         }
         break;
-        case 'submit-device':
-            $invMake = trim(filter_input(INPUT_POST, 'invMake', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
-            $invModel = trim(filter_input(INPUT_POST, 'invModel', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
-            $invDescription = trim(filter_input(INPUT_POST, 'invDescription', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
-            $invImage = trim(filter_input(INPUT_POST, 'invImage', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
-            $invThumbnail = trim(filter_input(INPUT_POST, 'invThumbnail', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
-            $invPrice = trim(filter_input(INPUT_POST, 'invPrice', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION));
-            $invColor = trim(filter_input(INPUT_POST, 'invColor', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
-            $classificationId = trim(filter_input(INPUT_POST, 'classificationId', FILTER_SANITIZE_NUMBER_INT));
-            if (!valid($invMake, $invMakePattern) || !valid($invModel, $invModelPattern) || empty($invDescription) || empty($invImage) || empty($invThumbnail) || !valid($invPrice, $invPricePattern) || !valid($invColor, $invColorPattern) || empty($classificationId)) {
-                $message = '<p>Please provide information for empty or invalid form fields.</p>';
-                include '../view/add-device.php';
-                exit;
-            }
-            $outcome = insertDevice($invMake, $invModel, $invDescription, $invImage, $invThumbnail, $invPrice, 1, $invColor, $classificationId);
-            if ($outcome === 1) {
-                $message = "<p>Device successfully added!</p>";
-                include '../view/add-device.php';
-                exit;
-            } else {
-                $message = "<p>System failed to add new device. Please try again.</p>";
-                include '../view/add-device.php';
-                exit;
-            }
-            break;
+    case 'submit-device':
+        $deviceBrand = trim(filter_input(INPUT_POST, 'deviceBrand', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+        $deviceModel = trim(filter_input(INPUT_POST, 'deviceModel', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+        $deviceDescription = trim(filter_input(INPUT_POST, 'deviceDescription', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+        $deviceImage = trim(filter_input(INPUT_POST, 'deviceImage', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+        $deviceThumbnail = trim(filter_input(INPUT_POST, 'deviceThumbnail', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+        $deviceMonthlyRate = trim(filter_input(INPUT_POST, 'deviceMonthlyRate', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION));
+        $classificationId = trim(filter_input(INPUT_POST, 'classificationId', FILTER_SANITIZE_NUMBER_INT));
+        if (!valid($deviceBrand, $deviceBrandPattern) || !valid($deviceModel, $deviceModelPattern) || empty($deviceDescription) || empty($deviceImage) || empty($deviceThumbnail) || !valid($deviceMonthlyRate, $deviceMonthlyRatePattern) || empty($classificationId)) {
+            $message = '<p>Please provide information for empty or invalid form fields.</p>';
+            include '../view/add-device.php';
+            exit;
+        }
+        $outcome = insertDevice($deviceBrand, $deviceModel, $deviceDescription, $deviceImage, $deviceThumbnail, $deviceMonthlyRate, $classificationId);
+        if ($outcome === 1) {
+            $message = "<p>Device successfully added!</p>";
+            include '../view/add-device.php';
+            exit;
+        } else {
+            $message = "<p>System failed to add new device. Please try again.</p>";
+            include '../view/add-device.php';
+            exit;
+        }
+        break;
     case 'getInventoryItems':
         $classificationId = filter_input(INPUT_GET, 'classificationId', FILTER_SANITIZE_NUMBER_INT);
-        $inventoryArray = getInventoryByClassification($classificationId);
-        echo json_encode($inventoryArray);
+        $devicesArray = getInventoryByClassification($classificationId);
+        echo json_encode($devicesArray);
         break;
     case 'mod':
-        $invId = filter_input(INPUT_GET, 'invId', FILTER_VALIDATE_INT);
-        $invInfo = getInvItemInfo($invId);
-        if (count($invInfo)<1)
+        $deviceId = filter_input(INPUT_GET, 'deviceId', FILTER_VALIDATE_INT);
+        $deviceInfo = getInvItemInfo($deviceId);
+        if (count($deviceInfo)<1)
             $message = 'Sorry, no device information could be found.';
         include '../view/device-update.php';
         break;
     case 'submit-update-device':
-        $invMake = trim(filter_input(INPUT_POST, 'invMake', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
-        $invModel = trim(filter_input(INPUT_POST, 'invModel', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
-        $invDescription = trim(filter_input(INPUT_POST, 'invDescription', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
-        $invImage = trim(filter_input(INPUT_POST, 'invImage', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
-        $invThumbnail = trim(filter_input(INPUT_POST, 'invThumbnail', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
-        $invPrice = trim(filter_input(INPUT_POST, 'invPrice', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION));
-        $invColor = trim(filter_input(INPUT_POST, 'invColor', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+        $deviceBrand = trim(filter_input(INPUT_POST, 'deviceBrand', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+        $deviceModel = trim(filter_input(INPUT_POST, 'deviceModel', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+        $deviceDescription = trim(filter_input(INPUT_POST, 'deviceDescription', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+        $deviceImage = trim(filter_input(INPUT_POST, 'deviceImage', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+        $deviceThumbnail = trim(filter_input(INPUT_POST, 'deviceThumbnail', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+        $deviceMonthlyRate = trim(filter_input(INPUT_POST, 'deviceMonthlyRate', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION));
         $classificationId = trim(filter_input(INPUT_POST, 'classificationId', FILTER_SANITIZE_NUMBER_INT));
-        $invId = trim(filter_input(INPUT_POST, 'invId', FILTER_SANITIZE_NUMBER_INT)); //consider getting rid of this and determining id dynamically
-        if (!valid($invMake, $invMakePattern) || !valid($invModel, $invModelPattern) || empty($invDescription) || empty($invImage) || empty($invThumbnail) || !valid($invPrice, $invPricePattern) || !valid($invColor, $invColorPattern) || empty($classificationId)) {
+        $deviceId = trim(filter_input(INPUT_POST, 'deviceId', FILTER_SANITIZE_NUMBER_INT)); //consider getting rid of this and determining id dynamically
+        if (!valid($deviceBrand, $deviceBrandPattern) || !valid($deviceModel, $deviceModelPattern) || empty($deviceDescription) || empty($deviceImage) || empty($deviceThumbnail) || !valid($deviceMonthlyRate, $deviceMonthlyRatePattern) || empty($classificationId)) {
             $message = '<p>Please provide information for empty or invalid form fields.</p>';
             include '../view/device-update.php';
             exit;
         }
-        $updateResult = updateDevice($invMake, $invModel, $invDescription, $invImage, $invThumbnail, $invPrice, 1, $invColor, $classificationId, $invId);
+        $updateResult = updateDevice($deviceBrand, $deviceModel, $deviceDescription, $deviceImage, $deviceThumbnail, $deviceMonthlyRate, $classificationId, $deviceId);
         if ($updateResult === 1) {
             $message = "<p>Device successfully updated!</p>";
             $_SESSION['message'] = $message;
@@ -117,17 +115,17 @@ switch ($action) {
         }        
         break;
     case 'del':
-        $invId = filter_input(INPUT_GET, 'invId', FILTER_VALIDATE_INT);
-        $invInfo = getInvItemInfo($invId);
-        if (count($invInfo)<1)
+        $deviceId = filter_input(INPUT_GET, 'deviceId', FILTER_VALIDATE_INT);
+        $deviceInfo = getInvItemInfo($deviceId);
+        if (count($deviceInfo)<1)
             $message = 'Sorry, no device information could be found.';
         include '../view/device-delete.php';
         break;
     case 'submit-delete-device':
-        $invMake = trim(filter_input(INPUT_POST, 'invMake', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
-        $invModel = trim(filter_input(INPUT_POST, 'invModel', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
-        $invId = trim(filter_input(INPUT_POST, 'invId', FILTER_SANITIZE_NUMBER_INT)); //consider getting rid of this and determining id dynamically
-        $deleteResult = deleteDevice($invId);
+        $deviceBrand = trim(filter_input(INPUT_POST, 'deviceBrand', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+        $deviceModel = trim(filter_input(INPUT_POST, 'deviceModel', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+        $deviceId = trim(filter_input(INPUT_POST, 'deviceId', FILTER_SANITIZE_NUMBER_INT)); //consider getting rid of this and determining id dynamically
+        $deleteResult = deleteDevice($deviceId);
         if ($deleteResult === 1) {
             $message = "<p>Device successfully deleted.</p>";
             $_SESSION['message'] = $message;
@@ -141,13 +139,13 @@ switch ($action) {
         }  
         break;
     case 'detail-view':
-        $invId = filter_input(INPUT_GET, 'inv-id', FILTER_VALIDATE_INT);
-        $invInfo = getInvItemInfo($invId);
-        if ($invInfo == null)
-            $message = "<p class='notice'>Sorry, the indicated device could not be found in the inventory.</p>";
+        $deviceId = filter_input(INPUT_GET, 'device-id', FILTER_VALIDATE_INT);
+        $deviceInfo = getInvItemInfo($deviceId);
+        if ($deviceInfo == null)
+            $message = "<p class='notice'>Sorry, the indicated device could not be found in the devices.</p>";
         else
-            $detailDisplay = buildDetailDisplay($invInfo);
-        $thumbnails = getThumbnails($invId);
+            $detailDisplay = buildDetailDisplay($deviceInfo);
+        $thumbnails = getThumbnails($deviceId);
         $thumbnailDisplay = buildThumbnailDisplay($thumbnails);
         include '../view/device-detail.php';
         break;

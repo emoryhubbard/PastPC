@@ -1,8 +1,8 @@
 import { qs, getParam } from './utils.mjs';
 
-const invId = getParam("inv-id");
-console.log(`invId is: ${invId}`);
-const reviewsURL = `/pastpc/reviews/index.php?action=get-reviews&inv-id=${invId}`;
+const deviceId = getParam("device-id");
+console.log(`deviceId is: ${deviceId}`);
+const reviewsURL = `/pastpc/reviews/index.php?action=get-reviews&device-id=${deviceId}`;
 getReviews(reviewsURL);
 
 async function getReviews(url) {

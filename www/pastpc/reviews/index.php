@@ -26,16 +26,16 @@ if ($action == NULL) {
 
 switch ($action) {
     case 'submit-add-review':
-        $invId = filter_input(INPUT_POST, 'inv-id', FILTER_SANITIZE_NUMBER_INT);
+        $deviceId = filter_input(INPUT_POST, 'device-id', FILTER_SANITIZE_NUMBER_INT);
         $clientId = filter_input(INPUT_POST, 'client-id', FILTER_SANITIZE_NUMBER_INT);
         $reviewText = filter_input(INPUT_POST, 'review-text', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
-        if (empty($invId) | empty($clientId)) {
+        if (empty($deviceId) | empty($clientId)) {
             $_SESSION['message'] = '<p>Please provide information for empty or invalid form fields or parameters.</p>';
             header('Location: ' . $_SERVER['HTTP_REFERER']);
             exit;
         }
-        $outcome = addReview($reviewText, $invId, $clientId);
+        $outcome = addReview($reviewText, $deviceId, $clientId);
         if ($outcome === 1) {
             $_SESSION['message'] = "<p>Review successfully added!</p>";
             header('Location: ' . $_SERVER['HTTP_REFERER']);
@@ -99,8 +99,8 @@ switch ($action) {
         header('Location: ' . $_SERVER['HTTP_REFERER']);
         break;
     case 'get-reviews':
-        $invId = filter_input(INPUT_GET, 'inv-id', FILTER_SANITIZE_NUMBER_INT);
-        $reviewsArray = getDeviceReviews($invId);
+        $deviceId = filter_input(INPUT_GET, 'device-id', FILTER_SANITIZE_NUMBER_INT);
+        $reviewsArray = getDeviceReviews($deviceId);
         echo json_encode($reviewsArray);
         break;
     case 'get-client-reviews':

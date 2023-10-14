@@ -30,7 +30,7 @@ if (isset($_SESSION['message']))
                 echo $message;
             ?>
             <form action="/pastpc/uploads/" method="post" enctype="multipart/form-data">
-                <label for="invItem">Device</label>
+                <label for="deviceItem">Device</label>
                 <?php echo $prodSelect; ?>
                 <fieldset>
                     <label>Is this the main image for the device?</label>

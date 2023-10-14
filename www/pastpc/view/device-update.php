@@ -5,7 +5,7 @@ foreach ($classifications as $cl) {
 
     if (isset($classificationId) && $cl['classificationId'] === $classificationId)
         $classificationList .= ' selected ';
-    elseif (isset($invInfo['classificationId']) && $cl['classificationId'] === $invInfo['classificationId'])
+    elseif (isset($deviceInfo['classificationId']) && $cl['classificationId'] === $deviceInfo['classificationId'])
         $classificationList .= ' selected ';
     $classificationList .= ">$cl[classificationName]</option>";
 }
@@ -19,10 +19,10 @@ if ($_SESSION['clientData']['clientLevel'] < 2) {
 <html lang="en-US">
 <head>
     <title><?php
-        if (isset($invInfo['invMake']) && isset($invInfo['invModel']))
-            echo "Modify $invINfo[invMake] $invInfo[invModel]";
-        elseif (isset($invMake) && isset($invModel))
-            echo "Modify $invMake $invModel";
+        if (isset($deviceInfo['deviceBrand']) && isset($deviceInfo['deviceModel']))
+            echo "Modify $deviceINfo[deviceBrand] $deviceInfo[deviceModel]";
+        elseif (isset($deviceBrand) && isset($deviceModel))
+            echo "Modify $deviceBrand $deviceModel";
         ?> | PastPC</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -46,28 +46,27 @@ if ($_SESSION['clientData']['clientLevel'] < 2) {
             }
             ?>
             <h1><?php
-                if (isset($invInfo['invMake']) && isset($invInfo['invModel']))
-                    echo "Modify $invInfo[invMake] $invInfo[invModel]";
-                elseif (isset($invMake) && isset($invModel))
-                    echo "Modify $invMake $invModel";
+                if (isset($deviceInfo['deviceBrand']) && isset($deviceInfo['deviceModel']))
+                    echo "Modify $deviceInfo[deviceBrand] $deviceInfo[deviceModel]";
+                elseif (isset($deviceBrand) && isset($deviceModel))
+                    echo "Modify $deviceBrand $deviceModel";
                 ?></h1>
             <form method="post" action="/pastpc/devices/index.php">
                 <fieldset>
-                    <label>Make<span class="asterisk">*</span><input type="text" name="invMake" title="Make is limited to 30 characters" required pattern=<?php print $invMakePattern;?> placeholder="" <?php if(isset($invMake)){echo "value='$invMake'";} elseif(isset($invInfo['invMake'])) echo "value='$invInfo[invMake]'"; ?>><span>Make is limited to 30 characters</span></label>
-                    <label>Model<span class="asterisk">*</span><input type="text" name="invModel" title="Model is limited to 30 characters" required pattern=<?php print $invModelPattern;?> placeholder="" <?php if(isset($invModel)){echo "value='$invModel'";} elseif(isset($invInfo['invModel'])) echo "value='$invInfo[invModel]'"; ?>><span>Model is limited to 30 characters</span></label>
-                    <label>Description<span class="asterisk">*</span><input type="text" name="invDescription" title="Required field" required placeholder="" <?php if(isset($invDescription)){echo "value='$invDescription'";} elseif(isset($invInfo['invDescription'])) echo "value='$invInfo[invDescription]'"; ?>></label>
-                    <label>Image<span class="asterisk">*</span><input type="text" name="invImage" value="/images/no-image.png" title="Required field"></label>
-                    <label>Thumbnail<span class="asterisk">*</span><input type="text" name="invThumbnail" value="/images/no-image.png" title="Required field"></label>
-                    <label>Price<span class="asterisk">*</span><input type="text" name="invPrice" title="Price must be a decimal number" required pattern=<?php print $invPricePattern;?> placeholder="" <?php if(isset($invPrice)){echo "value='$invPrice'";} elseif(isset($invInfo['invPrice'])) echo "value='$invInfo[invPrice]'"; ?>><span>Price must be a decimal number</span></label>
-                    <label>Color<span class="asterisk">*</span><input type="text" name="invColor" title="Color is limited to 20 characters" required pattern=<?php print $invColorPattern;?> placeholder="" <?php if(isset($invColor)){echo "value='$invColor'";} elseif(isset($invInfo['invColor'])) echo "value='$invInfo[invColor]'"; ?>><span>Color is limited to 20 characters</span></label>
+                    <label>Brand<span class="asterisk">*</span><input type="text" name="deviceBrand" title="Brand is limited to 30 characters" required pattern=<?php print $deviceBrandPattern;?> placeholder="" <?php if(isset($deviceBrand)){echo "value='$deviceBrand'";} elseif(isset($deviceInfo['deviceBrand'])) echo "value='$deviceInfo[deviceBrand]'"; ?>><span>Brand is limited to 30 characters</span></label>
+                    <label>Model<span class="asterisk">*</span><input type="text" name="deviceModel" title="Model is limited to 30 characters" required pattern=<?php print $deviceModelPattern;?> placeholder="" <?php if(isset($deviceModel)){echo "value='$deviceModel'";} elseif(isset($deviceInfo['deviceModel'])) echo "value='$deviceInfo[deviceModel]'"; ?>><span>Model is limited to 30 characters</span></label>
+                    <label>Description<span class="asterisk">*</span><input type="text" name="deviceDescription" title="Required field" required placeholder="" <?php if(isset($deviceDescription)){echo "value='$deviceDescription'";} elseif(isset($deviceInfo['deviceDescription'])) echo "value='$deviceInfo[deviceDescription]'"; ?>></label>
+                    <label>Image<span class="asterisk">*</span><input type="text" name="deviceImage" value="/images/no-image.png" title="Required field"></label>
+                    <label>Thumbnail<span class="asterisk">*</span><input type="text" name="deviceThumbnail" value="/images/no-image.png" title="Required field"></label>
+                    <label>Monthly Rate<span class="asterisk">*</span><input type="text" name="deviceMonthlyRate" title="Monthly rate must be a decimal number" required pattern=<?php print $deviceMonthlyRatePattern;?> placeholder="" <?php if(isset($deviceMonthlyRate)){echo "value='$deviceMonthlyRate'";} elseif(isset($deviceInfo['deviceMonthlyRate'])) echo "value='$deviceInfo[deviceMonthlyRate]'"; ?>><span>Monthly rate must be a decimal number</span></label>
                     <?php print $classificationList ?>
                     <input class="submit-button" type="submit" value="Update Device">
                     <input type="hidden" name="action" value="submit-update-device">
-                    <input type="hidden" name="invId" value="<?php
-                    if (isset($invInfo['invId']))
-                        echo $invInfo['invId'];
-                    elseif (isset($invId))
-                        echo $invId;
+                    <input type="hidden" name="deviceId" value="<?php
+                    if (isset($deviceInfo['deviceId']))
+                        echo $deviceInfo['deviceId'];
+                    elseif (isset($deviceId))
+                        echo $deviceId;
                     ?>">
                 </fieldset>
             </form>

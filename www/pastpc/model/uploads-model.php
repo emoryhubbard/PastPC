@@ -3,11 +3,11 @@
 This is the model for the device image uploads application
 */
 
-function storeImages($imgPath, $invId, $imgName, $imgPrimary) {
+function storeImages($imgPath, $deviceId, $imgName, $imgPrimary) {
     $db = getPDO();
-    $sql = 'INSERT INTO images (invId, imgPath, imgName, imgPrimary) VALUES (:invId, :imgPath, :imgName, :imgPrimary)';
+    $sql = 'INSERT INTO images (deviceId, imgPath, imgName, imgPrimary) VALUES (:deviceId, :imgPath, :imgName, :imgPrimary)';
     $stmt = $db->prepare($sql);
-    $stmt-> bindValue(':invId', $invId, PDO::PARAM_INT);
+    $stmt-> bindValue(':deviceId', $deviceId, PDO::PARAM_INT);
     $stmt-> bindValue(':imgPath', $imgPath, PDO::PARAM_STR);
     $stmt-> bindValue(':imgName', $imgName, PDO::PARAM_STR);
     $stmt-> bindValue(':imgPrimary', $imgPrimary, PDO::PARAM_INT);
@@ -15,7 +15,7 @@ function storeImages($imgPath, $invId, $imgName, $imgPrimary) {
 
     $imgPath = makeThumbnailName($imgPath);
     $imgName = makeThumbnailName($imgName);
-    $stmt-> bindValue(':invId', $invId, PDO::PARAM_INT);
+    $stmt-> bindValue(':deviceId', $deviceId, PDO::PARAM_INT);
     $stmt-> bindValue(':imgPath', $imgPath, PDO::PARAM_STR);
     $stmt-> bindValue(':imgName', $imgName, PDO::PARAM_STR);
     $stmt-> bindValue(':imgPrimary', $imgPrimary, PDO::PARAM_INT);
@@ -27,18 +27,18 @@ function storeImages($imgPath, $invId, $imgName, $imgPrimary) {
 }
 function getImages() {
     $db = getPDO();
-    $sql = 'SELECT imgId, imgPath, imgName, imgDate, inventory.invId, invMake, invModel FROM images JOIN inventory ON images.invId = inventory.invId';
+    $sql = 'SELECT imgId, imgPath, imgName, imgDate, devices.deviceId, deviceBrand, deviceModel FROM images JOIN devices ON images.deviceId = devices.deviceId';
     $stmt = $db->prepare($sql);
     $stmt->execute();
     $imageArray = $stmt->fetchALL(PDO::FETCH_ASSOC);
     $stmt->closeCursor();
     return $imageArray;
 }
-function getThumbnails($invId) {
+function getThumbnails($deviceId) {
     $db = getPDO();
-    $sql = "SELECT img.imgName, img.imgPath, inv.invMake, inv.invModel FROM inventory inv JOIN images img ON img.invId = inv.invId WHERE img.imgName LIKE '%-tn%' AND inv.invId = :invId";
+    $sql = "SELECT img.imgName, img.imgPath, device.deviceBrand, device.deviceModel FROM devices device JOIN images img ON img.deviceId = device.deviceId WHERE img.imgName LIKE '%-tn%' AND device.deviceId = :deviceId";
     $stmt = $db->prepare($sql);
-    $stmt->bindValue(':invId', $invId, PDO::PARAM_INT);
+    $stmt->bindValue(':deviceId', $deviceId, PDO::PARAM_INT);
     $stmt->execute();
     $thumbnails = $stmt->fetchAll(PDO::FETCH_ASSOC);
     $stmt->closeCursor();

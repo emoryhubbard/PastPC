@@ -27,42 +27,41 @@ function buildClassificationList($classifications) {
     return $classificationList;
 }
 function buildDevicesDisplay($devices) {
-    $dv = '<ul id="inv-display">';
+    $dv = '<ul id="device-display">';
     foreach ($devices as $device) {
         $dv .= '<li>';
-        $dv .= "<a href='/pastpc/devices/index.php?action=detail-view&inv-id=$device[invId]'><img src='$device[imgPath]' alt='Image of $device[invMake] $device[invModel] on pastpc.com'></a>";
+        $dv .= "<a href='/pastpc/devices/index.php?action=detail-view&device-id=$device[deviceId]'><img src='$device[imgPath]' alt='Image of $device[deviceBrand] $device[deviceModel] on pastpc.com'></a>";
         $dv .= '<hr>';
-        $dv .= "<a href='/pastpc/devices/index.php?action=detail-view&inv-id=$device[invId]'><h2>$device[invMake] $device[invModel]</h2></a>";
-        $dv .= "<span>$device[invPrice]</span>";
+        $dv .= "<a href='/pastpc/devices/index.php?action=detail-view&device-id=$device[deviceId]'><h2>$device[deviceBrand] $device[deviceModel]</h2></a>";
+        $dv .= "<span>$device[deviceMonthlyRate]</span>";
         $dv .= '</li>';
     }
     $dv .= '</ul>';
     return $dv;
 }
 /*function buildDevicesDisplay($devices) {
-    $dv = '<ul id="inv-display">';
+    $dv = '<ul id="device-display">';
     foreach ($devices as $device) {
         $dv .= '<li>';
-        $dv .= "<a href='/pastpc/devices/index.php?action=detail-view&inv-id=$device[invId]'><img src='$device[invThumbnail]' alt='Image of $device[invMake] $device[invModel] on pastpc.com'></a>";
+        $dv .= "<a href='/pastpc/devices/index.php?action=detail-view&device-id=$device[deviceId]'><img src='$device[deviceThumbnail]' alt='Image of $device[deviceBrand] $device[deviceModel] on pastpc.com'></a>";
         $dv .= '<hr>';
-        $dv .= "<a href='/pastpc/devices/index.php?action=detail-view&inv-id=$device[invId]'><h2>$device[invMake] $device[invModel]</h2></a>";
-        $dv .= "<span>$device[invPrice]</span>";
+        $dv .= "<a href='/pastpc/devices/index.php?action=detail-view&device-id=$device[deviceId]'><h2>$device[deviceBrand] $device[deviceModel]</h2></a>";
+        $dv .= "<span>$device[deviceMonthlyRate]</span>";
         $dv .= '</li>';
     }
     $dv .= '</ul>';
     return $dv;
 }*/
-function buildDetailDisplay($invInfo) {
+function buildDetailDisplay($deviceInfo) {
     $dv = '<div class="detail-display">';
-    $dv .= "<img src='$invInfo[imgPath]' alt='Image of $invInfo[invMake] $invInfo[invModel] on pastpc.com'>";
+    $dv .= "<img src='$deviceInfo[imgPath]' alt='Image of $deviceInfo[deviceBrand] $deviceInfo[deviceModel] on pastpc.com'>";
     $dv .= "<div class='detail-info'>";
-    $price = number_format($invInfo["invPrice"]);
-    $dv .= "<h2>$invInfo[invColor] $invInfo[invMake] $invInfo[invModel]: $$price</h2>";
+    $montlyRate = number_format($deviceInfo["deviceMonthlyRate"]);
+    $dv .= "<h2>$deviceInfo[deviceBrand] $deviceInfo[deviceModel]: $$montlyRate</h2>";
     $dv .= "<p>-- Reviews Below --</p>";
-    $dv .= "<p>Number in stock: $invInfo[invStock]</p>";
-    $classification = getClassification($invInfo["classificationId"]);
+    $classification = getClassification($deviceInfo["classificationId"]);
     $dv .= "<p>Device type: $classification[classificationName]</p>";
-    $dv .= "<p>$invInfo[invDescription]</p>";
+    $dv .= "<p>$deviceInfo[deviceDescription]</p>";
     $dv .= "</div>";
     $dv .= "</div>";
     return $dv;
@@ -71,7 +70,7 @@ function buildThumbnailDisplay($thumbnails) {
     $td = '<div class="thumbnail-display">'; // td is thumbnail display
     $td .= '<h2>Additional Images</h2>';
     foreach ($thumbnails as $thumbnail)
-        $td .= "<img src='$thumbnail[imgPath]' alt='Thumbnail image of $thumbnail[invMake] $thumbnail[invModel] on pastpc.com'>";
+        $td .= "<img src='$thumbnail[imgPath]' alt='Thumbnail image of $thumbnail[deviceBrand] $thumbnail[deviceModel] on pastpc.com'>";
     $td .= "</div>";
     return $td;
 }
@@ -89,7 +88,7 @@ function buildImageDisplay($imageArray) {
     $id = '<ul id="image-display">';
     foreach ($imageArray as $image) {
         $id .= '<li>';
-        $id .= "<img src='$image[imgPath]' title='$image[invMake] $image[invModel] image on PastPC.com' alt='$image[invMake] $image[invModel] image on PastPC.com'>";
+        $id .= "<img src='$image[imgPath]' title='$image[deviceBrand] $image[deviceModel] image on PastPC.com' alt='$image[deviceBrand] $image[deviceModel] image on PastPC.com'>";
         $id .= "<p><a href='/pastpc/uploads?action=delete&imgId=$image[imgId]&filename=$image[imgName]' title='Delete the image'>Delete $image[imgName]</a></p>";
         $id .= '</li>';
     }
@@ -97,10 +96,10 @@ function buildImageDisplay($imageArray) {
     return $id;
 }
 function buildDevicesSelect($devices) {
-    $prodList = '<select name="invId" id="invId">';
+    $prodList = '<select name="deviceId" id="deviceId">';
     $prodList .= "<option>Choose a Device</option>";
     foreach ($devices as $device) 
-        $prodList .= "<option value='$device[invId]'>$device[invMake] $device[invModel]</option>";
+        $prodList .= "<option value='$device[deviceId]'>$device[deviceBrand] $device[deviceModel]</option>";
     $prodList .= '</select>';
     return $prodList;
 }

@@ -26,7 +26,7 @@ $image_dir_path = $_SERVER['DOCUMENT_ROOT'] . $image_dir;
 
 switch ($action) {
     case 'upload':
-        $invId = trim(filter_input(INPUT_POST, 'invId', FILTER_VALIDATE_INT));
+        $deviceId = trim(filter_input(INPUT_POST, 'deviceId', FILTER_VALIDATE_INT));
         $imgPrimary = trim(filter_input(INPUT_POST, 'imgPrimary', FILTER_VALIDATE_INT));
 
         $imgName = $_FILES['file1']['name'];
@@ -34,11 +34,11 @@ switch ($action) {
 
         if ($imageCheck)
             $message = '<p class="notice">An image by that name already exists.</p>';
-        elseif (empty($invId) || empty($imgName))
+        elseif (empty($deviceId) || empty($imgName))
             $message = '<p class="notice">You must select a device and image file for the device.</p>';
         else {
             $imgPath = uploadFile('file1');
-            $result = storeImages($imgPath, $invId, $imgName, $imgPrimary);
+            $result = storeImages($imgPath, $deviceId, $imgName, $imgPrimary);
         
         if ($result)
             $message = '<p class="notice">The upload succeeded.</p>';

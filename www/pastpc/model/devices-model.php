@@ -4,10 +4,9 @@
     model is needed. It is the interface
     to the database for device operations.
 */
-$invMakePattern = "^.{1,30}$";
-$invModelPattern = "^.{1,30}$";
-$invPricePattern = "^[1-9]\d*(\.\d+)?$";
-$invColorPattern = "^.{1,20}$";
+$deviceBrandPattern = "^.{1,30}$";
+$deviceModelPattern = "^.{1,30}$";
+$deviceMonthlyRatePattern = "^[1-9]\d*(\.\d+)?$";
 $classificationNamePattern = "^.{1,30}$";
 
 function insertClassification($classification) {
@@ -15,53 +14,53 @@ function insertClassification($classification) {
     return rowsChanged($sql);
 
 }
-function insertDevice($invMake, $invModel, $invDescription, $invImage, $invThumbnail, $invPrice, $invStock, $invColor, $classificationId) {
-    $sql = "INSERT INTO inventory (invMake, invModel, invDescription, invImage, invThumbnail, invPrice, invStock, invColor, classificationId) VALUES ('$invMake','$invModel', '$invDescription', '$invImage', '$invThumbnail', '$invPrice', '$invStock', '$invColor', '$classificationId')";
+function insertDevice($deviceBrand, $deviceModel, $deviceDescription, $deviceImage, $deviceThumbnail, $deviceMonthlyRate, $classificationId) {
+    $sql = "INSERT INTO devices (deviceBrand, deviceModel, deviceDescription, deviceImage, deviceThumbnail, deviceMonthlyRate, classificationId) VALUES ('$deviceBrand','$deviceModel', '$deviceDescription', '$deviceImage', '$deviceThumbnail', '$deviceMonthlyRate', '$classificationId')";
     return rowsChanged($sql);
 }
 function getInventoryByClassification($classificationId) {
     $db = getPDO();
-    $sql = 'SELECT * FROM inventory WHERE classificationId = :classificationId';
+    $sql = 'SELECT * FROM devices WHERE classificationId = :classificationId';
     $stmt = $db->prepare($sql);
     $stmt->bindValue(':classificationId', $classificationId, PDO::PARAM_INT);
     $stmt->execute();
-    $inventory = $stmt->fetchALL(PDO::FETCH_ASSOC); // "Line 8: Requests a multi-dimensional array of the devices as an associative array, stores the array in a variable."
+    $devices = $stmt->fetchALL(PDO::FETCH_ASSOC); // "Line 8: Requests a multi-dimensional array of the devices as an associative array, stores the array in a variable."
     $stmt->closeCursor();
-    return $inventory;
+    return $devices;
 }
-function getInvItemInfo($invId) {
+function getInvItemInfo($deviceId) {
     $db = getPDO();
-    $sql = "SELECT img.imgName, img.imgPath, inv.invId, inv.invMake, inv.invModel, inv.invDescription, inv.invPrice, inv.invStock, inv.classificationId, inv.invImage, inv.invThumbnail FROM inventory inv JOIN images img ON img.invId = inv.invId WHERE img.imgPrimary = 1 AND img.imgName NOT LIKE '%-tn%' AND inv.invId = :invId";
+    $sql = "SELECT img.imgName, img.imgPath, device.deviceId, device.deviceBrand, device.deviceModel, device.deviceDescription, device.deviceMonthlyRate, device.classificationId, device.deviceImage, device.deviceThumbnail FROM devices device JOIN images img ON img.deviceId = device.deviceId WHERE img.imgPrimary = 1 AND img.imgName NOT LIKE '%-tn%' AND device.deviceId = :deviceId";
     $stmt = $db->prepare($sql);
-    $stmt->bindValue(':invId', $invId, PDO::PARAM_INT);
+    $stmt->bindValue(':deviceId', $deviceId, PDO::PARAM_INT);
     $stmt->execute();
-    $invInfo = $stmt->fetch(PDO::FETCH_ASSOC);
+    $deviceInfo = $stmt->fetch(PDO::FETCH_ASSOC);
     $stmt->closeCursor();
-    return $invInfo;
+    return $deviceInfo;
 }
 /*
-function getInvItemInfo($invId) {
+function getInvItemInfo($deviceId) {
     $db = getPDO();
-    $sql = 'SELECT * FROM inventory WHERE invId = :invId';
+    $sql = 'SELECT * FROM devices WHERE deviceId = :deviceId';
     $stmt = $db->prepare($sql);
-    $stmt->bindValue(':invId', $invId, PDO::PARAM_INT);
+    $stmt->bindValue(':deviceId', $deviceId, PDO::PARAM_INT);
     $stmt->execute();
-    $invInfo = $stmt->fetch(PDO::FETCH_ASSOC);
+    $deviceInfo = $stmt->fetch(PDO::FETCH_ASSOC);
     $stmt->closeCursor();
-    return $invInfo;
+    return $deviceInfo;
 }
 */
-function updateDevice($invMake, $invModel, $invDescription, $invImage, $invThumbnail, $invPrice, $invStock, $invColor, $classificationId, $invId) {
-    $sql = "UPDATE inventory SET invMake = '$invMake', invModel = '$invModel', invDescription = '$invDescription', invImage = '$invImage', invThumbnail = '$invThumbnail', invPrice = '$invPrice', invStock = '$invStock', invColor = '$invColor', classificationId = '$classificationId' WHERE invId = '$invId'";
+function updateDevice($deviceBrand, $deviceModel, $deviceDescription, $deviceImage, $deviceThumbnail, $deviceMonthlyRate, $classificationId, $deviceId) {
+    $sql = "UPDATE devices SET deviceBrand = '$deviceBrand', deviceModel = '$deviceModel', deviceDescription = '$deviceDescription', deviceImage = '$deviceImage', deviceThumbnail = '$deviceThumbnail', deviceMonthlyRate = '$deviceMonthlyRate', classificationId = '$classificationId' WHERE deviceId = '$deviceId'";
     return rowsChanged($sql);
 }
-function deleteDevice($invId) {
-    $sql = "DELETE FROM inventory WHERE invId = '$invId'";
+function deleteDevice($deviceId) {
+    $sql = "DELETE FROM devices WHERE deviceId = '$deviceId'";
     return rowsChanged($sql);
 }
 function getDevicesByClassification($classificationName) {
     $db = getPDO();
-    $sql = "SELECT img.imgName, img.imgPath, inv.invId, inv.invMake, inv.invModel, inv.invDescription, inv.invPrice, inv.invStock, inv.classificationId, inv.invImage, inv.invThumbnail FROM inventory inv JOIN images img ON img.invId = inv.invId WHERE inv.classificationId IN (SELECT classificationId FROM deviceclassification WHERE classificationName = :classificationName) AND img.imgPrimary = 1 AND img.imgName LIKE '%-tn%'";
+    $sql = "SELECT img.imgName, img.imgPath, device.deviceId, device.deviceBrand, device.deviceModel, device.deviceDescription, device.deviceMonthlyRate, device.classificationId, device.deviceImage, device.deviceThumbnail FROM devices device JOIN images img ON img.deviceId = device.deviceId WHERE device.classificationId IN (SELECT classificationId FROM deviceclassification WHERE classificationName = :classificationName) AND img.imgPrimary = 1 AND img.imgName LIKE '%-tn%'";
     $stmt = $db->prepare($sql);
     $stmt->bindValue(':classificationName', $classificationName, PDO::PARAM_STR);
     $stmt->execute();
@@ -71,7 +70,7 @@ function getDevicesByClassification($classificationName) {
 }
 /*function getDevicesByClassification($classificationName) {
     $db = getPDO();
-    $sql = 'SELECT * FROM inventory WHERE classificationId IN (SELECT classificationId FROM deviceclassification WHERE classificationName = :classificationName)';
+    $sql = 'SELECT * FROM devices WHERE classificationId IN (SELECT classificationId FROM deviceclassification WHERE classificationName = :classificationName)';
     $stmt = $db->prepare($sql);
     $stmt->bindValue(':classificationName', $classificationName, PDO::PARAM_STR);
     $stmt->execute();
@@ -91,14 +90,14 @@ function getClassification($classificationId) {
 }
 function getDevices() {
     $db = getPDO();
-    $sql = 'SELECT invId, invMake, invModel FROM inventory';
+    $sql = 'SELECT deviceId, deviceBrand, deviceModel FROM devices';
     $stmt = $db->prepare($sql);
     $stmt->execute();
-    $invInfo = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $deviceInfo = $stmt->fetchAll(PDO::FETCH_ASSOC);
     $stmt->closeCursor();
-    return $invInfo;
+    return $deviceInfo;
 }
-function getDevice($invMake, $invModel) {
-    $sql = "SELECT invId, invMake, invModel FROM inventory WHERE invMake = $invMake AND invModel = $invModel";
+function getDevice($deviceBrand, $deviceModel) {
+    $sql = "SELECT deviceId, deviceBrand, deviceModel FROM devices WHERE deviceBrand = $deviceBrand AND deviceModel = $deviceModel";
     return rowsChanged($sql);
 }

@@ -4,12 +4,12 @@
     model is needed. It is the interface
     to the database for review operations.
 */
-function addReview($reviewText, $invId, $clientId) {
-    $sql = "INSERT INTO reviews (reviewText, invId, clientId) VALUES ('$reviewText', $invId, $clientId)";
+function addReview($reviewText, $deviceId, $clientId) {
+    $sql = "INSERT INTO reviews (reviewText, deviceId, clientId) VALUES ('$reviewText', $deviceId, $clientId)";
     return rowsChanged($sql);
 }
-function getDeviceReviews($invId) {
-    $sql = "SELECT reviews.reviewText, reviews.reviewDate, reviews.reviewId, clients.clientFirstname, clients.clientLastname FROM reviews JOIN inventory ON inventory.invId = reviews.invId JOIN clients ON clients.clientId = reviews.clientId WHERE reviews.invId = $invId ORDER BY reviews.reviewDate DESC";
+function getDeviceReviews($deviceId) {
+    $sql = "SELECT reviews.reviewText, reviews.reviewDate, reviews.reviewId, clients.clientFirstname, clients.clientLastname FROM reviews JOIN devices ON devices.deviceId = reviews.deviceId JOIN clients ON clients.clientId = reviews.clientId WHERE reviews.deviceId = $deviceId ORDER BY reviews.reviewDate DESC";
     return query($sql);
 }
 function getClientReviews($clientId) {
