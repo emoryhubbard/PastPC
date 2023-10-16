@@ -65,5 +65,33 @@ function rowsChanged($sql) {
     $statement->closeCursor();
     return $rowsChanged;
 }
+function executeGetRowsChanged($sql, $params) {
+    $pdo = getPDO();
+    $statement = $pdo->prepare($sql);
+
+    // Bind the parameter based on its data type
+    foreach ($params as $key => $value) {
+        $dataType = getDataType($value);
+        $statement->bindValue($key + 1, $value, $dataType);
+    }
+
+    $statement->execute();
+    $rowsChanged = $statement->rowCount();
+    $statement->closeCursor();
+    return $rowsChanged;
+}
+function getDataType($value) {
+    if (is_int($value))
+        return PDO::PARAM_INT;
+    if (is_float($value))
+        return PDO::PARAM_STR; // Best practice. Convert back after retrieval
+    if (is_string($value))
+        return PDO::PARAM_STR;
+    if (is_bool($value))
+        return PDO::PARAM_BOOL;
+    if (is_null($value))
+        return PDO::PARAM_NULL;
+    return PDO::PARAM_STR;
+}
 //getpastpcPDO();
 ?>

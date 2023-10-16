@@ -56,6 +56,7 @@ switch ($action) {
         $deviceBrand = trim(filter_input(INPUT_POST, 'deviceBrand', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
         $deviceModel = trim(filter_input(INPUT_POST, 'deviceModel', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
         $deviceDescription = trim(filter_input(INPUT_POST, 'deviceDescription', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+        //debugPrint($_POST["deviceDescription"]);
         $deviceImage = trim(filter_input(INPUT_POST, 'deviceImage', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
         $deviceThumbnail = trim(filter_input(INPUT_POST, 'deviceThumbnail', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
         $deviceMonthlyRate = trim(filter_input(INPUT_POST, 'deviceMonthlyRate', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION));

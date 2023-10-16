@@ -47,10 +47,15 @@ Custom-Built PC.
 A high-end custom PC built in 1999.
 
 Intel Pentium III: It was released in 1999 and was the fastest processor available at that time. It had a clock speed of up to 1.13 GHz and was based on the 0.18-micron process technology.
+
 Nvidia GeForce 256: It was released in 1999 and was the first GPU to support hardware acceleration of 3D graphics. It had a clock speed of up to 120 MHz and supported up to 32 MB of memory.
+
 Sound Blaster Live!: It was released in 1998 and was one of the most popular sound cards available at that time. It supported up to 5.1-channel surround sound and had a signal-to-noise ratio (SNR) of up to 100 dB.
+
 Western Digital Caviar: It was released in 1999 and was one of the fastest hard drives available at that time. It had a spindle speed of up to 7,200 RPM and a capacity of up to 40 GB.
+
 CD-RW Drive: It was released in 1997 and allowed users to read and write data on CD-ROMs. It had a maximum write speed of up to 4x and a maximum read speed of up to 24x.
+
 Operating System: Windows 98 Second Edition.
 2017 PC.
     A mid-range custom PC built in 2017.

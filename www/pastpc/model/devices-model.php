@@ -15,8 +15,9 @@ function insertClassification($classification) {
 
 }
 function insertDevice($deviceBrand, $deviceModel, $deviceDescription, $deviceImage, $deviceThumbnail, $deviceMonthlyRate, $classificationId) {
-    $sql = "INSERT INTO devices (deviceBrand, deviceModel, deviceDescription, deviceImage, deviceThumbnail, deviceMonthlyRate, classificationId) VALUES ('$deviceBrand','$deviceModel', '$deviceDescription', '$deviceImage', '$deviceThumbnail', '$deviceMonthlyRate', '$classificationId')";
-    return rowsChanged($sql);
+    //debugPrint($deviceDescription);
+    $sql = "INSERT INTO devices (deviceBrand, deviceModel, deviceDescription, deviceImage, deviceThumbnail, deviceMonthlyRate, classificationId) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    return executeGetRowsChanged($sql, [$deviceBrand, $deviceModel, $deviceDescription, $deviceImage, $deviceThumbnail, $deviceMonthlyRate, $classificationId]);
 }
 function getInventoryByClassification($classificationId) {
     $db = getPDO();

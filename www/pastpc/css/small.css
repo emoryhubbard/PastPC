@@ -326,7 +326,7 @@ table {
     max-height: 500px;
 }
 .detail-info p {
-    white-space: pre;
+    white-space: pre-wrap;
 }
 .thumbnail-display {
     display: flex;

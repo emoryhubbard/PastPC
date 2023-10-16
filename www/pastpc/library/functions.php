@@ -61,7 +61,9 @@ function buildDetailDisplay($deviceInfo) {
     $dv .= "<p>-- Reviews Below --</p>";
     $classification = getClassification($deviceInfo["classificationId"]);
     $dv .= "<p>Device type: $classification[classificationName]</p>";
-    $dv .= "<p>$deviceInfo[deviceDescription]</p>";
+    $dv .= "<p>" . htmlspecialchars($deviceInfo['deviceDescription'], ENT_QUOTES, 'UTF-8') . "</p>";
+    //$dv .= "<p>" . $deviceInfo['deviceDescription'] . "</p>";
+    //debugPrint($deviceInfo['deviceDescription']);
     $dv .= "</div>";
     $dv .= "</div>";
     return $dv;
