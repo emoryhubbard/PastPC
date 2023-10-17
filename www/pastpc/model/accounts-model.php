@@ -59,6 +59,70 @@ function updateAccount($clientFirstname, $clientLastname, $clientEmail, $clientI
     return rowsChanged($sql);
 }
 function changePassword($clientPassword, $clientId) {
-    $sql = "UPDATE clients SET clientPassword = '$clientPassword' WHERE clientId = '$clientId'";
-    return rowsChanged($sql);
+    $sql = "UPDATE clients SET clientPassword = ? WHERE clientId = ?";
+    $pdo = getPDO();
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$clientPassword, $clientId]);
+    $rowsChanged = $stmt->rowCount();
+    $stmt->closeCursor();
+    return $rowsChanged;
+}
+function createToken() {
+    $token = bin2hex(random_bytes(16));
+    return $token;
+}
+function addToken($email, $token) {
+    $token_hash = hash("sha256", $token);
+    $expiry = date("Y-m-d H:i:s", time() + 60 * 30);
+    $sql = "UPDATE clients
+            SET resetTokenHash = ?,
+                resetTokenExpiresAt = ?
+            WHERE clientEmail = ?";
+    /*
+    $sql = "UPDATE user
+            SET reset_token_hash = ?,
+                reset_token_expires_at = ?
+            WHERE email = ?";
+    */
+    $pdo = getPDO();
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$token_hash, $expiry, $email]);
+    $rowsChanged = $stmt->rowCount();
+    $stmt->closeCursor();
+    return $rowsChanged;
+}
+function sendEmail($email, $token) {
+        $mail = require __DIR__ . "/mailer.php";
+
+        $mail->setFrom("noreply@example.com");
+        $mail->addAddress($email);
+        $mail->Subject = "Password Reset";
+        $mail->Body = <<<END
+
+        Click <a href="http://lvh.me/pastpc/accounts/index.php?action=reset-password&token=$token">here</a> 
+        to reset your password.
+
+        END;
+
+        try {
+
+            $mail->send();
+
+        } catch (Exception $e) {
+
+            return "Message could not be sent. Mailer error: {$mail->ErrorInfo}";
+
+        }
+        return "Message sent, please check your inbox.";
+}
+function getClientFromToken($token) {
+    $token_hash = hash("sha256", $token);
+    $db = getPDO();
+    $sql = 'SELECT clientId, clientFirstname, clientLastname, clientEmail, clientLevel, clientPassword FROM clients WHERE resetTokenHash = :resetTokenHash';
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(':resetTokenHash', $token_hash, PDO::PARAM_STR);
+    $stmt->execute();
+    $clientData = $stmt->fetch(PDO::FETCH_ASSOC);
+    $stmt->closeCursor();
+    return $clientData;
 }

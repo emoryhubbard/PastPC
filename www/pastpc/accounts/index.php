@@ -122,7 +122,7 @@ switch ($action) {
             exit;
         }
         if ($_SESSION['clientData']['clientEmail'] != $clientEmail && emailExists($clientEmail)) {
-            $_SESSION['message'] = '<p>Email address already exists in another account. Update your account with a new email, or log in to your existing account.';
+            $_SESSION['message'] = '<p>Email address already exists in another account. Update your account with a new email, or log in to your existing account.</p>';
             include '../view/login.php';
             exit;
         }
@@ -177,6 +177,56 @@ switch ($action) {
             exit;
         }
         break;
+    case 'forgot-password':
+        include '../view/forgot-password.php';
+        break;
+    case 'submit-forgot-password':
+        $clientEmail = trim(filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_EMAIL));   
+        if (!emailExists($clientEmail)) {
+            $_SESSION['message'] = '<p>Email address already exists in another account. Update your account with a new email, or log in to your existing account.</p>';
+            include '../view/forgot-password.php';
+            exit;
+        }
+        $token = createToken($clientEmail);
+        $addTokenResult = addToken($clientEmail, $token);
+        if (!($addTokenResult === 1)) {
+            $_SESSION['message'] = "<p>The reset password link was unable to be sent to your email. Please try again later.</p>";
+            include '../view/forgot-password.php';
+            exit;
+        }
+
+        $sendEmailOutcome = sendEmail($clientEmail, $token);
+        if ($sendEmailOutcome === 1) {
+            $_SESSION['message'] = "<p>Reset password link has been sent to your email.</p>";
+            include '../view/admin.php';
+            exit;
+        } else {
+            $_SESSION['message'] = "<p>The reset password link was unable to be sent to your email. Please try again later.</p>";
+            include '../view/forgot-password.php';
+            exit;
+        }
+        break;
+    case 'reset-password':
+        $token = filter_input(INPUT_GET, 'token');
+        $clientData = getClientFromToken($token);
+        if (empty($clientData)) {
+            $_SESSION['message'] = '<p class="notice">Link not verifiable. Please request another password reset link.</p>';
+            include '../view/forgot-password.php';
+            exit;
+        }
+        if (strtotime($clientData["resetTokenExpiresAt"]) <= time()) {
+            $_SESSION['message'] = '<p class="notice">Link has expired. Please request another password reset link.</p>';
+            include '../view/forgot-password.php';
+            exit;
+        }
+        $_SESSION['loggedin'] = TRUE;
+        $_SESSION['message'] = "<p class='notice'>Currently logged-in using $clientEmail.</p>";
+        // Remove the password from the array with array pop,
+        // now that we are finished with it
+        array_pop($clientData);
+        $_SESSION['clientData'] = $clientData;
+        include '../view/client-update.php';
+        exit;
     default:
         include '../view/admin.php';
         break;

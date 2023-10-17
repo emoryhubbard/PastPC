@@ -37,7 +37,9 @@ if (!$_SESSION['loggedin'])
             $ul .= "<li>Email: $cd[clientEmail]</li>";
             $ul .= '</ul>';
             echo $ul;
+            echo '<p><a class="p-link" href="/pastpc/accounts/index.php?action=submitLogout">Log Out</a></p>';
             echo '<p><a class="p-link" href="/pastpc/accounts/index.php?action=update-account">Update Account Information</a></p>';
+            
             if ($cd['clientLevel'] > 1) {
                 echo '<h2>Administrative Actions</h2>';
                 echo '<p>Use the following link to administer device listings:</p>';
