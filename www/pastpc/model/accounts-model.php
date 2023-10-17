@@ -102,17 +102,18 @@ function sendEmail($email, $token) {
         to reset your password.
 
         END;
-
+        $success = true;
         try {
 
             $mail->send();
 
         } catch (Exception $e) {
-
-            return "Message could not be sent. Mailer error: {$mail->ErrorInfo}";
+            $success = false;
+            //return "Message could not be sent. Mailer error: {$mail->ErrorInfo}";
 
         }
-        return "Message sent, please check your inbox.";
+        return $success;
+        //return "Message sent, please check your inbox.";
 }
 function getClientFromToken($token) {
     $token_hash = hash("sha256", $token);
