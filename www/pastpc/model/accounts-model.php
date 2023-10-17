@@ -92,9 +92,8 @@ function addToken($email, $token) {
     return $rowsChanged;
 }
 function sendEmail($email, $token) {
-        $mail = require __DIR__ . "/mailer.php";
-
-        $mail->setFrom("noreply@example.com");
+        $mail = require '../library/mailer.php';
+        $mail->setFrom("edhthe4th@gmail.com");
         $mail->addAddress($email);
         $mail->Subject = "Password Reset";
         $mail->Body = <<<END
