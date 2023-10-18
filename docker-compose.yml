@@ -21,6 +21,8 @@ services:
       - "mysql"
     volumes:
       - "./www:/var/www/html/"
+      - "./test:/var/www/test/"
+      - "./:/var/www/"
       - "./uploads.ini:/usr/local/etc/php/conf.d/uploads.ini"
     labels:
       - "traefik.enable=true"
