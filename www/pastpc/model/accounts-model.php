@@ -118,7 +118,7 @@ function sendEmail($email, $token) {
 function getClientFromToken($token) {
     $token_hash = hash("sha256", $token);
     $db = getPDO();
-    $sql = 'SELECT clientId, clientFirstname, clientLastname, clientEmail, clientLevel, clientPassword FROM clients WHERE resetTokenHash = :resetTokenHash';
+    $sql = 'SELECT clientId, clientFirstname, clientLastname, clientEmail, clientLevel, clientPassword, resetTokenHash, resetTokenExpiresAt FROM clients WHERE resetTokenHash = :resetTokenHash';
     $stmt = $db->prepare($sql);
     $stmt->bindValue(':resetTokenHash', $token_hash, PDO::PARAM_STR);
     $stmt->execute();

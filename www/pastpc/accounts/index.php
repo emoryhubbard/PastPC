@@ -84,7 +84,7 @@ switch ($action) {
         }
         $_SESSION['loggedin'] = TRUE;
         $_SESSION['message'] = "<p class='notice'>Currently logged-in using $clientEmail.</p>";
-        // Remove the password from the array with array pop,
+        // Remove the password hash from the array with array pop,
         // now that we are finished with it
         array_pop($clientData);
         $_SESSION['clientData'] = $clientData;
@@ -183,7 +183,7 @@ switch ($action) {
     case 'submit-forgot-password':
         $clientEmail = trim(filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_EMAIL));   
         if (!emailExists($clientEmail)) {
-            $_SESSION['message'] = '<p>Email address already exists in another account. Update your account with a new email, or log in to your existing account.</p>';
+            $_SESSION['message'] = '<p>Email address is not associated with any account. Try another email address, or check for possible typos.</p>';
             include '../view/forgot-password.php';
             exit;
         }
@@ -195,10 +195,10 @@ switch ($action) {
             exit;
         }
 
-        $sendEmailOutcome = sendEmail($clientEmail, $token);
-        if ($sendEmailOutcome === 1) {
+        $emailSent = sendEmail($clientEmail, $token);
+        if ($emailSent) {
             $_SESSION['message'] = "<p>Reset password link has been sent to your email.</p>";
-            include '../view/admin.php';
+            include '../view/forgot-password.php';
             exit;
         } else {
             $_SESSION['message'] = "<p>The reset password link was unable to be sent to your email. Please try again later.</p>";
@@ -214,14 +214,15 @@ switch ($action) {
             include '../view/forgot-password.php';
             exit;
         }
+        //debugPrint(strtotime($clientData["resetTokenExpiresAt"]) . "compared to current time: " . time());
         if (strtotime($clientData["resetTokenExpiresAt"]) <= time()) {
             $_SESSION['message'] = '<p class="notice">Link has expired. Please request another password reset link.</p>';
             include '../view/forgot-password.php';
             exit;
         }
         $_SESSION['loggedin'] = TRUE;
-        $_SESSION['message'] = "<p class='notice'>Currently logged-in using $clientEmail.</p>";
-        // Remove the password from the array with array pop,
+        $_SESSION['message'] = "<p class='notice'>Currently logged-in using " . $clientData['clientEmail'] . ".</p>";
+        // Remove the password hash from the array with array pop,
         // now that we are finished with it
         array_pop($clientData);
         $_SESSION['clientData'] = $clientData;
