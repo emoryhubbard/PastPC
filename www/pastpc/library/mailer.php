@@ -63,15 +63,9 @@ SMTP Error: Could not authentic
 */
 
 $mail = new PHPMailer(true);
-
-//$mail->SMTPDebug = SMTP::DEBUG_SERVER;
-$mail->SMTPDebug = SMTP::DEBUG_CONNECTION;
-
+//$mail->SMTPDebug = SMTP::DEBUG_CONNECTION;
 $mail->isSMTP();
 $mail->SMTPAuth = true;
-
-//debugPrint($_SERVER['SMTP_SERVER']);
-
 $mail->Host = $_SERVER['SMTP_SERVER'];
 $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
 $mail->Port = 587;

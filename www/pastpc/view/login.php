@@ -21,6 +21,7 @@
             <?php
             if (isset($_SESSION['message'])) {
                 echo $_SESSION['message'];
+                $_SESSION['message'] = null;
             }
             ?>
             <!--administrative account that you created earlier -
