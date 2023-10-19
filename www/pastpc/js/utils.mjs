@@ -57,11 +57,11 @@ export function renderTemplate({element, template, callback,
     });
     qs(selector).addEventListener("click", callback);
   }
-  function toggle(selector, className) {
+  export function toggle(selector, className) {
     qs(selector).classList.toggle(className);
   }
 
-  function setClicks(callback, ...selectors) {
+  export function setClicks(callback, ...selectors) {
     for (const selector of selectors)
       setClick(selector, callback);
   }

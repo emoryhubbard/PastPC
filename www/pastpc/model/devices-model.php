@@ -102,3 +102,13 @@ function getDevice($deviceBrand, $deviceModel) {
     $sql = "SELECT deviceId, deviceBrand, deviceModel FROM devices WHERE deviceBrand = $deviceBrand AND deviceModel = $deviceModel";
     return rowsChanged($sql);
 }
+function getDevicesByKeywords($keywords) {
+    $db = getPDO();
+    $sql = "SELECT img.imgName, img.imgPath, device.deviceId, device.deviceBrand, device.deviceModel, device.deviceDescription, device.deviceMonthlyRate, device.classificationId, device.deviceImage, device.deviceThumbnail FROM devices device JOIN images img ON img.deviceId = device.deviceId WHERE (device.deviceBrand LIKE :keywords OR device.deviceModel LIKE :keywords OR device.deviceDescription LIKE :keywords) AND img.imgPrimary = 1 AND img.imgName LIKE '%-tn%'";
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(':keywords', '%' . $keywords . '%', PDO::PARAM_STR);
+    $stmt->execute();
+    $devices = $stmt->fetchALL(PDO::FETCH_ASSOC); // "Line 8: Requests a multi-dimensional array of the devices as an associative array, stores the array in a variable."
+    $stmt->closeCursor();
+    return $devices;
+}

@@ -150,6 +150,15 @@ switch ($action) {
         $thumbnailDisplay = buildThumbnailDisplay($thumbnails);
         include '../view/device-detail.php';
         break;
+    case 'submit-search':
+        $keywords = trim(filter_input(INPUT_POST, 'keywords', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+        $devices = getDevicesByKeywords($keywords);
+        if (!count($devices))
+            $message = "<p class='notice'>Sorry, no devices could be found with the keyword(s) " . '"' . htmlspecialchars($keywords) . '".' . "</p>";
+        else
+            $deviceDisplay = buildDevicesDisplay($devices);
+        include '../view/classification.php';
+        break;
     default:
         $classificationList = buildClassificationList($classifications);
         include '../view/device-management.php';

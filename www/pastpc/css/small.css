@@ -19,9 +19,27 @@
 li {
     list-style-type: none;
 }
-header {
+.has-header {
     display: flex;
     justify-content: space-between;
+    position: relative;
+}
+.search-bar-close {
+    display: none;
+}
+.search-bar-open {
+    display: flex;
+}
+.search-bar {
+    padding-top: 1rem;
+    padding-right: 1rem;
+    gap: 1.2rem;
+    position: absolute;
+    top: 0;
+}
+.close-icon {
+    height: 1.6rem;
+    box-sizing: content-box;
 }
 .top-logo {
     width: 8rem;
