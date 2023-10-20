@@ -37,9 +37,19 @@ li {
     position: absolute;
     top: 0;
 }
-.close-icon {
+.search-close-icon {
     height: 1.6rem;
     box-sizing: content-box;
+}
+.menu-close-icon {
+    height: 1.6rem;
+    box-sizing: content-box;
+}
+.slideout-menu-close {
+    display: none;
+}
+.slideout-menu-open {
+    display: block;
 }
 .top-logo {
     width: 8rem;

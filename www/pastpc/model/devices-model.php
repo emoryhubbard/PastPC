@@ -104,7 +104,9 @@ function getDevice($deviceBrand, $deviceModel) {
 }
 function getDevicesByKeywords($keywords) {
     $db = getPDO();
-    $sql = "SELECT img.imgName, img.imgPath, device.deviceId, device.deviceBrand, device.deviceModel, device.deviceDescription, device.deviceMonthlyRate, device.classificationId, device.deviceImage, device.deviceThumbnail FROM devices device JOIN images img ON img.deviceId = device.deviceId WHERE (device.deviceBrand LIKE :keywords OR device.deviceModel LIKE :keywords OR device.deviceDescription LIKE :keywords) AND img.imgPrimary = 1 AND img.imgName LIKE '%-tn%'";
+    $sql = "SELECT img.imgName, img.imgPath, device.deviceId, device.deviceBrand, device.deviceModel, device.deviceDescription, device.deviceMonthlyRate, device.classificationId, device.deviceImage, device.deviceThumbnail FROM devices device JOIN images img ON img.deviceId = device.deviceId WHERE img.imgPrimary = 1 AND img.imgName LIKE '%-tn%'";
+    if (!empty($keywords))
+        $sql = "SELECT img.imgName, img.imgPath, device.deviceId, device.deviceBrand, device.deviceModel, device.deviceDescription, device.deviceMonthlyRate, device.classificationId, device.deviceImage, device.deviceThumbnail FROM devices device JOIN images img ON img.deviceId = device.deviceId WHERE (device.deviceBrand LIKE :keywords OR device.deviceModel LIKE :keywords OR device.deviceDescription LIKE :keywords) AND img.imgPrimary = 1 AND img.imgName LIKE '%-tn%'";
     $stmt = $db->prepare($sql);
     $stmt->bindValue(':keywords', '%' . $keywords . '%', PDO::PARAM_STR);
     $stmt->execute();

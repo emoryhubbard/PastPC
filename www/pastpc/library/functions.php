@@ -15,7 +15,7 @@ function getNav($classifications) {
     $navList = "";
     foreach ($classifications as $cl)
         $navList .= "<li><a href='/pastpc/index.php?action=classification&classification-name=" . urlencode($cl['classificationName']) . "' title='View $cl[classificationName] devices'>$cl[classificationName]</a></li>";
-    $navList .= '<li><a href="/pastpc/devices/index.php?action=search" title="Find a Device">More</a></li>';
+    $navList .= '<li><a class="more-link" href="/pastpc/devices/index.php?action=submit-search" title="View All Devices">More</a></li>';
     return $navList;
 }
 function buildClassificationList($classifications) {

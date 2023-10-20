@@ -52,16 +52,19 @@ export function renderTemplate({element, template, callback,
   // set a listener for both touchend and click
   export function setClick(selector, callback) {
     qs(selector).addEventListener("touchend", (event) => {
-      event.preventDefault();
-      callback();
-    });
-    qs(selector).addEventListener("click", callback);
+      event.preventDefault()
+      callback()
+    })
+    qs(selector).addEventListener("click", callback)
   }
-  export function toggle(selector, className) {
-    qs(selector).classList.toggle(className);
+  export function toggleClass(selector, className) {
+    qs(selector).classList.toggle(className)
   }
 
   export function setClicks(callback, ...selectors) {
     for (const selector of selectors)
-      setClick(selector, callback);
+      setClick(selector, callback)
+  }
+  export function hasClass(selector, className) {
+    return qs(selector).classList.contains(className)
   }

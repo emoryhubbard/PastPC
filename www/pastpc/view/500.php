@@ -15,7 +15,7 @@
             <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/pastpc/snippets/header.php"?>
         </header>
         <nav>
-            <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/pastpc/snippets/navigation.php"?>
+        <ul class='top-nav'><?php print $navList; ?></ul>
         </nav>
         <main>
             <h2>Sever Error</h2>
