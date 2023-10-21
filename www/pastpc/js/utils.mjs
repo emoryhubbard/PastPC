@@ -57,14 +57,21 @@ export function renderTemplate({element, template, callback,
     })
     select(selector).addEventListener("click", callback)
   }
-  export function toggleClass(selector, className) {
-    select(selector).classList.toggle(className)
-  }
-
   export function setClicks(callback, ...selectors) {
     for (const selector of selectors)
       setClick(callback, selector)
   }
+  export function toggleClass(selector, className) {
+    select(selector).classList.toggle(removeDot(className))
+  }
+  export function toggleClasses(selector, ...classNames) {
+    for (const className of classNames) {
+      select(selector).classList.toggle(removeDot(className))
+    }
+  }
   export function hasClass(selector, className) {
-    return select(selector).classList.contains(className)
+    return select(selector).classList.contains(removeDot(className))
+  }
+  function removeDot(className) {
+    return className.slice(1)
   }

@@ -8,8 +8,9 @@
     <link rel="stylesheet" href="/pastpc/css/small.css" media="screen">
     <link rel="stylesheet" href="/pastpc/css/medium.css" media="screen">
     <link rel="stylesheet" href="/pastpc/css/large.css" media="screen">
+    <link rel="icon" type="image/svg" href="/pastpc/images/site/OuterBlueInnerWhite.svg">
 </head>
-<body>
+<body><script>0</script>
     <div class="body-div">
         <header>
             <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/pastpc/snippets/header.php"?>
@@ -24,9 +25,9 @@
                     <div class="cover-lcp">
                         <p class="lcp-first-text">Rent a PC for Legacy Use, Hosting, and More.</p>
                         <p class="lcp-small">Get control <strong>instantly</strong> of a PC, tablet, or smartphone.</p>
-                        <a href="/pastpc/devices/index.php?action=search">
+                        <div class="lcp-find-device">
                             <p class="find-a-pc">FIND A DEVICE</p>
-                        </a>
+                        </div>
                     </div>
                 </div>
             </section>

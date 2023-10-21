@@ -16,6 +16,9 @@
 * {
     font-family: "Figtree", sans-serif;
 }
+body {
+    overflow: hidden;
+}
 li {
     list-style-type: none;
 }
@@ -46,16 +49,8 @@ li {
 .has-search-close-icon {
     padding-top: 1rem;
     padding-right: 1rem;
-    gap: 1.2rem;
 }
-/*.search-input {
-    font-style: italic;
-    color: gray;
-}*/
 .search-bar-form {
-    /*width: 8rem;
-    padding: 1rem;
-    box-sizing: content-box;*/
     display: flex;
     padding-top: 1rem;
     padding-left: 1rem;
@@ -65,12 +60,87 @@ li {
 .menu-close-icon {
     height: 1.6rem;
     box-sizing: content-box;
+    padding-right: 1rem;
 }
 .slideout-menu-close {
-    display: none;
+    transform: translateX(25rem);
+    opacity: 0;
 }
 .slideout-menu-open {
     display: block;
+    transition: transform .5s, opacity .2s;
+    transform: translateX(1rem);
+    opacity: 1;
+}
+.slideout-menu {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background-color: white;
+    z-index: 999;
+}
+.has-menu-search-form {
+    display: flex;
+    justify-content: space-between;
+}
+.menu-search-form {
+    display: flex;
+    padding-top: 1rem;
+    padding-left: 1rem;
+    padding-bottom: 1rem;
+    gap: 1.2rem;
+}
+.has-menu-close-icon {
+    padding-top: 1rem;
+    padding-right: 1rem;
+}
+.menu-submit-search-icon {
+    height: 1.6rem;
+    box-sizing: content-box;
+}
+.menu-nav {
+    padding-left: 1rem;
+}
+.menu-nav-devices {
+    padding-left: 0rem;
+    margin-top: 2rem;
+}
+.menu-nav-devices p {
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+    padding-bottom: 1.5rem;
+}
+.menu-hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+    color: transparent;
+    border-top: 1px lightgray solid
+}
+.menu-arrow-icon {
+    height: 1.6rem;
+    box-sizing: content-box;
+    padding-right: 2rem;
+}
+.menu-nav a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.dark-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 99;
+}
+.dark-overlay-open {
+    display: visible;
+}
+.dark-overlay-close {
+    display: none;
 }
 .top-logo {
     width: 8rem;
@@ -217,6 +287,9 @@ h2 {
     padding: 1rem;
     background-color: var(--logocolor);
     width: calc(100% - 1rem);
+}
+.find-a-pc:hover {
+    cursor: pointer;
 }
 .reviews {
     padding-left: 2rem;

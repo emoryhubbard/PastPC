@@ -15,6 +15,7 @@ require_once '../library/functions.php';
 //Building a dynamic nav bar, replacing the static snippet
 $classifications = getClassifications();
 $navList = getNav($classifications);
+$menuNavList = getMenuNav($classifications);
 //debugPrint($navList);
 
 //check to see if anything is in POST, if not check GET

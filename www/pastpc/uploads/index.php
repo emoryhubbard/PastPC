@@ -13,6 +13,7 @@ require_once '../library/debug-print.php';
 
 $classifications = getClassifications();
 $navList = getNav($classifications);
+$menuNavList = getMenuNav($classifications);
 
 $action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 if ($action == null)

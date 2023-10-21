@@ -16,6 +16,7 @@ require_once '../model/uploads-model.php';
 //Building a dynamic nav bar, replacing the static snippet
 $classifications = getClassifications();
 $navList = getNav($classifications);
+$menuNavList = getMenuNav($classifications);
 
 /*$classificationList = "<select name='classificationId'>";
 foreach ($classifications as $cl)

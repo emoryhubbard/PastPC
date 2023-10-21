@@ -8,8 +8,9 @@
     <link rel="stylesheet" href="/pastpc/css/small.css" media="screen">
     <link rel="stylesheet" href="/pastpc/css/medium.css" media="screen">
     <link rel="stylesheet" href="/pastpc/css/large.css" media="screen">
+    <link rel="icon" type="image/svg" href="/pastpc/images/site/OuterBlueInnerWhite.svg">
 </head>
-<body>
+<body><script>0</script>
     <div class="body-div">
         <header>
             <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/pastpc/snippets/header.php"?>

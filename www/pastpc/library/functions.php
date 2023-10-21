@@ -18,6 +18,13 @@ function getNav($classifications) {
     $navList .= '<li><a class="more-link" href="/pastpc/devices/index.php?action=submit-search" title="View All Devices">More</a></li>';
     return $navList;
 }
+function getMenuNav($classifications) {
+    $navList = "";
+    foreach ($classifications as $cl)
+        $navList .= "<li><a href='/pastpc/index.php?action=classification&classification-name=" . urlencode($cl['classificationName']) . "' title='View $cl[classificationName] devices'><p>$cl[classificationName]</p><img class='menu-arrow-icon' src='/pastpc/images/site/RightArrowIcon.svg' alt='arrow icon'></a></li>";
+    $navList .= '<li><a class="more-link" href="/pastpc/devices/index.php?action=submit-search" title="View All Devices">' . "<p>More</p><img class='menu-arrow-icon' src='/pastpc/images/site/RightArrowIcon.svg' alt='arrow icon'></a></li>"; 
+    return $navList;
+}
 function buildClassificationList($classifications) {
     $classificationList = '<select name="classificationId" id="classificationList">';
     $classificationList .= "<option>Choose a Classification</option>";
