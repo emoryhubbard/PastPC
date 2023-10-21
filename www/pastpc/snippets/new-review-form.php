@@ -1,5 +1,5 @@
 <?php $cd = $_SESSION['clientData']; ?>
-<form action="/pastpc/reviews/index.php" method="post">
+<form class='blue-form' action="/pastpc/reviews/index.php" method="post">
                 <fieldset>
                     <label>Leave a review:<span class="asterisk">*</span><input type="text" name="review-text" required placeholder=""></label>
                     <label>Screen name:<span class="asterisk"></span><input type="text" name="screen-name" readonly value="<?php echo substr($cd['clientFirstname'], 0, 1) . $cd['clientLastname']; ?>"></label>

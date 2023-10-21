@@ -26,7 +26,7 @@
                 $_SESSION['message'] = null;
             }
             ?>
-            <form method="post" action="/pastpc/reviews/index.php">
+            <form class='blue-form' method="post" action="/pastpc/reviews/index.php">
                 <fieldset>
                     <label>Review Date<span class="asterisk"></span><input type="text" name="review-date" title="(read-only)" readonly placeholder="" value="<?php echo $review['reviewDate']; ?>"><span>Brand is limited to 30 characters</span></label>
                     <label>Screen Name<span class="asterisk"></span><input type="text" name="screen-name" title="(read-only)" readonly placeholder="" value="<?php echo substr($review['clientFirstname'], 0, 1) . $review['clientLastname']; ?>"><span>Model is limited to 30 characters</span></label>

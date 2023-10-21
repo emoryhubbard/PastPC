@@ -31,15 +31,36 @@ li {
     display: flex;
 }
 .search-bar {
-    padding-top: 1rem;
-    padding-right: 1rem;
-    gap: 1.2rem;
+    /*gap: 1.2rem;*/
     position: absolute;
+    justify-content: space-between;
     top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
 }
 .search-close-icon {
     height: 1.6rem;
     box-sizing: content-box;
+}
+.has-search-close-icon {
+    padding-top: 1rem;
+    padding-right: 1rem;
+    gap: 1.2rem;
+}
+/*.search-input {
+    font-style: italic;
+    color: gray;
+}*/
+.search-bar-form {
+    /*width: 8rem;
+    padding: 1rem;
+    box-sizing: content-box;*/
+    display: flex;
+    padding-top: 1rem;
+    padding-left: 1rem;
+    padding-bottom: 1rem;
+    gap: 1.2rem;
 }
 .menu-close-icon {
     height: 1.6rem;
@@ -68,6 +89,10 @@ li {
     height: 1.6rem;
     box-sizing: content-box;
 }
+.submit-search-icon {
+    height: 1.6rem;
+    box-sizing: content-box;
+}
 .burger-icon {
     height: 1.6rem;
     box-sizing: border-box;
@@ -88,7 +113,7 @@ li {
     padding-top: .8rem;
     padding-bottom: .8rem;
     margin: 0;
-    margin-top: .8rem;
+    /*margin-top: .8rem;*/
     background-color: var(--dgray);
 }
 a {
@@ -221,13 +246,13 @@ h2 {
     height: 100%;
     width: 100%;
 }
-.udeviced > a {
+.ucard > a {
     all: revert;
     display: block;
     margin: auto;
     text-align: center;
 }
-.has-udeviced {
+.has-ucard {
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: .5rem;
@@ -235,13 +260,13 @@ h2 {
     padding-right: .5rem;
     padding-bottom: 2rem;
 }
-form {
+.blue-form {
     display: flex;
     justify-content: center;
     margin-top: 2rem;
     margin-bottom: 2rem;
 }
-fieldset {
+.blue-form fieldset {
     background-color: var(--lblue);
     padding: 2rem;
     padding-bottom: 1rem;
@@ -249,28 +274,28 @@ fieldset {
     border: 1px solid transparent;
     box-shadow: gray 5px 5px 5px 5px;
 }
-select {
+.blue-form select {
     display: block;
     margin-top: 1rem;
 }
-label {
+.blue-form label {
     display: block;
 }
-label * {
+.blue-form label * {
     display: block;
     margin-bottom: .5rem;
 }
-label > input, input {
+.blue-form label > input, .blue-form input {
     width: 10rem;
     border: 3px solid transparent;
 }
-label > input:invalid:not(:placeholder-shown) {
+.blue-form label > input:invalid:not(:placeholder-shown) {
     border: 3px solid red;
 }
-fieldset {
+.blue-form fieldset {
     position: relative;
 }
-.password-input ~ span, .classification-input ~ span {
+.blue-form .password-input ~ span, .classification-input ~ span {
     position: absolute;
     display: none;
     color: white;
@@ -279,10 +304,10 @@ fieldset {
     border-radius: 10px;
     padding: 1rem;
 }
-.password-input:invalid:focus ~ span, .classification-input:invalid:focus ~ span {
+.blue-form .password-input:invalid:focus ~ span, .classification-input:invalid:focus ~ span {
     display: inline;
 }
-input + span {
+.blue-form input + span {
     position: absolute;
     display: none;
     color: white;
@@ -291,14 +316,14 @@ input + span {
     border-radius: 10px;
     padding: 1rem;
 }
-input:invalid:focus + span {
+.blue-form input:invalid:focus + span {
     display: inline;
 }
-.asterisk {
+.blue-form .asterisk {
     display: inline;
     color: red;
 }
-.submit-button {
+.blue-form .submit-button {
     height: 2rem;
     margin-top: 2rem;
     background-color: rgb(243, 207, 178);

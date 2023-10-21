@@ -38,7 +38,7 @@ if ($_SESSION['clientData']['clientLevel'] < 2) {
                 echo $message;
             }
             ?>
-            <form method="post" action="/pastpc/devices/index.php">
+            <form class='blue-form' method="post" action="/pastpc/devices/index.php">
                 <fieldset>
                     <label>Brand<span class="asterisk">*</span><input type="text" name="deviceBrand" title="Brand is limited to 30 characters" required pattern=<?php print $deviceBrandPattern;?> placeholder="" <?php if(isset($deviceBrand)){echo "value='$deviceBrand'";} ?>><span>Brand is limited to 30 characters</span></label>
                     <label>Model<span class="asterisk">*</span><input type="text" name="deviceModel" title="Model is limited to 30 characters" required pattern=<?php print $deviceModelPattern;?> placeholder="" <?php if(isset($deviceModel)){echo "value='$deviceModel'";} ?>><span>Model is limited to 30 characters</span></label>

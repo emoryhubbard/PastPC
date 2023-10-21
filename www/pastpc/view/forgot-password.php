@@ -24,7 +24,7 @@
                 $_SESSION['message'] = null;
             }
             ?>
-            <form action="/pastpc/accounts/index.php" method="post">
+            <form class='blue-form' action="/pastpc/accounts/index.php" method="post">
                 <fieldset>
                     <label>Email<span class="asterisk">*</span><input type="email" name="clientEmail" required placeholder="" <?php if(isset($clientEmail)){echo "value='$clientEmail'";} ?>></label>
                     <input class="submit-button" type="submit" value="Send reset link">

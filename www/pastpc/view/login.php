@@ -26,7 +26,7 @@
             ?>
             <!--administrative account that you created earlier -
             username: admin@cse340.net, password: Sup3rU$er-->
-            <form action="/pastpc/accounts/index.php" method="post">
+            <form class='blue-form' action="/pastpc/accounts/index.php" method="post">
                 <fieldset>
                     <label>Email<span class="asterisk">*</span><input type="email" name="clientEmail" required placeholder="" <?php if(isset($clientEmail)){echo "value='$clientEmail'";} ?>></label>
                     <label title="Passwords must be at least 8 characters and contain at least 1 number, 1 capital letter and 1 special character">Password<span class="asterisk">*</span><input class="password-input" type="password" name="clientPassword" title="Passwords must be at least 8 characters and contain at least 1 number, 1 capital letter and 1 special character" required pattern="(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" placeholder=""><span>Passwords must be at least 8 characters and contain at least 1 number, 1 capital letter and 1 special character</span></label>

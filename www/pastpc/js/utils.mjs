@@ -13,8 +13,8 @@ export function renderTemplate({element, template, callback,
     const header = await loadTemplate(`../templates/header.html`);
     const footer = await loadTemplate(`../templates/footer.html`);
    
-    renderTemplate({element: qs("header"), template: header, clear: true});
-    renderTemplate({element: qs("footer"), template: footer, clear: true});
+    renderTemplate({element: select("header"), template: header, clear: true});
+    renderTemplate({element: select("footer"), template: footer, clear: true});
   }
 
   export function renderList({templateFunction, element, list,
@@ -35,7 +35,7 @@ export function renderTemplate({element, template, callback,
   }
 
   // wrapper for querySelector...returns matching element
-  export function qs(selector, parent = document) {
+  export function select(selector, parent = document) {
     return parent.querySelector(selector);
   }
   // or a more concise version if you are into that sort of thing:
@@ -50,21 +50,21 @@ export function renderTemplate({element, template, callback,
     localStorage.setItem(key, JSON.stringify(data));
   }
   // set a listener for both touchend and click
-  export function setClick(selector, callback) {
-    qs(selector).addEventListener("touchend", (event) => {
+  export function setClick(callback, selector) {
+    select(selector).addEventListener("touchend", (event) => {
       event.preventDefault()
       callback()
     })
-    qs(selector).addEventListener("click", callback)
+    select(selector).addEventListener("click", callback)
   }
   export function toggleClass(selector, className) {
-    qs(selector).classList.toggle(className)
+    select(selector).classList.toggle(className)
   }
 
   export function setClicks(callback, ...selectors) {
     for (const selector of selectors)
-      setClick(selector, callback)
+      setClick(callback, selector)
   }
   export function hasClass(selector, className) {
-    return qs(selector).classList.contains(className)
+    return select(selector).classList.contains(className)
   }

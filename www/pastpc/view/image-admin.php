@@ -29,7 +29,7 @@ if (isset($_SESSION['message']))
             if (isset($message))
                 echo $message;
             ?>
-            <form action="/pastpc/uploads/" method="post" enctype="multipart/form-data">
+            <form class='blue-form' action="/pastpc/uploads/" method="post" enctype="multipart/form-data">
                 <label for="deviceItem">Device</label>
                 <?php echo $prodSelect; ?>
                 <fieldset>

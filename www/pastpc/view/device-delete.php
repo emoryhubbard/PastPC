@@ -40,7 +40,7 @@ if ($_SESSION['clientData']['clientLevel'] < 2) {
                     echo "Delete $deviceBrand $deviceModel";
                 ?></h1>
             <p>Confirm deletion of the device. Note: deletion is permanent and cannot be undone.</p>
-            <form method="post" action="/pastpc/devices/index.php">
+            <form class='blue-form' method="post" action="/pastpc/devices/index.php">
                 <fieldset>
                     <label>Brand<span class="asterisk">*</span><input type="text" name="deviceBrand" title="Brand is limited to 30 characters" readonly placeholder="" <?php if(isset($deviceBrand)){echo "value='$deviceBrand'";} elseif(isset($deviceInfo['deviceBrand'])) echo "value='$deviceInfo[deviceBrand]'"; ?>><span>Brand is limited to 30 characters</span></label>
                     <label>Model<span class="asterisk">*</span><input type="text" name="deviceModel" title="Model is limited to 30 characters" readonly placeholder="" <?php if(isset($deviceModel)){echo "value='$deviceModel'";} elseif(isset($deviceInfo['deviceModel'])) echo "value='$deviceInfo[deviceModel]'"; ?>><span>Model is limited to 30 characters</span></label>

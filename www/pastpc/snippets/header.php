@@ -13,14 +13,14 @@
         <a href="javascript:"><img class="burger-icon" src="/pastpc/images/site/Burger2.svg" alt="burger icon"></a>
     </div>
     <div class="search-bar search-bar-close">
-        <form action="/pastpc/devices/index.php" method="post">
-            <fieldset>
-                <input type="text" name="keywords" value="Find Device, eg. IBM PC...">
-                <input class="submit-button" type="submit" value="Search">
-                <input type="hidden" name="action" value="submit-search">
-            </fieldset>
+        <form class='search-bar-form' action="/pastpc/devices/index.php" method="post">
+            <input class="search-input" type="text" name="keywords" placeholder="Search...">
+            <input type="hidden" name="action" value="submit-search">
+            <a href="javascript:"><img class="submit-search-icon" src="/pastpc/images/site/Search2.svg" alt="search icon"></a>
         </form>
-        <a href="javascript:"><img class="search-close-icon" src="/pastpc/images/site/CloseIcon.svg" alt="close (as in the verb close) icon"></a>
+        <div class="has-search-close-icon">
+            <a href="javascript:"><img class="search-close-icon" src="/pastpc/images/site/CloseIcon.svg" alt="close (as in the verb close) icon"></a>
+        </div>
     </div>
     <div class="slideout-menu slideout-menu-close">
         <a href="javascript:"><img class="menu-close-icon" src="/pastpc/images/site/CloseIcon.svg" alt="close (as in the verb close) icon"></a>

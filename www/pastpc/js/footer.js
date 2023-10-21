@@ -1,4 +1,4 @@
-import { qs } from './utils.mjs'
+import { select } from './utils.mjs'
 
-let topNavMoreLink = qs('.top-nav .more-link')
+let topNavMoreLink = select('.top-nav .more-link')
 topNavMoreLink.setAttribute('href', '#bottom-nav-title')

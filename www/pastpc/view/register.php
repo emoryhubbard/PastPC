@@ -23,7 +23,7 @@
                 echo $message;
             }
             ?>
-            <form method="post" action="/pastpc/accounts/index.php">
+            <form class='blue-form' method="post" action="/pastpc/accounts/index.php">
                 <fieldset class="password-fieldset">
                     <label>First name<span class="asterisk">*</span><input type="text" name="clientFirstname" title="Required field" required placeholder="" <?php if(isset($clientFirstname)){echo "value='$clientFirstname'";} ?>></label>
                     <label>Last name<span class="asterisk">*</span><input type="text" name="clientLastname" title="Required field" required placeholder="" <?php if(isset($clientLastname)){echo "value='$clientLastname'";} ?>></label>                    
