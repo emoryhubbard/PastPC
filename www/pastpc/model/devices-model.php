@@ -61,7 +61,7 @@ function deleteDevice($deviceId) {
 }
 function getDevicesByClassification($classificationName) {
     $db = getPDO();
-    $sql = "SELECT img.imgName, img.imgPath, device.deviceId, device.deviceBrand, device.deviceModel, device.deviceDescription, device.deviceMonthlyRate, device.classificationId, device.deviceImage, device.deviceThumbnail FROM devices device JOIN images img ON img.deviceId = device.deviceId WHERE device.classificationId IN (SELECT classificationId FROM deviceclassification WHERE classificationName = :classificationName) AND img.imgPrimary = 1 AND img.imgName LIKE '%-tn%'";
+    $sql = "SELECT class.classificationName, img.imgName, img.imgPath, device.deviceId, device.deviceBrand, device.deviceModel, device.deviceDescription, device.deviceMonthlyRate, device.classificationId, device.deviceImage, device.deviceThumbnail FROM devices device JOIN images img ON img.deviceId = device.deviceId JOIN deviceclassification class ON class.classificationId = device.classificationId WHERE device.classificationId IN (SELECT classificationId FROM deviceclassification WHERE classificationName = :classificationName) AND img.imgPrimary = 1 AND img.imgName LIKE '%-tn%'";
     $stmt = $db->prepare($sql);
     $stmt->bindValue(':classificationName', $classificationName, PDO::PARAM_STR);
     $stmt->execute();

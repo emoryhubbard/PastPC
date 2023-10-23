@@ -34,13 +34,21 @@ function buildClassificationList($classifications) {
     return $classificationList;
 }
 function buildDevicesDisplay($devices) {
-    $dv = '<ul id="device-display">';
+    $firstDevice = $devices[0];
+    $dv = "<p class='search-results-p'>" . count($devices) . " $firstDevice[classificationName] Search Results</p>";
+    $dv .= '<ul id="device-display" class="device-display">';
     foreach ($devices as $device) {
         $dv .= '<li>';
         $dv .= "<a href='/pastpc/devices/index.php?action=detail-view&device-id=$device[deviceId]'><img src='$device[imgPath]' alt='Image of $device[deviceBrand] $device[deviceModel] on pastpc.com'></a>";
-        $dv .= '<hr>';
-        $dv .= "<a href='/pastpc/devices/index.php?action=detail-view&device-id=$device[deviceId]'><h2>$device[deviceBrand] $device[deviceModel]</h2></a>";
-        $dv .= "<span>$device[deviceMonthlyRate]</span>";
+        $dv .= "<div class='device-info'>";
+        $dv .= "<a href='/pastpc/devices/index.php?action=detail-view&device-id=$device[deviceId]'><p class='listing-title'>$device[deviceDescription]</p></a>";
+        $dv .= "<p class='classification-name'>$device[classificationName]</p>";
+        $dv .= "<p class='device-monthly-rate'>$" . number_format($device['deviceMonthlyRate'], 2, '.', '') . "/month</p>";
+        $dv .= "<p class='device-brand'>$device[deviceBrand]</p>";
+        $dv .= "<p class='device-model'>$device[deviceModel]</p>";
+        $dv .= "<p class='device-access'>24/7 access";
+        $dv .= "<p class='device-free-trial'>Offers free trial</p>";
+        $dv .= "</div>";
         $dv .= '</li>';
     }
     $dv .= '</ul>';

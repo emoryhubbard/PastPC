@@ -12,12 +12,14 @@
 </head>
 <body><script>0</script>
     <div class="body-div">
-        <header>
-            <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/pastpc/snippets/header.php"?>
-        </header>
-        <nav>
-            <ul class='top-nav'><?php print $navList; ?></ul>
-        </nav>
+        <div class="sticky-header">
+            <header>
+                <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/pastpc/snippets/header.php"?>
+            </header>
+            <nav>
+                <ul class='top-nav'><?php print $navList; ?></ul>
+            </nav>
+        </div>
         <main>
         <section class="w-section">
                 <div class="has-lcp">
@@ -36,5 +38,6 @@
             <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/pastpc/snippets/footer.php"?>
         </footer>
     </div>
+    <script src="/pastpc/js/home.js" type="module"></script>
 </body>
 </html>

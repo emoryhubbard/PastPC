@@ -27,12 +27,14 @@ if ($_SESSION['clientData']['clientLevel'] < 2) {
 </head>
 <body><script>0</script>
     <div class="body-div">
-        <header>
-            <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/pastpc/snippets/header.php"?>
-        </header>
-        <nav>
-            <ul class='top-nav'><?php print $navList; ?></ul>
-        </nav>
+        <div class="sticky-header">
+            <header>
+                <?php require_once $_SERVER['DOCUMENT_ROOT'] . "/pastpc/snippets/header.php"?>
+            </header>
+            <nav>
+                <ul class='top-nav'><?php print $navList; ?></ul>
+            </nav>
+        </div>
         <main>
             <?php
             if (isset($message)) {

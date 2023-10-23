@@ -17,15 +17,20 @@
     font-family: "Figtree", sans-serif;
 }
 body {
-    overflow: hidden;
+    overflow-x: hidden;
 }
 li {
     list-style-type: none;
+}
+.sticky-header {
+    position: sticky;
+    top: 0;
 }
 .has-header {
     display: flex;
     justify-content: space-between;
     position: relative;
+    background-color: white;
 }
 .search-bar-close {
     display: none;
@@ -227,6 +232,7 @@ h2 {
     /*height: fit-content;
     margin-bottom: 0;
     padding-bottom: 0;*/
+    z-index: -999;
 }
 .lcp {
     display: block;
@@ -290,6 +296,10 @@ h2 {
 }
 .find-a-pc:hover {
     cursor: pointer;
+}
+.search-results-p {
+    margin-top: 2rem;
+    padding-left: 1.6rem;
 }
 .reviews {
     padding-left: 2rem;
@@ -431,7 +441,49 @@ table {
 *, *:before, *:after {
     box-sizing: inherit;
 }
-#device-display {
+.device-display {
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
+}
+.device-display li {
+    display: flex;
+    gap: 1rem;
+}
+.device-display img {
+    width: 30vw;
+    border-radius: 15px;
+}
+.listing-title {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    margin-top: 0rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 0rem;
+}
+.classification-name, .device-brand, .device-model, .device-access {
+    font-size: .9rem;
+    color: #737373;
+    font-weight: 500;
+    margin: 0;
+}
+.device-monthly-rate {
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+.device-free-trial {
+    font-size: .9rem;
+    color: #737373;
+    font-weight: 500;
+    margin: 0;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+/*#device-display {
     margin: 0;
     padding: 0;
     display: flex;
@@ -445,7 +497,7 @@ table {
 }
 #device-display li img {
     max-width: 100%;
-}
+}*/
 .detail-display img {
     width: 100%;
     max-width: 500px;

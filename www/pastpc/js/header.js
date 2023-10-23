@@ -1,7 +1,7 @@
 import { setClicks, toggleClass, toggleClasses, hasClass, select, setClick } from './utils.mjs'
 
 setDefaultStates()
-setClicks(toggleSearchBar, '.search-icon', '.search-close-icon', '.find-a-pc')
+setClicks(toggleSearchBar, '.search-icon', '.search-close-icon')
 setClicks(toggleMenuBar, '.burger-icon', '.menu-close-icon')
 setClick(submitSearchBar, '.submit-search-icon')
 setClick(submitMenuSearch, '.menu-submit-search-icon')
