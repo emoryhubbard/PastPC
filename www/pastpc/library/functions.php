@@ -33,10 +33,17 @@ function buildClassificationList($classifications) {
     $classificationList .= '</select>';
     return $classificationList;
 }
-function buildDevicesDisplay($devices) {
+function getClassificationResults($devices) {
     $firstDevice = $devices[0];
-    $dv = "<p class='search-results-p'>" . count($devices) . " $firstDevice[classificationName] Search Results</p>";
-    $dv .= '<ul id="device-display" class="device-display">';
+    $dv = "<p class='search-results-p'>" . count($devices) . " Results for $firstDevice[classificationName]</p>";
+    return $dv;
+}
+function getSearchResults($devices, $keywords) {
+    $dv = "<p class='keywords-p'><p class='keywords-value-p'>" . '"' . $keywords . '":' . "</p>" . "<p class='search-results-p'>" . count($devices) . " Search Results</p>";
+    return $dv;
+}
+function buildDevicesDisplay($devices) {
+    $dv = '<ul id="device-display" class="device-display">';
     foreach ($devices as $device) {
         $dv .= '<li>';
         $dv .= "<a href='/pastpc/devices/index.php?action=detail-view&device-id=$device[deviceId]'><img src='$device[imgPath]' alt='Image of $device[deviceBrand] $device[deviceModel] on pastpc.com'></a>";

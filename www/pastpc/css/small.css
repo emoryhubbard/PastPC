@@ -297,10 +297,6 @@ h2 {
 .find-a-pc:hover {
     cursor: pointer;
 }
-.search-results-p {
-    margin-top: 2rem;
-    padding-left: 1.6rem;
-}
 .reviews {
     padding-left: 2rem;
     padding-right: 1rem;
@@ -444,6 +440,15 @@ table {
 .device-display {
     padding-left: 1.6rem;
     padding-right: 1.6rem;
+}
+.search-results-p {
+    margin: 0;
+    padding-left: 1.6rem;
+}
+.keywords-value-p {
+    margin-top: 2rem;
+    margin-bottom: 0rem;
+    padding-left: 1.6rem;
 }
 .device-display li {
     display: flex;

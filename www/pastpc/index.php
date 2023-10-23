@@ -32,8 +32,10 @@ switch ($action) {
         $devices = getDevicesByClassification($classificationName);
         if (!count($devices))
             $message = "<p class='notice'>Sorry, no $classificationName devices could be found.</p>";
-        else
+        else {
             $deviceDisplay = buildDevicesDisplay($devices);
+            $classificationResults = getClassificationResults($devices);
+        }
         include 'view/classification.php';
         break;
     default:

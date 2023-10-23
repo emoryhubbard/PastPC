@@ -156,9 +156,11 @@ switch ($action) {
         $devices = getDevicesByKeywords($keywords);
         if (!count($devices))
             $message = "<p class='notice'>Sorry, no devices could be found with the keyword(s) " . '"' . htmlspecialchars($keywords) . '".' . "</p>";
-        else
+        else {
             $deviceDisplay = buildDevicesDisplay($devices);
-        include '../view/classification.php';
+            $searchResults = getSearchResults($devices, $keywords);
+        }
+        include '../view/search.php';
         break;
     default:
         $classificationList = buildClassificationList($classifications);

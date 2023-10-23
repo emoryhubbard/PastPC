@@ -24,8 +24,8 @@
             <?php
             if (isset($message))
                 echo $message;
-            if (isset($classificationResults))
-                echo $classificationResults;
+            if (isset($searchResults))
+                echo $searchResults;
             if (isset($deviceDisplay))
                 echo $deviceDisplay;
             ?>
@@ -36,5 +36,3 @@
     </div>
 </body>
 </html>
-
-
