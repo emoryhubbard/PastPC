@@ -35,7 +35,7 @@ function buildClassificationList($classifications) {
 }
 function getClassificationResults($devices) {
     $firstDevice = $devices[0];
-    $dv = "<p class='search-results-p'>" . count($devices) . " Results for $firstDevice[classificationName]</p>";
+    $dv = "<p class='classification-results-p'>" . count($devices) . " Results for $firstDevice[classificationName]</p>";
     return $dv;
 }
 function getSearchResults($devices, $keywords) {

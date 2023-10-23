@@ -441,6 +441,11 @@ table {
     padding-left: 1.6rem;
     padding-right: 1.6rem;
 }
+.classification-results-p {
+    margin-top: 2rem;
+    margin-bottom: 0rem;
+    padding-left: 1.6rem;
+}
 .search-results-p {
     margin: 0;
     padding-left: 1.6rem;
