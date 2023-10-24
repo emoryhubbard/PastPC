@@ -21,6 +21,10 @@
             </nav>
         </div>
         <main class="device-detail-main">
+            <a class='back-button p-link' href='javascript:'>
+                <img class='back-button-arrow-icon' src='/pastpc/images/site/LeftArrow.svg' alt='back button left arrow icon'>
+                <p class='back-button-text p-link'>Back to search results</p>
+            </a>
             <?php
             if(isset($detailDisplay))
                 echo $detailDisplay;

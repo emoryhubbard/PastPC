@@ -145,10 +145,10 @@ switch ($action) {
         $deviceInfo = getInvItemInfo($deviceId);
         if ($deviceInfo == null)
             $message = "<p class='notice'>Sorry, the indicated device could not be found in the devices.</p>";
-        else
-            $detailDisplay = buildDetailDisplay($deviceInfo);
-        $thumbnails = getThumbnails($deviceId);
-        $thumbnailDisplay = buildThumbnailDisplay($thumbnails);
+        else {
+            $thumbnails = getThumbnails($deviceId);
+            $detailDisplay = buildDetailDisplay($deviceInfo, $thumbnails);
+        }
         include '../view/device-detail.php';
         break;
     case 'submit-search':

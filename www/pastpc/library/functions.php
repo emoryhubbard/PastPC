@@ -54,7 +54,7 @@ function buildDevicesDisplay($devices) {
         $dv .= "<p class='device-brand'>$device[deviceBrand]</p>";
         $dv .= "<p class='device-model'>$device[deviceModel]</p>";
         $dv .= "<p class='device-access'>24/7 access";
-        $dv .= "<p class='device-free-trial'>Offers free trial</p>";
+        $dv .= "<p class='device-free-trial'>Free trial</p>";
         $dv .= "</div>";
         $dv .= '</li>';
     }
@@ -74,29 +74,35 @@ function buildDevicesDisplay($devices) {
     $dv .= '</ul>';
     return $dv;
 }*/
-function buildDetailDisplay($deviceInfo) {
-    $dv = '<div class="detail-display">';
-    $dv .= "<img src='$deviceInfo[imgPath]' alt='Image of $deviceInfo[deviceBrand] $deviceInfo[deviceModel] on pastpc.com'>";
-    $dv .= "<div class='detail-info'>";
-    $montlyRate = number_format($deviceInfo["deviceMonthlyRate"]);
-    $dv .= "<h2>$deviceInfo[deviceBrand] $deviceInfo[deviceModel]: $$montlyRate</h2>";
-    $dv .= "<p>-- Reviews Below --</p>";
+function buildDetailDisplay($deviceInfo, $thumbnails) {
     $classification = getClassification($deviceInfo["classificationId"]);
-    $dv .= "<p>Device type: $classification[classificationName]</p>";
-    $dv .= "<p>" . htmlspecialchars($deviceInfo['deviceDescription'], ENT_QUOTES, 'UTF-8') . "</p>";
+    $dv = "<p class='detail-listing-title'>" . htmlspecialchars($deviceInfo['deviceDescription'], ENT_QUOTES, 'UTF-8') . "</p>";
+    $dv .= "<p class='detail-listing-subtitle'>$classification[classificationName] category | <span class='access-available'>Access available 24/7</span></p>";
+    $dv .= "<div class='has-detail-main-img'><img class='detail-main-img' src='$deviceInfo[imgPath]' alt='Image of $deviceInfo[deviceBrand] $deviceInfo[deviceModel] on pastpc.com'></div>";
+    $dv .= buildThumbnailDisplay($thumbnails);
+    $monthlyRate = number_format($deviceInfo["deviceMonthlyRate"], 2, '.', '');
+    $dv .= "<div class='main-img-subtitle'><p class='main-img-monthly-rate'>$$monthlyRate<span class='main-img-month'>/mo</span><span class='main-img-free-trial'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;Free trial available</span></div>";
+    $dv .= "<ul class='detail-info-table'>";
+    $dv .= "<li class='detail-info-table-item'><p class='detail-info-table-item-field'>Brand</p><p class='detail-info-table-item-value'>$deviceInfo[deviceBrand]</p>";
+    $dv .= "<li class='detail-info-table-item'><p class='detail-info-table-item-field'>Model</p><p class='detail-info-table-item-value'>$deviceInfo[deviceModel]</p>";
+    $dv .= "<li class='detail-info-table-item'><p class='detail-info-table-item-field'>Description</p><p class='detail-info-table-item-value'></p>";
+    $dv .= "</ul>";
+    $dv .= "<p class='detail-description'>" . htmlspecialchars($deviceInfo['deviceDescription'], ENT_QUOTES, 'UTF-8') . "</p>";
+    //$dv .= "<p class='show-more-button'>Show more</p>";
+    $dv .= "<a class='show-more-button p-link' href='javascript:'>
+                <img class='show-more-button-arrow-icon' src='/pastpc/images/site/DownArrow.svg' alt='more button down arrow icon'>
+                <p class='show-more-button-text p-link'>Show more</p>
+            </a>";
     //$dv .= "<p>" . $deviceInfo['deviceDescription'] . "</p>";
     //debugPrint($deviceInfo['deviceDescription']);
-    $dv .= "</div>";
-    $dv .= "</div>";
     return $dv;
 }
 function buildThumbnailDisplay($thumbnails) {
-    $td = '<div class="thumbnail-display">'; // td is thumbnail display
-    $td .= '<h2>Additional Images</h2>';
+    $dv = '<div class="thumbnail-display">';
     foreach ($thumbnails as $thumbnail)
-        $td .= "<img src='$thumbnail[imgPath]' alt='Thumbnail image of $thumbnail[deviceBrand] $thumbnail[deviceModel] on pastpc.com'>";
-    $td .= "</div>";
-    return $td;
+        $dv .= "<img src='$thumbnail[imgPath]' alt='Thumbnail image of $thumbnail[deviceBrand] $thumbnail[deviceModel] on pastpc.com'>";
+    $dv .= "</div>";
+    return $dv;
 }
 /*
 Functions for working with images
