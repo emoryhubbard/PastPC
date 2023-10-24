@@ -4,6 +4,7 @@ setDefaultStates()
 setClick(goBack, ".back-button")
 setClick(toggleFullDescription, ".show-more-button")
 renderReviews()
+renderSingleQuotes()
 
 function setDefaultStates() {
     toggleClass('.detail-description', '.detail-description-short')
@@ -43,5 +44,9 @@ function buildReviewList(reviews) {
     }
 
     select(".reviews").innerHTML = rlist
+}
+function renderSingleQuotes() {
+    let oldText = select(".detail-description").innerHTML
+    select(".detail-description").textContent = oldText.replace('&amp;#039;', "'")
 }
 
