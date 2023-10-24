@@ -25,6 +25,7 @@ li {
 .sticky-header {
     position: sticky;
     top: 0;
+    z-index: 9;
 }
 .has-header {
     display: flex;
@@ -105,15 +106,18 @@ li {
 }
 .menu-nav {
     padding-left: 1rem;
+    padding-bottom: .3rem;
 }
 .menu-nav-devices {
     padding-left: 0rem;
     margin-top: 2rem;
 }
+.menu-nav-devices a {
+    margin-bottom: 1.2rem;
+}
 .menu-nav-devices p {
     margin-top: 0rem;
     margin-bottom: 0rem;
-    padding-bottom: 1.5rem;
 }
 .menu-hr {
     margin-top: 1rem;
@@ -344,6 +348,7 @@ h2 {
     justify-content: center;
     margin-top: 2rem;
     margin-bottom: 2rem;
+    z-index: -9999;
 }
 .blue-form fieldset {
     background-color: var(--lblue);
@@ -352,6 +357,7 @@ h2 {
     border-radius: 10px 10px 10px 10px;
     border: 1px solid transparent;
     box-shadow: gray 5px 5px 5px 5px;
+    /*z-index: -999;*/
 }
 .blue-form select {
     display: block;
@@ -411,6 +417,9 @@ h2 {
     border: 2px solid white;
     border-bottom: 2px solid rgb(131, 131, 131);
 }
+.submit-button:hover {
+    cursor: pointer;
+}
 .no-account {
     margin-top: 2rem;
 }
@@ -421,6 +430,17 @@ h2 {
     border-radius: 10px;
     padding: .3rem;
     width: 5rem;
+}
+.forgot-password {
+    margin-top: 2rem;
+}
+.forgot-password a {
+    margin-top: .5rem;
+    border: 1px solid black;
+    background-color: white;
+    border-radius: 10px;
+    padding: .3rem;
+    width: 7rem;
 }
 table {
     width: 100%;

@@ -35,7 +35,7 @@
                     <label title="Passwords must be at least 8 characters and contain at least 1 number, 1 capital letter and 1 special character">Password<span class="asterisk">*</span><input class="password-input" type="password" name="clientPassword" title="Passwords must be at least 8 characters and contain at least 1 number, 1 capital letter and 1 special character" required pattern="(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" placeholder=""><span>Passwords must be at least 8 characters and contain at least 1 number, 1 capital letter and 1 special character</span></label>
                     <input class="submit-button" type="submit" value="Sign in">
                     <label class="no-account">No account? <a href="/pastpc/accounts/index.php?action=register">Sign up</a></label>
-                    <label class="no-account">Forgot password? <a href="/pastpc/accounts/index.php?action=forgot-password">Get reset link</a></label>
+                    <label class="forgot-password">Forgot password? <a href="/pastpc/accounts/index.php?action=forgot-password">Get reset link</a></label>
                     <input type="hidden" name="action" value="submitLogin">
                 </fieldset>
             </form>
