@@ -89,7 +89,7 @@ switch ($action) {
         // now that we are finished with it
         array_pop($clientData);
         $_SESSION['clientData'] = $clientData;
-        include '../view/admin.php';
+        header('Location: /pastpc/accounts/index.php?client-id=' . $clientData['clientId']);
         exit;
         //$regOutcome = regClient($clientFirstname, $clientLastname, $clientEmail, $clientPassword);
         /*$outcome = 1;

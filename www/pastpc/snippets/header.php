@@ -39,7 +39,7 @@
 
             if ($_SESSION['loggedin']) {
                 echo '<li><a href="/pastpc/accounts/index.php?client-id=' . $_SESSION['clientData']['clientId'] . '"><p>Welcome, ' . $_SESSION['clientData']['clientFirstname'] . '</p></a></li>';
-                echo '<li><a href="/pastpc/accounts/index.php"><p>My Account</p>' . $arrow . '</a></li>';
+                echo '<li><a href="/pastpc/accounts/index.php?client-id=' . $_SESSION['clientData']['clientId'] . '"><p>My Account</p>' . $arrow . '</a></li>';
                 echo '<li><a href="/pastpc/accounts/index.php?action=submitLogout"><p>Log Out</p>' . $arrow . '</a></li>';
             }
             if (!$_SESSION['loggedin'])

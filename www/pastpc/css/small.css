@@ -348,7 +348,7 @@ h2 {
     justify-content: center;
     margin-top: 2rem;
     margin-bottom: 2rem;
-    z-index: -9999;
+    /*z-index: -9999;*/
 }
 .blue-form fieldset {
     background-color: var(--lblue);
@@ -693,6 +693,88 @@ table {
 .review-p {
     text-align: center;
 }
+.account-h1 {
+    font-weight: 600;
+    font-size: 2rem;
+    padding-left: 1.2rem;
+    margin-top: 2rem;
+    margin-bottom: .5rem;
+}
+.account-info-table {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    padding-left: 1.2rem;
+}
+.account-info-table-item {
+    display: flex;
+    flex-direction: row;
+    justify-items: left;
+    gap: 1rem;
+}
+.account-info-table-item-field {
+    font-weight: bold;
+    font-size: 1.1rem;
+	/*vertical-align: middle;
+    line-height: .9rem;*/
+    width: 8rem;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.account-info-table-item-value {
+    font-size: 1.1rem;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.logout-button-arrow-icon {
+    height: 1rem;
+    box-sizing: content-box;
+    /*color for mblue*/
+    filter: invert(62%) sepia(10%) saturate(3090%) hue-rotate(174deg) brightness(88%) contrast(90%);
+    z-index: -999;
+}
+.logout-button {
+    display: flex;
+    /*justify-content: space-between;*/
+    align-items: center;
+    flex-direction: row;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+}
+.logout-button-text {
+    color: var(--mblue);
+    padding-left: 1.2rem;
+}
+.update-account-button-arrow-icon {
+    height: 1rem;
+    box-sizing: content-box;
+    /*color for mblue*/
+    filter: invert(62%) sepia(10%) saturate(3090%) hue-rotate(174deg) brightness(88%) contrast(90%);
+    z-index: -999;
+}
+.update-account-button {
+    display: flex;
+    /*justify-content: space-between;*/
+    align-items: center;
+    flex-direction: row;
+    margin-bottom: 2rem;
+}
+.update-account-button-text {
+    color: var(--mblue);
+    padding-left: 1.2rem;
+}
+.update-account-button a, .logout-button a {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+}
+.update-account-button-text:hover, .update-account-button-arrow-icon:hover,
+.logout-button-text:hover, .logout-button-arrow-icon:hover {
+    cursor: pointer;
+}
+/*.update-account-button, .logout-button {
+    z-index: -999;
+}*/
 footer {
     padding-top: 2rem;
     padding-bottom: 1rem;

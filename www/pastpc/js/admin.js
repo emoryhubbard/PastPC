@@ -1,10 +1,19 @@
-import { qs, getParam } from './utils.mjs';
+import { setClicks, select, getParam } from './utils.mjs';
+
+setClicks(logout, '.logout-button-text', '.logout-button-arrow-icon');
+setClicks(updateAccount, '.update-account-button-text', '.update-account-button-arrow-icon');
 
 const clientId = getParam("client-id");
 console.log(`clientId is: ${clientId}`);
 const reviewsURL = `/pastpc/reviews/index.php?action=get-client-reviews&client-id=${clientId}`;
 getReviews(reviewsURL);
 
+function logout(e) {
+    window.location.href = "/pastpc/accounts/index.php?action=submitLogout"
+}
+function updateAccount(e) {
+    window.location.href = "/pastpc/accounts/index.php?action=update-account"
+}
 async function getReviews(url) {
     const response = await fetch(url);	
     if (response.ok) {
@@ -26,7 +35,7 @@ function buildReviewList(reviews) {
         rlist += `${review['clientLastname']}, ${review['reviewDate']}</p>`;
     }
 
-    qs(".reviews").innerHTML = rlist;
+    select(".reviews").innerHTML = rlist;
 
 }
 

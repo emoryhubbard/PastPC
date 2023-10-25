@@ -25,24 +25,31 @@ if (!$_SESSION['loggedin'])
             </nav>
         </div>
         <main>
-            <h1><?php echo $_SESSION['clientData']['clientFirstname'] . " " . $_SESSION['clientData']['clientLastname'];?></h1>
+            <h1 class='account-h1'>Account Info</h1>
+            <?php
+            $cd = $_SESSION['clientData'];
+            $dv .= "<ul class='account-info-table'>";
+            $dv .= "<li class='account-info-table-item'><p class='account-info-table-item-field'>First name</p><p class='account-info-table-item-value'>$cd[clientFirstname]</p>";
+            $dv .= "<li class='account-info-table-item'><p class='account-info-table-item-field'>Last name</p><p class='account-info-table-item-value'>$cd[clientLastname]</p>";
+            $dv .= "<li class='account-info-table-item'><p class='account-info-table-item-field'>Email</p><p class='account-info-table-item-value'>$cd[clientEmail]</p>";
+            $dv .= "</ul>";
+            echo $dv;
+            ?>
             <?php
             if (isset($_SESSION['message'])) {
                 echo $_SESSION['message'];
                 $_SESSION['message'] = null;
             }
             ?>
+            <div class='logout-button'>
+                <a href='javascript:' class='logout-button-text p-link'>Log Out</a>
+                <a href="javascript:"><img class='logout-button-arrow-icon' src='/pastpc/images/site/RightArrowIcon.svg' alt='right arrow icon'></a>
+            </div>
+            <div class='update-account-button'>
+                <a href='javascript:' class='update-account-button-text p-link'>Update Account Info</a>
+                <a href="javascript:"><img class='update-account-button-arrow-icon' src='/pastpc/images/site/RightArrowIcon.svg' alt='right arrow icon'></a>
+            </div>
             <?php
-            $cd = $_SESSION['clientData'];
-            $ul = '<ul>';
-            $ul .= "<li>First name: $cd[clientFirstname]</li>";
-            $ul .= "<li>Last name: $cd[clientLastname]</li>";
-            $ul .= "<li>Email: $cd[clientEmail]</li>";
-            $ul .= '</ul>';
-            echo $ul;
-            echo '<p><a class="p-link" href="/pastpc/accounts/index.php?action=submitLogout">Log Out</a></p>';
-            echo '<p><a class="p-link" href="/pastpc/accounts/index.php?action=update-account">Update Account Information</a></p>';
-            
             if ($cd['clientLevel'] > 1) {
                 echo '<h2>Administrative Actions</h2>';
                 echo '<p>Use the following link to administer device listings:</p>';
