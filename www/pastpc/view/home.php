@@ -23,7 +23,7 @@
         <main>
         <section class="w-section">
                 <div class="has-lcp">
-                    <img class="lcp" src="/pastpc/images/site/LCP34Left.webp" alt="image of various PCs and devices">
+                    <!--<img class="lcp" src="/pastpc/images/site/LCP34Left.webp" alt="image of various PCs and devices">-->
                     <div class="cover-lcp">
                         <p class="lcp-first-text">Rent a PC for Legacy Use, Hosting, and More.</p>
                         <p class="lcp-small">Get control <strong>instantly</strong> of a PC, tablet, or smartphone.</p>
@@ -32,6 +32,16 @@
                         </div>
                     </div>
                 </div>
+                <!--<div class="has-lcp">
+                    <img class="lcp" src="/pastpc/images/site/LCP34Left.webp" alt="image of various PCs and devices">
+                    <div class="cover-lcp">
+                        <p class="lcp-first-text">Rent a PC for Legacy Use, Hosting, and More.</p>
+                        <p class="lcp-small">Get control <strong>instantly</strong> of a PC, tablet, or smartphone.</p>
+                        <div class="lcp-find-device">
+                            <p class="find-a-pc">FIND A DEVICE</p>
+                        </div>
+                    </div>
+                </div>-->
             </section>
         </main>
         <footer>

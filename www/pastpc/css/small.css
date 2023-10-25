@@ -69,7 +69,8 @@ li {
     padding-right: 1rem;
 }
 .slideout-menu-close {
-    transform: translateX(25rem);
+    transform: translateX(calc(100vw));
+    /*transform: translateX(25rem);*/
     opacity: 0;
 }
 .slideout-menu-open {
@@ -82,6 +83,7 @@ li {
     position: absolute;
     top: 0;
     width: 100%;
+    max-width: 25rem;
     background-color: white;
     z-index: 999;
 }
@@ -185,13 +187,14 @@ li {
 }
 .top-nav {
     display: flex;
-    justify-content: space-around;
+    justify-content: left;
     padding: 0;
     padding-left: 1rem;
     padding-right: 1rem;
     padding-top: .8rem;
     padding-bottom: .8rem;
     margin: 0;
+    gap: 1.5rem;
     /*margin-top: .8rem;*/
     background-color: var(--dgray);
 }
@@ -233,10 +236,77 @@ h2 {
 }
 .has-lcp {
     position: relative;
+}
+.has-lcp::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("/pastpc/images/site/LCP34Left.webp");
+    background-size: cover;
+    background-position: center;
+    filter: brightness(50%);
+    z-index: -9999;
+}
+.cover-lcp {
+    width: calc(100% - 1rem);
+    padding-bottom: 2.5rem;
+}
+.lcp-first-text {
+    margin: 0;
+    padding: 0;
+    padding-left: 1rem;
+    padding-top: 6rem;
+    max-width: 18rem;
+    color: white;
+    font-size: 2.5rem;
+    line-height: 2.3rem;
+    font-weight: 700;
+    font-family: 'Figtree', sans-serif;
+}
+.lcp-small {
+    padding: 0;
+    margin: 0;
+    padding-top: 1.5rem;
+    padding-left: 1rem;
+    max-width: 22rem;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 300;
+    font-family: 'Figtree', sans-serif;
+}
+.lcp-small strong {
+    font-weight: 800;
+}
+.own-today-medium {
+    display: none;
+}
+.find-a-pc {
+    display: block;
+    text-align: center;
+    color: white;
+    font-family: 'Figtree', sans-serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-top: 4rem;
+    margin-left: 1rem;
+    padding: 1rem;
+    background-color: var(--logocolor);
+    width: calc(100% - 1rem);
+}
+.find-a-pc:hover {
+    cursor: pointer;
+}
+/*This is from before I refactored to make medium screen styles*/
+/*
+.has-lcp {
+    position: relative;
     /*height: fit-content;
     margin-bottom: 0;
     padding-bottom: 0;*/
-    z-index: -999;
+    /*z-index: -999;
 }
 .lcp {
     display: block;
@@ -269,7 +339,7 @@ h2 {
     font-weight: 700;
     font-family: 'Figtree', sans-serif;
 }*/
-.lcp-small {
+/*.lcp-small {
     padding: 0;
     margin: 0;
     padding-top: 1.5rem;
@@ -301,6 +371,7 @@ h2 {
 .find-a-pc:hover {
     cursor: pointer;
 }
+*/
 .reviews {
     padding-left: 2rem;
     padding-right: 1rem;
