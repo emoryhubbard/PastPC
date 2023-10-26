@@ -25,17 +25,23 @@
     .has-my-account {
         margin-right: 2rem;
     }
+    .search-bar {
+        justify-content: right;
+        gap: 1rem;
+        width: auto;
+        margin-left: calc(100vw - 25.8rem);
+    }
+    .search-bar-form {
+        padding-left: 3rem;
+    }
+    .has-search-close-icon {
+        padding-right: 3rem;
+    }
     .slideout-menu-open {
         display: block;
         transition: transform .5s, opacity .2s;
         transform: translateX(calc(100vw - 25rem));
         opacity: 1;
-    }
-    .menu-nav-devices li {
-        display: none;
-    }
-    .menu-nav-devices li:nth-child(3), .menu-nav-devices li:nth-child(4), .menu-nav-devices li:nth-child(5), .menu-nav-devices li:nth-child(6), .menu-nav-devices li:last-child {
-        display: block;
     }
     /*.menu-nav-devices {
         display: none;

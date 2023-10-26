@@ -121,6 +121,12 @@ li {
     margin-top: 0rem;
     margin-bottom: 0rem;
 }
+.menu-nav-devices li {
+    display: none;
+}
+.menu-nav-devices li:nth-child(3), .menu-nav-devices li:nth-child(4), .menu-nav-devices li:nth-child(5), .menu-nav-devices li:nth-child(6), .menu-nav-devices li:last-child {
+    display: block;
+}
 .menu-hr {
     margin-top: 1rem;
     margin-bottom: 1rem;

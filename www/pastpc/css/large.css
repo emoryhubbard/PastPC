@@ -8,7 +8,6 @@
     .top-nav {
         justify-content: flex-start;
         gap: 1rem;
-        padding-left: 3rem;
         /*padding-left: calc(50vw - 20rem);*/
     }
     /*footer {
@@ -22,10 +21,32 @@
     .has-my-account {
         margin-right: calc(50vw - 30rem);
     }
+    .search-bar {
+        justify-content: right;
+        gap: 1rem;
+        width: auto;
+        margin-left: calc(50vw + 6.2rem);
+    }
+    .search-bar-form {
+        padding-left: 3rem;
+    }
+    .has-search-close-icon {
+        padding-right: 3rem;
+    }
+    /*.search-bar-form {
+        padding-left: calc(50vw - 30rem);
+    }
+    .has-search-close-icon {
+        padding-right: calc(50vw - 29rem);
+    }*/
     .top-nav {
         justify-content: flex-start;
         gap: 1rem;
         padding-left: calc(50vw - 30rem);
+    }
+
+    .has-lcp::before {
+        background-image: url("/pastpc/images/site/2048LCP43Top.webp");
     }
     footer {
         padding-left: calc(50vw - 30rem);
