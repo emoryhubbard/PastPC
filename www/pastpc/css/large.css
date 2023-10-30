@@ -65,6 +65,24 @@
     .listing-title {
         max-width: 40rem;
     }
+    .device-detail-main {
+        padding-left: calc(50vw - 31rem);
+        padding-right: calc(50vw - 29rem);
+    }
+    .detail-grid {
+        display: flex;
+        flex-direction: row;
+    }
+    .has-detail-main-img {
+        height: auto;
+        width: 25rem;
+    }
+    .has-reviews .blue-form {
+        padding-left: 2rem;
+    }
+    .reviews-h2 {
+        padding-left: 2rem;
+    }
     footer {
         padding-left: calc(50vw - 30rem);
     }

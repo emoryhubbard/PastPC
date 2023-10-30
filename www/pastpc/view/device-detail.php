@@ -35,7 +35,7 @@
             ?>
             </main>
             <div class='has-reviews'>
-            <h2 class='reviews-h2'>Customer Reviews</h2>
+            <h2 class='reviews-h2'>User Reviews</h2>
             <?php
             if (isset($_SESSION['message'])) {
                 echo $_SESSION['message'];

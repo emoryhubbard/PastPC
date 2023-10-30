@@ -80,6 +80,13 @@
     .listing-title {
         -webkit-line-clamp: 2;
     }
+    .device-detail-main {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+    .has-detail-main-img {
+        height: 25rem;
+    }
     footer {
         padding-left: 3rem;
     }

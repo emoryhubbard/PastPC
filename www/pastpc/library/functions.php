@@ -116,8 +116,12 @@ function buildDetailDisplay($deviceInfo, $thumbnails) {
     $classification = getClassification($deviceInfo["classificationId"]);
     $dv = "<p class='detail-listing-title'>" . htmlspecialchars($deviceInfo['deviceDescription'], ENT_QUOTES, 'UTF-8') . "</p>";
     $dv .= "<p class='detail-listing-subtitle'>$classification[classificationName] category | <span class='access-available'>Access available 24/7</span></p>";
+    $dv .= "<div class='detail-grid'>";
+    $dv .= "<div class='detail-images'>";
     $dv .= "<div class='has-detail-main-img'><img class='detail-main-img' src='$deviceInfo[imgPath]' alt='Image of $deviceInfo[deviceBrand] $deviceInfo[deviceModel] on pastpc.com'></div>";
     $dv .= buildThumbnailDisplay($thumbnails);
+    $dv .= "</div>";
+    $dv .= "<div class='detail-text'>";
     $monthlyRate = number_format($deviceInfo["deviceMonthlyRate"], 2, '.', '');
     $dv .= "<div class='main-img-subtitle'><p class='main-img-monthly-rate'>$$monthlyRate<span class='main-img-month'>/mo</span><span class='main-img-free-trial'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;Free trial available</span></div>";
     $dv .= "<ul class='detail-info-table'>";
@@ -131,6 +135,8 @@ function buildDetailDisplay($deviceInfo, $thumbnails) {
                 <img class='show-more-button-arrow-icon' src='/pastpc/images/site/DownArrow.svg' alt='more button down arrow icon'>
                 <p class='show-more-button-text p-link'>Show more</p>
             </a>";
+    $dv .= "</div>";
+    $dv .= "</div>";
     //$dv .= "<p>" . $deviceInfo['deviceDescription'] . "</p>";
     //debugPrint($deviceInfo['deviceDescription']);
     return $dv;
