@@ -44,9 +44,26 @@
         gap: 1rem;
         padding-left: calc(50vw - 30rem);
     }
-
     .has-lcp::before {
         background-image: url("/pastpc/images/site/2048LCP43Top.webp");
+    }
+    .device-display {
+        padding-left: calc(50vw - 30rem);
+        padding-right: calc(50vw - 30rem);
+        margin-bottom: 6rem;
+    }
+    .classification-results-p {
+        padding-left: calc(50vw - 30rem);
+    }
+    .device-display li {
+        max-height: 21rem;
+        padding-bottom: 3rem;
+    }
+    .device-display img {
+        max-width: 15rem;
+    }
+    .listing-title {
+        max-width: 40rem;
     }
     footer {
         padding-left: calc(50vw - 30rem);

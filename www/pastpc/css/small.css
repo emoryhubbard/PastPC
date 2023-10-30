@@ -535,13 +535,13 @@ table {
     box-sizing: inherit;
 }
 .device-display {
-    padding-left: 1.6rem;
+    padding-left: 1rem;
     padding-right: 1.6rem;
 }
 .classification-results-p {
     margin-top: 2rem;
     margin-bottom: 0rem;
-    padding-left: 1.6rem;
+    padding-left: 1rem;
 }
 .search-results-p {
     margin: 0;
@@ -555,20 +555,30 @@ table {
 .device-display li {
     display: flex;
     gap: 1rem;
+    max-height: 14rem;
 }
 .device-display img {
     width: 30vw;
+    max-width: 8rem;
     border-radius: 15px;
+}
+.device-display img[data-src] {
+    filter: blur(.2em);
+}
+.device-display img.unblur {
+    filter: blur(0em);
+    transition: filter .5s;
 }
 .listing-title {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
     overflow: hidden;
-    margin-top: 0rem;
     font-weight: 600;
     font-size: 1.1rem;
+    margin-top: 0rem;
     margin-bottom: 0rem;
+    max-width: 32rem;
 }
 .classification-name, .device-brand, .device-model, .device-access {
     font-size: .9rem;
@@ -855,8 +865,8 @@ table {
 footer {
     padding-top: 2rem;
     padding-bottom: 1rem;
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
     background-color: var(--dgray);
 }
 .bottom-logo {

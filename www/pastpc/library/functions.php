@@ -42,6 +42,43 @@ function getSearchResults($devices, $keywords) {
     $dv = "<p class='keywords-p'><p class='keywords-value-p'>" . '"' . $keywords . '":' . "</p>" . "<p class='search-results-p'>" . count($devices) . " Search Results</p>";
     return $dv;
 }
+
+function buildDevicesDisplay($devices) {
+    $dv = '<ul id="device-display" class="device-display">';
+    foreach ($devices as $device) {
+        $dv .= '<li>';
+        $dv .= "<a href='/pastpc/devices/index.php?action=detail-view&device-id=$device[deviceId]'><img loading='lazy' src='$device[thumbnail_imgPath]' data-src='$device[original_imgPath]' alt='Image of $device[deviceBrand] $device[deviceModel] on pastpc.com'></a>";
+        $dv .= "<div class='device-info'>";
+        $dv .= "<a href='/pastpc/devices/index.php?action=detail-view&device-id=$device[deviceId]'><p class='listing-title'>$device[deviceDescription]</p></a>";
+        $dv .= "<p class='classification-name'>$device[classificationName]</p>";
+        $dv .= "<p class='device-monthly-rate'>$" . number_format($device['deviceMonthlyRate'], 2, '.', '') . "/month</p>";
+        $dv .= "<p class='device-brand'>$device[deviceBrand]</p>";
+        $dv .= "<p class='device-model'>$device[deviceModel]</p>";
+        $dv .= "<p class='device-access'>24/7 access";
+        $dv .= "<p class='device-free-trial'>Free trial</p>";
+        $dv .= "</div>";
+        $dv .= '</li>';
+    }
+    /*for ($i = 0; $i < 100; $i++) {
+        foreach ($devices as $device) {
+            $dv .= '<li>';
+            $dv .= "<a href='/pastpc/devices/index.php?action=detail-view&device-id=$device[deviceId]'><img loading='lazy' src='$device[thumbnail_imgPath]' data-src='$device[original_imgPath]' alt='Image of $device[deviceBrand] $device[deviceModel] on pastpc.com'></a>";
+            $dv .= "<div class='device-info'>";
+            $dv .= "<a href='/pastpc/devices/index.php?action=detail-view&device-id=$device[deviceId]'><p class='listing-title'>$device[deviceDescription]</p></a>";
+            $dv .= "<p class='classification-name'>$device[classificationName]</p>";
+            $dv .= "<p class='device-monthly-rate'>$" . number_format($device['deviceMonthlyRate'], 2, '.', '') . "/month</p>";
+            $dv .= "<p class='device-brand'>$device[deviceBrand]</p>";
+            $dv .= "<p class='device-model'>$device[deviceModel]</p>";
+            $dv .= "<p class='device-access'>24/7 access";
+            $dv .= "<p class='device-free-trial'>Free trial</p>";
+            $dv .= "</div>";
+            $dv .= '</li>';
+        }
+    }*/
+    $dv .= '</ul>';
+    return $dv;
+}
+/* Before refactoring to use both thumbnail images and non-thumbnail images
 function buildDevicesDisplay($devices) {
     $dv = '<ul id="device-display" class="device-display">';
     foreach ($devices as $device) {
@@ -61,6 +98,7 @@ function buildDevicesDisplay($devices) {
     $dv .= '</ul>';
     return $dv;
 }
+*/
 /*function buildDevicesDisplay($devices) {
     $dv = '<ul id="device-display">';
     foreach ($devices as $device) {

@@ -68,6 +68,18 @@
     .find-a-pc {
         max-width: 20rem;
     }
+    .device-display {
+        padding-left: 3rem;
+        padding-right: 1.6rem;
+    }
+    .classification-results-p {
+        margin-top: 2rem;
+        margin-bottom: 0rem;
+        padding-left: 3rem;
+    }
+    .listing-title {
+        -webkit-line-clamp: 2;
+    }
     footer {
         padding-left: 3rem;
     }
