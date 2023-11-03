@@ -16,6 +16,12 @@
 * {
     font-family: "Figtree", sans-serif;
 }
+:root {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
 body {
     overflow-x: hidden;
 }
@@ -420,6 +426,15 @@ h2 {
     padding-right: .5rem;
     padding-bottom: 2rem;
 }
+.login-form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.login-form-fieldset {
+    box-shadow: rgba(0, 0, 0, 0.5) 5px 5px 5px 5px !important;
+    /*z-index: -999;*/
+}
 .blue-form {
     display: flex;
     justify-content: center;
@@ -527,12 +542,6 @@ table {
 }
 .col2 {
     width: 25%;
-}
-:root {
-    box-sizing: border-box;
-}
-*, *:before, *:after {
-    box-sizing: inherit;
 }
 .device-display {
     padding-left: 1rem;

@@ -25,7 +25,7 @@ function getInventoryByClassification($classificationId) {
     $stmt = $db->prepare($sql);
     $stmt->bindValue(':classificationId', $classificationId, PDO::PARAM_INT);
     $stmt->execute();
-    $devices = $stmt->fetchALL(PDO::FETCH_ASSOC); // "Line 8: Requests a multi-dimensional array of the devices as an associative array, stores the array in a variable."
+    $devices = $stmt->fetchALL(PDO::FETCH_ASSOC); // Requests a multi-dimensional array of the devices as an associative array, stores the array in a variable
     $stmt->closeCursor();
     return $devices;
 }
@@ -91,7 +91,7 @@ function getDevicesByClassification($classificationName) {
     $stmt = $db->prepare($sql);
     $stmt->bindValue(':classificationName', $classificationName, PDO::PARAM_STR);
     $stmt->execute();
-    $devices = $stmt->fetchALL(PDO::FETCH_ASSOC); // "Requests a multi-dimensional array of the devices as an associative array, stores the array in a variable."
+    $devices = $stmt->fetchALL(PDO::FETCH_ASSOC); // Requests a multi-dimensional array of the devices as an associative array, stores the array in a variable
     $stmt->closeCursor();
     return $devices;
 }*/
@@ -101,7 +101,7 @@ function getDevicesByClassification($classificationName) {
     $stmt = $db->prepare($sql);
     $stmt->bindValue(':classificationName', $classificationName, PDO::PARAM_STR);
     $stmt->execute();
-    $devices = $stmt->fetchALL(PDO::FETCH_ASSOC); // "Line 8: Requests a multi-dimensional array of the devices as an associative array, stores the array in a variable."
+    $devices = $stmt->fetchALL(PDO::FETCH_ASSOC); // Requests a multi-dimensional array of the devices as an associative array, stores the array in a variable
     $stmt->closeCursor();
     return $devices;
 }*/
@@ -130,13 +130,55 @@ function getDevice($deviceBrand, $deviceModel) {
 }
 function getDevicesByKeywords($keywords) {
     $db = getPDO();
+    $sql = "
+    SELECT class.classificationName, device.deviceId, device.deviceBrand, device.deviceModel, device.deviceDescription, device.deviceMonthlyRate, device.classificationId,
+           MAX(CASE WHEN img.imgName NOT LIKE '%-tn%' THEN img.imgName END) AS original_imgName,
+           MAX(CASE WHEN img.imgName NOT LIKE '%-tn%' THEN img.imgPath END) AS original_imgPath,
+           MAX(CASE WHEN img.imgName NOT LIKE '%-tn%' THEN device.deviceImage END) AS original_deviceImage,
+           MAX(CASE WHEN img.imgName NOT LIKE '%-tn%' THEN device.deviceThumbnail END) AS original_deviceThumbnail,
+           MAX(CASE WHEN img.imgName LIKE '%-tn%' THEN img.imgName END) AS thumbnail_imgName,
+           MAX(CASE WHEN img.imgName LIKE '%-tn%' THEN img.imgPath END) AS thumbnail_imgPath,
+           MAX(CASE WHEN img.imgName LIKE '%-tn%' THEN device.deviceImage END) AS thumbnail_deviceImage,
+           MAX(CASE WHEN img.imgName LIKE '%-tn%' THEN device.deviceThumbnail END) AS thumbnail_deviceThumbnail
+    FROM devices device
+    JOIN images img ON img.deviceId = device.deviceId
+    JOIN deviceclassification class ON class.classificationId = device.classificationId
+    WHERE img.imgPrimary = 1
+    GROUP BY device.deviceId";
+    if (!empty($keywords))
+        $sql = "
+        SELECT class.classificationName, device.deviceId, device.deviceBrand, device.deviceModel, device.deviceDescription, device.deviceMonthlyRate, device.classificationId,
+            MAX(CASE WHEN img.imgName NOT LIKE '%-tn%' THEN img.imgName END) AS original_imgName,
+            MAX(CASE WHEN img.imgName NOT LIKE '%-tn%' THEN img.imgPath END) AS original_imgPath,
+            MAX(CASE WHEN img.imgName NOT LIKE '%-tn%' THEN device.deviceImage END) AS original_deviceImage,
+            MAX(CASE WHEN img.imgName NOT LIKE '%-tn%' THEN device.deviceThumbnail END) AS original_deviceThumbnail,
+            MAX(CASE WHEN img.imgName LIKE '%-tn%' THEN img.imgName END) AS thumbnail_imgName,
+            MAX(CASE WHEN img.imgName LIKE '%-tn%' THEN img.imgPath END) AS thumbnail_imgPath,
+            MAX(CASE WHEN img.imgName LIKE '%-tn%' THEN device.deviceImage END) AS thumbnail_deviceImage,
+            MAX(CASE WHEN img.imgName LIKE '%-tn%' THEN device.deviceThumbnail END) AS thumbnail_deviceThumbnail
+        FROM devices device
+        JOIN images img ON img.deviceId = device.deviceId
+        JOIN deviceclassification class ON class.classificationId = device.classificationId
+        WHERE img.imgPrimary = 1
+        AND (device.deviceBrand LIKE :keywords OR device.deviceModel LIKE :keywords OR device.deviceDescription LIKE :keywords)
+        GROUP BY device.deviceId";
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(':keywords', '%' . $keywords . '%', PDO::PARAM_STR);
+    $stmt->execute();
+    $devices = $stmt->fetchALL(PDO::FETCH_ASSOC); // Requests a multi-dimensional array of the devices as an associative array, stores the array in a variable.
+    $stmt->closeCursor();
+    return $devices;
+}
+// Before refactoring to enable retrieval of non-thumbnail images as well
+/*function getDevicesByKeywords($keywords) {
+    $db = getPDO();
     $sql = "SELECT img.imgName, img.imgPath, device.deviceId, device.deviceBrand, device.deviceModel, device.deviceDescription, device.deviceMonthlyRate, device.classificationId, device.deviceImage, device.deviceThumbnail FROM devices device JOIN images img ON img.deviceId = device.deviceId WHERE img.imgPrimary = 1 AND img.imgName LIKE '%-tn%'";
     if (!empty($keywords))
         $sql = "SELECT img.imgName, img.imgPath, device.deviceId, device.deviceBrand, device.deviceModel, device.deviceDescription, device.deviceMonthlyRate, device.classificationId, device.deviceImage, device.deviceThumbnail FROM devices device JOIN images img ON img.deviceId = device.deviceId WHERE (device.deviceBrand LIKE :keywords OR device.deviceModel LIKE :keywords OR device.deviceDescription LIKE :keywords) AND img.imgPrimary = 1 AND img.imgName LIKE '%-tn%'";
     $stmt = $db->prepare($sql);
     $stmt->bindValue(':keywords', '%' . $keywords . '%', PDO::PARAM_STR);
     $stmt->execute();
-    $devices = $stmt->fetchALL(PDO::FETCH_ASSOC); // "Line 8: Requests a multi-dimensional array of the devices as an associative array, stores the array in a variable."
+    $devices = $stmt->fetchALL(PDO::FETCH_ASSOC); // Requests a multi-dimensional array of the devices as an associative array, stores the array in a variable.
     $stmt->closeCursor();
     return $devices;
-}
+}*/

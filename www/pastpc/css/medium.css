@@ -59,6 +59,9 @@
     .cover-lcp {
         margin-left: calc(50vw - 10rem);
     }
+    .login-cover-lcp {
+        margin-left: auto;
+    }
     
     /*.cover-lcp {
         display: flex;

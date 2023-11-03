@@ -154,11 +154,17 @@ switch ($action) {
     case 'submit-search':
         $keywords = trim(filter_input(INPUT_POST, 'keywords', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
         $devices = getDevicesByKeywords($keywords);
-        if (!count($devices))
+        if (!count($devices) && !empty($keywords))
             $message = "<p class='notice'>Sorry, no devices could be found with the keyword(s) " . '"' . htmlspecialchars($keywords) . '".' . "</p>";
-        else {
+        if (!count($devices) && empty($keywords))
+            $message = "<p class='notice'>Sorry, no devices could be found.</p>";
+        if (count($devices) && !empty($keywords)) {
             $deviceDisplay = buildDevicesDisplay($devices);
             $searchResults = getSearchResults($devices, $keywords);
+        }
+        if (count($devices) && empty($keywords)) {
+            $deviceDisplay = buildDevicesDisplay($devices);
+            $searchResults = getAllDevicesSearchResults($devices, $keywords);
         }
         include '../view/search.php';
         break;

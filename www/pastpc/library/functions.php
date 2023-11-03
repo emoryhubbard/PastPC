@@ -42,6 +42,10 @@ function getSearchResults($devices, $keywords) {
     $dv = "<p class='keywords-p'><p class='keywords-value-p'>" . '"' . $keywords . '":' . "</p>" . "<p class='search-results-p'>" . count($devices) . " Search Results</p>";
     return $dv;
 }
+function getAllDevicesSearchResults ($devices, $keywords) {
+    $dv = "<p class='keywords-p'><p class='keywords-value-p'>" . 'All Devices:' . "</p>" . "<p class='search-results-p'>" . count($devices) . " Search Results</p>";
+    return $dv;
+}
 
 function buildDevicesDisplay($devices) {
     $dv = '<ul id="device-display" class="device-display">';

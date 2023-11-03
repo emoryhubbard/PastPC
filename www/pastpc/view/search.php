@@ -35,4 +35,5 @@
         </footer>
     </div>
 </body>
+<script src="/pastpc/js/classification.js" type="module"></script>
 </html>
