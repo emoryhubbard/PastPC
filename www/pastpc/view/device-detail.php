@@ -43,9 +43,11 @@
             }
             ?>
             <?php
-            if ($_SESSION['loggedin'])
+            if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'])
                 require_once $_SERVER['DOCUMENT_ROOT'] . "/pastpc/snippets/new-review-form.php";
-            if (!$_SESSION['loggedin'])
+            if (isset($_SESSION['loggedin']) && !$_SESSION['loggedin'])
+                echo '<p>Add a review by <a class="p-link" href="/pastpc/accounts/index.php?action=login">logging in</a></p>';
+            if (!isset($_SESSION['loggedin']))
                 echo '<p>Add a review by <a class="p-link" href="/pastpc/accounts/index.php?action=login">logging in</a></p>';
             ?>
             <div class="reviews">

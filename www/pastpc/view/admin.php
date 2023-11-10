@@ -1,5 +1,7 @@
 <?php
-if (!$_SESSION['loggedin'])
+if (isset($_SESSION['loggedin']) && !$_SESSION['loggedin'])
+    header('Location: /pastpc');
+if (!isset($_SESSION['loggedin']))
     header('Location: /pastpc');
 ?>
 <!DOCTYPE html>
@@ -28,7 +30,7 @@ if (!$_SESSION['loggedin'])
             <h1 class='account-h1'>Account Info</h1>
             <?php
             $cd = $_SESSION['clientData'];
-            $dv .= "<ul class='account-info-table'>";
+            $dv = "<ul class='account-info-table'>";
             $dv .= "<li class='account-info-table-item'><p class='account-info-table-item-field'>First name</p><p class='account-info-table-item-value'>$cd[clientFirstname]</p>";
             $dv .= "<li class='account-info-table-item'><p class='account-info-table-item-field'>Last name</p><p class='account-info-table-item-value'>$cd[clientLastname]</p>";
             $dv .= "<li class='account-info-table-item'><p class='account-info-table-item-field'>Email</p><p class='account-info-table-item-value'>$cd[clientEmail]</p>";

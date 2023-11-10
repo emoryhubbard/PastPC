@@ -1,5 +1,7 @@
 <?php
-if (!$_SESSION['loggedin'])
+if (isset($_SESSION['loggedin']) && !$_SESSION['loggedin'])
+    header('Location: /pastpc');
+if (!isset($_SESSION['loggedin']))
     header('Location: /pastpc');
 ?>
 <!DOCTYPE html>

@@ -9,7 +9,7 @@ const reviewsURL = `/pastpc/reviews/index.php?action=get-client-reviews&client-i
 getReviews(reviewsURL);
 
 function logout(e) {
-    window.location.href = "/pastpc/accounts/index.php?action=submitLogout"
+    window.location.href = "/pastpc/accounts/index.php?action=submit-logout"
 }
 function updateAccount(e) {
     window.location.href = "/pastpc/accounts/index.php?action=update-account"

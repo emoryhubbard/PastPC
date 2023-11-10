@@ -31,7 +31,7 @@ switch ($action) {
     case 'register':
         include '../view/register.php';
         break;
-    case 'submitRegister':
+    case 'submit-register':
         $clientFirstname = trim(filter_input(INPUT_POST, 'clientFirstname', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
         $clientLastname = trim(filter_input(INPUT_POST, 'clientLastname', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
         $clientEmail = trim(filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_EMAIL));
@@ -65,7 +65,7 @@ switch ($action) {
             exit;
         }
         break;
-    case 'submitLogin':
+    case 'submit-login':
         $clientEmail = trim(filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_EMAIL));
         $clientPassword = trim(filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
         
@@ -89,7 +89,7 @@ switch ($action) {
         // now that we are finished with it
         array_pop($clientData);
         $_SESSION['clientData'] = $clientData;
-        header('Location: /pastpc/accounts/index.php?client-id=' . $clientData['clientId']);
+        include '../view/admin.php';
         exit;
         //$regOutcome = regClient($clientFirstname, $clientLastname, $clientEmail, $clientPassword);
         /*$outcome = 1;
@@ -102,9 +102,12 @@ switch ($action) {
             include '../view/login.php';
             exit;
         }*/
-    case 'submitLogout':
+    case 'submit-logout':
         session_unset();
         session_destroy();
+        header('Location: /pastpc');
+        exit;
+    case 'submit-google-login':
         header('Location: /pastpc');
         exit;
     case 'update-account':

@@ -33,7 +33,7 @@
                     <label>Email<span class="asterisk">*</span><input type="email" name="clientEmail" title="Required field" required placeholder="" <?php if(isset($clientEmail)){echo "value='$clientEmail'";} ?>></label>
                     <label title="Passwords must be at least 8 characters and contain at least 1 number, 1 capital letter and 1 special character">Password<span class="asterisk">*</span><input class="password-input" type="password" name="clientPassword" title="Passwords must be at least 8 characters and contain at least 1 number, 1 capital letter and 1 special character" required pattern="(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" placeholder=""><span>Passwords must be at least 8 characters and contain at least 1 number, 1 capital letter and 1 special character</span></label>
                     <input class="submit-button" type="submit" value="Create Account">
-                    <input type="hidden" name="action" value="submitRegister">
+                    <input type="hidden" name="action" value="submit-register">
                 </fieldset>
             </form>
         </main>
