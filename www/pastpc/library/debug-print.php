@@ -4,9 +4,9 @@
     debugging. Terminates script immediately.
 */
 
-function debugPrint($var) {
+function debugPrint($var, ...$vars) {
     print "<pre>";
-    var_dump($var);
+    var_dump($var, $vars);
     print "</pre>";
     exit;
 }

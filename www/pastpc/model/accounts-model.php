@@ -4,16 +4,17 @@
     database.
 */
 
-function regClient($clientFirstname, $clientLastname, $clientEmail, $clientPassword) {
+function regClient($clientFirstname, $clientLastname, $clientEmail, $clientPassword, $subId = null) {
     $db = getPDO();
-    $sql = 'INSERT INTO clients (clientFirstname, clientLastname, clientEmail, clientPassword)
-        VALUES (:clientFirstname, :clientLastname, :clientEmail, :clientPassword)';
+    $sql = 'INSERT INTO clients (clientFirstname, clientLastname, clientEmail, clientPassword, subId)
+        VALUES (:clientFirstname, :clientLastname, :clientEmail, :clientPassword, :subId)';
 
     $stmt = $db->prepare($sql);
     $stmt->bindValue(':clientFirstname', $clientFirstname, PDO::PARAM_STR);
     $stmt->bindValue(':clientLastname', $clientLastname, PDO::PARAM_STR);
     $stmt->bindValue(':clientEmail', $clientEmail, PDO::PARAM_STR);
     $stmt->bindValue(':clientPassword', $clientPassword, PDO::PARAM_STR);
+    $stmt->bindValue(':subId', $subId, PDO::PARAM_STR);
     $stmt->execute();
 
     $rowsChanged = $stmt->rowCount();
@@ -72,7 +73,7 @@ function createToken() {
     return $token;
 }
 function addToken($email, $token) {
-    $token_hash = hash("sha256", $token);
+    $token_hash = password_hash($token, PASSWORD_DEFAULT);
     $expiry = date("Y-m-d H:i:s", time() + 60 * 30);
     $sql = "UPDATE clients
             SET resetTokenHash = ?,

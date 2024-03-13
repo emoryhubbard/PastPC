@@ -11,6 +11,7 @@ require_once '../library/debug-print.php';
 /* Need to get the accounts model...*/
 require_once '../model/accounts-model.php';
 require_once '../library/functions.php';
+require_once '../library/googleconnect.php';
 
 //Building a dynamic nav bar, replacing the static snippet
 $classifications = getClassifications();
@@ -36,10 +37,9 @@ switch ($action) {
         $clientLastname = trim(filter_input(INPUT_POST, 'clientLastname', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
         $clientEmail = trim(filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_EMAIL));
         $clientPassword = trim(filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
-        
-
         $clientEmail = checkEmail($clientEmail);
         $checkPassword = checkPassword($clientPassword);
+
         if (emailExists($clientEmail)) {
             $_SESSION['message'] = '<p>Email address already exists. Register with a new email, or log in to your existing account.';
             include '../view/login.php';
@@ -108,11 +108,37 @@ switch ($action) {
         header('Location: /pastpc');
         exit;
     case 'submit-google-login':
+        debugPrint($_POST, $_GET);
+        if (!isset($_COOKIE['g_csrf_token'], $_POST['g_csrf_token'], $_POST['credential'])) {
+            $_SESSION['message'] = '<p>Sorry, something went wrong with Google sign in. Please try again.';
+            include '../view/login.php';
+            exit;
+        }
+        $payload = getGoogleClient()->verifyIdToken($_POST['credential']);
+        debugPrint($payload);
+        if (!$payload) { //verifyIdToken returns false if invalid
+            $_SESSION['message'] = '<p>Sorry, something went wrong with Google sign in. Please try again.';
+            include '../view/login.php';
+            exit;
+        }
+        if (!emailExists($payload['email'])) {
+            $regOutcome = regClient($payload['given_name'], $payload['family_name'], $payload['email'], password_hash(createToken(), PASSWORD_DEFAULT));
+            if ($regOutcome === 1) {
+                setcookie('clientFirstname', $clientFirstname, strtotime('+1 year'), '/');
+                $_SESSION['message'] = "<p>Thanks for registering, $clientFirstname. Please use your email and password to log in.</p>";
+                header('Location: /pastpc/accounts/?action=login');
+                exit;
+            } else {
+                $_SESSION['message'] = "<p>Sorry $clientFirstname, but the registration failed. Please try again.</p>";
+                include '../view/registration.php';
+                exit;
+            }
+        }
         header('Location: /pastpc');
         exit;
     case 'update-account':
         include '../view/client-update.php';
-        break;
+        exit;
     case 'submit-update-account':
         $clientFirstname = trim(filter_input(INPUT_POST, 'clientFirstname', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
         $clientLastname = trim(filter_input(INPUT_POST, 'clientLastname', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
