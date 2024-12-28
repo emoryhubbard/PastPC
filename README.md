@@ -6,6 +6,10 @@ This project is designed to show how PHP apps:
 - Can be made through the popular LAMP stack--Linux, Apache, MySQL/MariaDB, PHP
 - Run for local development, and with some modification, how they can be self-hosted
 
+Resources for self-hosting and cloud deployment:
+- How to self-host and perform cloud deployment: https://github.com/emoryhubbard/way-of-the-server
+- Script file (a bot) for running Terraform and acquiring Oracle compute instances mentioned in the above tutorial: https://github.com/emoryhubbard/remote-docker-script
+
 ## Implementation Details
 
 Instead of using Linux directly, it is run inside of a Docker container.
