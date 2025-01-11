@@ -1,6 +1,8 @@
 # PastPC, a Classic LAMP
 
-PastPC is a fictional website, an Airbnb for renting out older PCs and unused computers remotely.
+PastPC is a fictional website, an Airbnb for renting out older PCs and unused computers remotely:
+
+![Image of PastPC home page](PastPCHomePageCropped.png)
 
 This project is designed to show how PHP apps:
 - Can be made through the popular LAMP stack--Linux, Apache, MySQL/MariaDB, PHP
